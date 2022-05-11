@@ -1,13 +1,13 @@
 import numpy as np
 import gsw
 
-def from_misc_press_2_std_depth(a_pcm, ds_profiles, feature_name='temperature', max_pres_delta=50):
-    """Convert argo dataset from irregular pressure to standard depth levels.
+def from_misc_pres_2_std_depth(a_pcm, ds_profiles, feature_name='temperature', max_pres_delta=50):
+    """Convert Argo dataset from irregular pressure to standard depth levels.
 
     Since PCM operates on standard depth levels, we first need to interpolate Argo original data on standard pressure levels
     (if you get an error here, make sure the PCM depth axis is smaller that the depth range of training set).
 
-    Standard pressure levels are the absolute values of the PCM feature depth axis with an additionnal deepest level set to
+    Standard pressure levels are the absolute values of the PCM feature depth axis with an additional deepest level set to
     the maximum pressure + max_pres_delta.
 
     We then need use GSW to compute depths from Argo standard pressure levels and replace the vertical pressure axis with this depth.
@@ -17,7 +17,7 @@ def from_misc_press_2_std_depth(a_pcm, ds_profiles, feature_name='temperature', 
     a_pcm: :class:'pyxpcm.models'
         A PCM instance from which to extract a feature depth axis.
     ds_profiles: :class:'xarray.DataSet'
-        The raw Argo data collection of profiles to transform (supposidly as returned by argopy).
+        The raw Argo data collection of profiles to transform (supposedly as returned by argopy).
 
     Other Parameters
     ----------------
