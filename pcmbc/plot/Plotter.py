@@ -461,8 +461,9 @@ class Plotter:
 
         # spatial extent
         if isinstance(extent, str):
-            extent = np.array([min(self.ds[self.coords_dict.get('longitude')]), max(self.ds[self.coords_dict.get('longitude')]), min(
-                self.ds[self.coords_dict.get('latitude')]), max(self.ds[self.coords_dict.get('latitude')])]) + np.array([-0.1, +0.1, -0.1, +0.1])
+            extent = np.array([min(self.ds[self.coords_dict.get('longitude')]), max(self.ds[self.coords_dict.get('longitude')]),
+                               min(self.ds[self.coords_dict.get('latitude')]),  max(self.ds[self.coords_dict.get('latitude')])])
+            extent += np.array([-0.1, +0.1, -0.1, +0.1])
 
         if time_slice == 'most_freq_label':
             dsp = get_most_freq_labels(self.ds)
