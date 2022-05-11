@@ -1,12 +1,13 @@
 # PCM analysis in Boundary Currents
 
 [![status](https://img.shields.io/badge/lifecycle-experimental-orange)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Binder](https://img.shields.io/static/v1.svg?logo=Jupyter&label=launch&message=MyBinder&color=blue)](https://mybinder.org/v2/gh/euroargodev/binder-sandbox/virtual-fleet?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Feuroargodev%252Fboundary_currents_pcm%26urlpath%3Dlab%252Ftree%252Fboundary_currents_pcm%252Fdocs%252F)
 
 Home page for the development of Profile Classification Models (PCM) dedicated to the identification/classification of 
 Argo profiles in boundary current systems of interest within the Euro-ArgoRISE project. 
 
-## 🛠 Roadmap
 
+## 🛠 Roadmap
 1. Get one PCM for each boundary currents hydrography: [check progress here](https://github.com/euroargodev/boundary_currents_pcm/projects/1)
 2. Get a product and real-time monitoring of BCs: [check progress here](https://github.com/euroargodev/boundary_currents_pcm/projects/2)
 
