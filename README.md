@@ -7,6 +7,8 @@ Argo profiles in boundary current systems of interest within the Euro-ArgoRISE p
 
 ## Roadmap
 
+![progress](https://progress-bar.dev/20/)
+
 1. Get one PCM for each boundary currents hydrography: [check progress here](https://github.com/euroargodev/boundary_currents_pcm/projects/1)
 2. Get a product and real-time monitoring of BCs: [check progress here](https://github.com/euroargodev/boundary_currents_pcm/projects/2)
 
