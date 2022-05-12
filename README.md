@@ -11,8 +11,8 @@ Home page for the development of [Profile Classification Models (PCM)](https://p
 2. Get a product and real-time monitoring of BCs: [check progress here](https://github.com/euroargodev/boundary_currents_pcm/projects/2)
 
 ## 👋 Discussions
-- [Helps on PCM](https://github.com/euroargodev/boundary_currents/discussions/6)
-- [Science questions about your PCM](https://github.com/euroargodev/boundary_currents/discussions)
+- [Help on PCM](https://github.com/euroargodev/boundary_currents/discussions/6)
+- [Science questions about your PCM](https://github.com/euroargodev/boundary_currents/discussions?discussions_q=label%3Aclassification)
 - [Technical issues about PCM in BCs](https://github.com/euroargodev/boundary_currents_pcm/issues)
 
 ***
