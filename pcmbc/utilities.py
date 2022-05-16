@@ -116,7 +116,9 @@ def process_list_in_parallel(item_processor, items,
 
     """
     import concurrent.futures
-    from tqdm import tqdm
+    if progress:
+        # from tqdm import tqdm
+        from tqdm.notebook import tqdm
 
     if method == 'thread':
         ConcurrentExecutor = concurrent.futures.ThreadPoolExecutor(max_workers=max_workers)
@@ -130,7 +132,6 @@ def process_list_in_parallel(item_processor, items,
     failed = []
 
     with ConcurrentExecutor as executor:
-        futures = []
         future_to_url = {executor.submit(item_processor, item=item): item for item in items}
         futures = concurrent.futures.as_completed(future_to_url)
         if progress:
@@ -140,7 +141,7 @@ def process_list_in_parallel(item_processor, items,
             data = None
             try:
                 data = future.result()
-            except Exception as e:
+            except Exception:
                 failed.append(future_to_url[future])
                 if errors == 'ignore':
                     # print(
