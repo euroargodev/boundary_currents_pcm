@@ -17,17 +17,18 @@ Home page for the development of [Profile Classification Models (PCM)](https://p
 
 ## BC Monitors
 
-Click on badges to access directly to the corresponding index file.
+Below are the profile count reported for each BCs over the last 10 days. You click on badges to access directly to the corresponding index file.
 
-[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_GSE_tight.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_GSE_tight.txt)
+[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_GSE_tight.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCindex_GSE_tight.txt)
 
-[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_GoC.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_GoC.txt)
+[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_GoC.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCindex_GoC.txt)
 
-[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_West_Med.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_West_Med.txt)
+[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_West_Med.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCindex_West_Med.txt)
 
-[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_Lig_Sea.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_Lig_Sea.txt)
+[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_Lig_Sea.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCindex_Lig_Sea.txt)
 
-[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_EGC.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_EGC.txt)
+[![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_EGC.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCindex_EGC.txt)
+
 
 ***
 This repository has been developed within the framework of the Euro-ArgoRISE project. This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement no 824131. Call INFRADEV-03-2018-2019: Individual support to ESFRI and other world-class research infrastructures.
