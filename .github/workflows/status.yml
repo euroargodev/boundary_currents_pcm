@@ -25,7 +25,7 @@ jobs:
 #        GIT_CURL_VERBOSE: 1
 
     - uses: actions/checkout@v2
-    - name: Save report
+    - name: Save update time
       run: date +%s > data/last_update.txt
 
     - name: Set up Python 3.8
