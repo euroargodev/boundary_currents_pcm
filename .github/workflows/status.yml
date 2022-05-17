@@ -38,8 +38,9 @@ jobs:
         python -m pip install --upgrade pip
         pwd
         ls -l
-        pip install distributed aiohttp regionmask
         pip install git+https://github.com/euroargodev/argopy.git@master
+        pip install regionmask
+        python -c "import argopy; argopy.show_versions()"
 
     - name: Check Argo status in BCs
       run: |
