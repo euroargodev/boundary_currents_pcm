@@ -1,0 +1,67 @@
+# This workflow determines the number of profiles and index list of Argo profiles in BC regions, every hour
+
+name: BC-status
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/60 * * * *'
+  push:
+    branches: [ master ]
+  workflow_dispatch: # allows you to trigger the workflow run manually
+
+jobs:
+  check-and-report:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: 'master'
+#      env:
+#        GIT_TRACE: 1
+#        GIT_CURL_VERBOSE: 1
+
+    - uses: actions/checkout@v2
+    - name: Save report
+      run: date +%s > data/last_update.txt
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.8'
+
+    - name: Install argopy
+      run: |
+        python -m pip install --upgrade pip
+        pwd
+        ls -l
+        pip install distributed aiohttp regionmask
+        pip install git+https://github.com/euroargodev/argopy.git@master
+
+    - name: Check Argo status in BCs
+      run: |
+        python check_save_status.py
+        ls -l data
+
+    - name: Save BC status
+      uses: EndBug/add-and-commit@v4.4.0
+      with:
+        author_name: argobot-hub
+        author_email: argobot84@gmail.com
+        message: "Update status files"
+        add: "data/*.json --force"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Save BC index
+      uses: EndBug/add-and-commit@v4.4.0
+      with:
+        author_name: argobot-hub
+        author_email: argobot84@gmail.com
+        message: 'Update index file'
+        add: "data/*.txt --force"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
