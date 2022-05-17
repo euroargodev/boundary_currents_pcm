@@ -99,14 +99,14 @@ def index2csv(index, csvfile):
     df = index.copy()
 
     txt_header = """# Title : Profile directory file of the Argo Global Data Assembly Center
-    # Description : The directory file describes all individual profile files of the argo GDAC ftp site.
-    # Project : ARGO
-    # Format version : 2.0
-    # Date of update : {}
-    # FTP root number 1 : ftp://ftp.ifremer.fr/ifremer/argo/dac
-    # FTP root number 2 : ftp://usgodae.org/pub/outgoing/argo/dac
-    # GDAC node : -
-    """.format(pd.to_datetime('now', utc=True).strftime('%Y%m%d%H%M%S'))
+# Description : The directory file describes all individual profile files of the argo GDAC ftp site.
+# Project : ARGO
+# Format version : 2.0
+# Date of update : {}
+# FTP root number 1 : ftp://ftp.ifremer.fr/ifremer/argo/dac
+# FTP root number 2 : ftp://usgodae.org/pub/outgoing/argo/dac
+# GDAC node : -
+""".format(pd.to_datetime('now', utc=True).strftime('%Y%m%d%H%M%S'))
     with open(outfile, 'w') as f:
         f.write(txt_header)
 
@@ -126,7 +126,8 @@ if __name__ == '__main__':
     # Get the list of regionmask.Regions:
     dict_regions, regions = get_region_list()
     # Load index for the North Atlantic:
-    ArgoIndexFetcher(src='gdac', cache=True).region([-80, 0., 15, 65])
+    f = ArgoIndexFetcher(src='gdac', cache=True).region([-80, 0., 15, 65])
+    print(f)
     # Get metrics and index for each regions:
     dict_regions, regions = analyse_regions(dict_regions, regions)
     # Save metrics in json files:
