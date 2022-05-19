@@ -35,14 +35,15 @@ jobs:
         channels: conda-forge
         channel-priority: strict
         mamba-version: "*"
-        activate-environment: test
+        activate-environment: bc-monitor
         auto-update-conda: false
         python-version: 3.8
 
     - name: Set up conda environment
       run: |
-        mamba install argopy matplotlib cartopy
-        pip install regionmask hda pyxpcm
+        mamba env update -f environment.yml
+#        mamba install argopy matplotlib cartopy
+#        pip install regionmask hda pyxpcm
 
     - name: Version info
       run: |
