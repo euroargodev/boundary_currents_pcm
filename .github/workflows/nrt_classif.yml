@@ -34,7 +34,9 @@ jobs:
         ls -l
         pip install git+https://github.com/euroargodev/argopy.git@master
         pip install regionmask hda pyxpcm
-        pip install matplotlib cartopy geos pyproj
+        pip install matplotlib geos pyproj
+        pip install shapely --no-binary shapely
+        pip install cartopy
         python -c "import argopy; argopy.show_versions()"
 
     - name: Classify and report
