@@ -190,7 +190,7 @@ if __name__ == "__main__":
         aviso_nrt['sla'].isel(time=0).plot.contour(levels=np.arange(-2, 2, 0.1), ax=ax, colors='gray', zorder=0, linewidths=0.5)
 
     classified = index.where(np.logical_and(index['reordered_label'] < 999, ~np.isnan(index['reordered_label'])))
-    sc = ax.scatter(classified['longitude'], classified['latitude'], s=28, c=classified['pcm_label'],
+    sc = ax.scatter(classified['longitude'], classified['latitude'], s=28, c=classified['reordered_label'],
                     cmap=m.plot.cmap(name=cname), transform=proj, vmin=0, vmax=m.K)
     cbar = m.plot.colorbar(ax=ax, name=cname)
     cbar.ax.set_yticklabels([yticklabels[k] for k in m])
