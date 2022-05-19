@@ -1,7 +1,9 @@
 import os
 import numpy as np
-from . import hda_api
+# from . import hda_api
 import xarray as xr
+import glob
+
 
 def from_misc_pres_2_std_depth(
     a_pcm, ds_profiles, feature_name="temperature", max_pres_delta=50
@@ -409,25 +411,43 @@ def get_jsonapirequest_nrt(a_box, a_date, vname='sla'):
 
 
 def load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname='sla'):
-    dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046"
-    api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
-    download_dir_path = "data"
-    hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
-    hda_dict = hda_api.get_access_token(hda_dict)
-    hda_dict = hda_api.acceptTandC(hda_dict)
-    hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_nrt(a_box, a_date, vname=vname))
-    hda_dict = hda_api.get_results_list(hda_dict)
-    hda_dict = hda_api.get_order_ids(hda_dict)
-    hda_dict = hda_api.download_data(
-        hda_dict,
-        file_extension=".nc",
-        user_filename="SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046-TD",
-    )
-    ds = xr.open_dataset(hda_dict["filenames"][0])
+    # dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046"
+    # api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
+    # download_dir_path = "data"
+    # hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
+    # hda_dict = hda_api.get_access_token(hda_dict)
+    # hda_dict = hda_api.acceptTandC(hda_dict)
+    # hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_nrt(a_box, a_date, vname=vname))
+    # hda_dict = hda_api.get_results_list(hda_dict)
+    # hda_dict = hda_api.get_order_ids(hda_dict)
+    # hda_dict = hda_api.download_data(
+    #     hda_dict,
+    #     file_extension=".nc",
+    #     user_filename="SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046-TD",
+    # )
+    # ds = xr.open_dataset(hda_dict["filenames"][0])
+    from hda import Client
+
+    c = Client(debug=True,
+               quiet=True,
+               url="https://wekeo-broker.apps.mercator.dpi.wekeo.eu/databroker",
+               user=WEKEO_USERNAME,
+               password=WEKEO_PASSWORD,
+               retry_max=10,
+               timeout=5,
+               sleep_max=10)
+    query = get_jsonapirequest_nrt(a_box, a_date, vname=vname)
+    c.search(query).download()
+    file_name = sorted(
+        glob.glob("%s*.nc" % [item for item in query['stringChoiceValues'] if item['name'] == 'product'][0]['value']))[
+        -1]
+    ds = xr.open_dataset(file_name)
+    ds.attrs['local_file'] = file_name
+
     return ds
 
 
-def get_jsonapirequest_mdt(a_box, a_date, vname='mdt'):
+def get_jsonapirequest_mdt(a_box, vname='mdt'):
     # vname: 'mdt', 'u', 'v', 'surface_geostrophic_sea_water_velocity', ...
     data = {
         "datasetId": "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063:cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y",
@@ -437,8 +457,8 @@ def get_jsonapirequest_mdt(a_box, a_date, vname='mdt'):
         "dateRangeSelectValues": [
             {
                 "name": "position",
-                "start": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
-                "end": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
+                "start": "2003-01-01T00:00:00.000Z",
+                "end": "2003-01-01T00:00:00.000Z"
             }
         ],
         "multiStringSelectValues": [{"name": "variable", "value": [vname]}],
@@ -456,20 +476,39 @@ def get_jsonapirequest_mdt(a_box, a_date, vname='mdt'):
     return data
 
 
-def load_aviso_mdt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname='mdt'):
-    dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063"
-    api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
-    download_dir_path = "data"
-    hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
-    hda_dict = hda_api.get_access_token(hda_dict)
-    hda_dict = hda_api.acceptTandC(hda_dict)
-    hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_mdt(a_box, a_date, vname=vname))
-    hda_dict = hda_api.get_results_list(hda_dict)
-    hda_dict = hda_api.get_order_ids(hda_dict)
-    hda_dict = hda_api.download_data(
-        hda_dict,
-        file_extension=".nc",
-        user_filename="SEALEVEL_GLO_PHY_MDT_008_063-TDS",
-    )
-    ds = xr.open_dataset(hda_dict["filenames"][0])
+def load_aviso_mdt(a_box, WEKEO_USERNAME, WEKEO_PASSWORD, vname='mdt'):
+    # dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063"
+    # api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
+    # download_dir_path = "data"
+    # hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
+    # hda_dict = hda_api.get_access_token(hda_dict)
+    # hda_dict = hda_api.acceptTandC(hda_dict)
+    # hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_mdt(a_box, vname=vname))
+    # hda_dict = hda_api.get_results_list(hda_dict)
+    # hda_dict = hda_api.get_order_ids(hda_dict)
+    # hda_dict = hda_api.download_data(
+    #     hda_dict,
+    #     file_extension=".nc",
+    #     user_filename="SEALEVEL_GLO_PHY_MDT_008_063-TDS",
+    # )
+    # ds = xr.open_dataset(hda_dict["filenames"][0])
+
+    from hda import Client
+
+    c = Client(debug=True,
+               quiet=True,
+               url="https://wekeo-broker.apps.mercator.dpi.wekeo.eu/databroker",
+               user=WEKEO_USERNAME,
+               password=WEKEO_PASSWORD,
+               retry_max=10,
+               timeout=5,
+               sleep_max=10)
+    query = get_jsonapirequest_mdt(a_box, vname=vname)
+    c.search(query).download()
+    file_name = sorted(
+        glob.glob("%s*.nc" % [item for item in query['stringChoiceValues'] if item['name'] == 'product'][0]['value']))[
+        -1]
+    ds = xr.open_dataset(file_name)
+    ds.attrs['local_file'] = file_name
+
     return ds

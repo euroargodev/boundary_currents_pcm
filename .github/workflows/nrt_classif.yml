@@ -27,19 +27,29 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Install argopy
+    - name: Install depedencies
       run: |
         python -m pip install --upgrade pip
         pwd
         ls -l
         pip install git+https://github.com/euroargodev/argopy.git@master
-        pip install regionmask
+        pip install regionmask hda
         python -c "import argopy; argopy.show_versions()"
 
-    - name: Load last AVISO map
+    - name: Classify and report
       env:
         WEKEO_USERNAME: ${{ secrets.WEKEO_USERNAME }}
         WEKEO_PASSWORD: ${{ secrets.WEKEO_PASSWORD }}
       run: |
         python load_classif_save.py
         ls -l data
+
+    - name: Save BC report
+      uses: EndBug/add-and-commit@v4.4.0
+      with:
+        author_name: argobot-hub
+        author_email: argobot84@gmail.com
+        message: 'Update PCM results'
+        add: "data/*.png --force"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
