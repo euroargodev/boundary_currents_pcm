@@ -27,7 +27,7 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Install depedencies
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pwd
@@ -44,15 +44,15 @@ jobs:
         proj
 
         # Add the Ubuntu GIS PPA
-        sudo apt-get install python-software-properties
+        sudo apt-get install software-properties-common
         sudo add-apt-repository ppa:ubuntugis/ppa
 
         # Install the geos packages
         sudo apt-get install libproj-dev libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
 
         # Pin Cartopy version unless installing PROJ via source or using conda.
-        # Ubuntu GIS PPA doesn't have the newest PROJ
-        poetry add cartopy==0.19.0.post1
+        pip install cartopy
+        
         #
         python -c "import argopy; argopy.show_versions()"
 
@@ -64,7 +64,7 @@ jobs:
         python load_classif_save.py
         ls -l data
 
-    - name: Save BC report
+    - name: Save report
       uses: EndBug/add-and-commit@v4.4.0
       with:
         author_name: argobot-hub
