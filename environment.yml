@@ -1,0 +1,22 @@
+name: bc-monitor
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - argopy
+  - cartopy
+  - dask_ml
+  - matplotlib
+  - netCDF4
+  - scikit-learn
+  - seaborn
+  - shapely
+  - tqdm
+  - xarray
+  - xhistogram
+  - pip
+  - pip:
+    - cmocean
+    - pyxpcm
+    - regionmask
+    - hda
