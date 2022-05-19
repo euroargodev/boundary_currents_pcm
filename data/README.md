@@ -31,3 +31,7 @@ This is meant to be used with shields badges like:
 to produce badges like:  
 ![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCstatus_GSE_tight.json)
 
+## ``BCindex*.png``
+
+Figures with PCM analysis results from profiles of the last 10 days index.    
+Produced by ``load_classif_save.py``.
