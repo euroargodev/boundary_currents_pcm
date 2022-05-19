@@ -33,7 +33,7 @@ jobs:
         pwd
         ls -l
         pip install git+https://github.com/euroargodev/argopy.git@master
-        pip install regionmask hda
+        pip install regionmask hda pyxpcm matplotlib cartopy
         python -c "import argopy; argopy.show_versions()"
 
     - name: Classify and report
