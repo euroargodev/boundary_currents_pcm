@@ -33,12 +33,27 @@ jobs:
         pwd
         ls -l
         pip install git+https://github.com/euroargodev/argopy.git@master
-        pip install regionmask hda pyxpcm
-        pip install matplotlib geos pyproj
-        pip3 install --upgrade pyshp
-        pip3 uninstall shapely
-        pip install shapely --no-binary shapely
-        pip install cartopy
+        pip install regionmask hda pyxpcm matplotlib
+#        pip install matplotlib geos pyproj
+#        pip3 install --upgrade pyshp
+#        pip3 uninstall shapely
+#        pip install shapely --no-binary shapely
+#        pip install cartopy
+        # Install PROJ
+        sudo apt-get install proj-bin
+        proj
+
+        # Add the Ubuntu GIS PPA
+        sudo apt-get install python-software-properties
+        sudo add-apt-repository ppa:ubuntugis/ppa
+
+        # Install the geos packages
+        sudo apt-get install libproj-dev libgeos++-dev libgeos-3.8.0 libgeos-c1v5 libgeos-dev libgeos-doc
+
+        # Pin Cartopy version unless installing PROJ via source or using conda.
+        # Ubuntu GIS PPA doesn't have the newest PROJ
+        poetry add cartopy==0.19.0.post1
+        #
         python -c "import argopy; argopy.show_versions()"
 
     - name: Classify and report
