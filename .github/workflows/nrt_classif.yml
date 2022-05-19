@@ -34,12 +34,12 @@ jobs:
         ls -l
         pip install git+https://github.com/euroargodev/argopy.git@master
         pip install regionmask hda pyxpcm matplotlib
-#        pip install matplotlib geos pyproj
-#        pip3 install --upgrade pyshp
-#        pip3 uninstall shapely
-#        pip install shapely --no-binary shapely
-#        pip install cartopy
-        # Install PROJ
+        #        pip install matplotlib geos pyproj
+        #        pip3 install --upgrade pyshp
+        #        pip3 uninstall shapely
+        #        pip install shapely --no-binary shapely
+        #        pip install cartopy
+        #        Install PROJ
         sudo apt-get install proj-bin
         proj
 
