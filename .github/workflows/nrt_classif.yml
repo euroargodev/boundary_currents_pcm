@@ -11,7 +11,7 @@ on:
   workflow_dispatch: # allows you to trigger the workflow run manually
 
 jobs:
-  check-and-report:
+  classify-and-report:
 
     runs-on: ubuntu-latest
     environment: wekeo
@@ -21,9 +21,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: 'main'
-      env:
-        WEKEO_USERNAME: ${{ secrets.WEKEO_USERNAME }}
-        WEKEO_PASSWORD: ${{ secrets.WEKEO_PASSWORD }}
 
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
@@ -40,6 +37,9 @@ jobs:
         python -c "import argopy; argopy.show_versions()"
 
     - name: Load last AVISO map
+      env:
+        WEKEO_USERNAME: ${{ secrets.WEKEO_USERNAME }}
+        WEKEO_PASSWORD: ${{ secrets.WEKEO_PASSWORD }}
       run: |
         python load_classif_save.py
         ls -l data
