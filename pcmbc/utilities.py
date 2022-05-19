@@ -1,7 +1,11 @@
+import os
 import numpy as np
+from . import hda_api
+import xarray as xr
 
-
-def from_misc_pres_2_std_depth(a_pcm, ds_profiles, feature_name='temperature', max_pres_delta=50):
+def from_misc_pres_2_std_depth(
+    a_pcm, ds_profiles, feature_name="temperature", max_pres_delta=50
+):
     """Convert Argo dataset from irregular pressure to standard depth levels.
 
     Since PCM operates on standard depth levels, we first need to interpolate Argo original data on standard pressure levels
@@ -45,28 +49,39 @@ def from_misc_pres_2_std_depth(a_pcm, ds_profiles, feature_name='temperature', m
 
     # Define a pressure axis accordingly:
     # (possibly increase max_pres_delta to reach deeper values to match the PCM axis)
-    standard_pressure_levels = np.append(np.abs(pcm_dpt_axis), np.max(np.abs(pcm_dpt_axis)) + max_pres_delta)
+    standard_pressure_levels = np.append(
+        np.abs(pcm_dpt_axis), np.max(np.abs(pcm_dpt_axis)) + max_pres_delta
+    )
 
     # Interpolate raw Argo data onto this regular pressure axis:
-    dsi = ds_profiles.argo.interp_std_levels(std_lev=standard_pressure_levels, axis='PRES')
-    dsi = dsi.assign_coords({'N_PROF': np.arange(len(dsi['N_PROF']))})
+    dsi = ds_profiles.argo.interp_std_levels(
+        std_lev=standard_pressure_levels, axis="PRES"
+    )
+    dsi = dsi.assign_coords({"N_PROF": np.arange(len(dsi["N_PROF"]))})
 
     # STEP 2
 
     # Then compute depth of the regular pressure axis and replace the dataset z-axis from pressure to depth:
-    zi = gsw.z_from_p(dsi['PRES_INTERPOLATED'], dsi['LATITUDE'], geo_strf_dyn_height=0, sea_surface_geopotential=0)
-    dsi = dsi.assign_coords({'PRES_INTERPOLATED': zi.isel(N_PROF=0).values})
-    dsi['PRES_INTERPOLATED'].attrs['long_name'] = 'Depth'
-    dsi['PRES_INTERPOLATED'].attrs['unit'] = 'm'
-    dsi['PRES_INTERPOLATED'].attrs['axis'] = 'Z'
-    dsi = dsi.rename({'PRES_INTERPOLATED': 'DEPTH_INTERPOLATED'})
+    zi = gsw.z_from_p(
+        dsi["PRES_INTERPOLATED"],
+        dsi["LATITUDE"],
+        geo_strf_dyn_height=0,
+        sea_surface_geopotential=0,
+    )
+    dsi = dsi.assign_coords({"PRES_INTERPOLATED": zi.isel(N_PROF=0).values})
+    dsi["PRES_INTERPOLATED"].attrs["long_name"] = "Depth"
+    dsi["PRES_INTERPOLATED"].attrs["unit"] = "m"
+    dsi["PRES_INTERPOLATED"].attrs["axis"] = "Z"
+    dsi = dsi.rename({"PRES_INTERPOLATED": "DEPTH_INTERPOLATED"})
 
     # FINAL CHECK
     # Check that the transformed dataset is suited for the vertical axis of the PCM:
-    if not dsi['DEPTH_INTERPOLATED'].min() <= pcm_dpt_axis.min():
-        raise ValueError("\nThe interpolated Argo data set is not going deep enough for this PCM. To fix this:\n"
-                         "- you can try to increase the maximum standard pressure level to make sure some data will go deep enough,\n"
-                         "- or you can also try to reduce the maximum depth of the PCM vertical axis")
+    if not dsi["DEPTH_INTERPOLATED"].min() <= pcm_dpt_axis.min():
+        raise ValueError(
+            "\nThe interpolated Argo data set is not going deep enough for this PCM. To fix this:\n"
+            "- you can try to increase the maximum standard pressure level to make sure some data will go deep enough,\n"
+            "- or you can also try to reduce the maximum depth of the PCM vertical axis"
+        )
 
     return dsi
 
@@ -75,19 +90,29 @@ def from_stp_2_std(ds_profiles):
     """Convert dataset standard pressures to standard depths levels"""
     # Then compute depth of the regular pressure axis and replace the dataset z-axis from pressure to depth:
     import gsw
-    zi = gsw.z_from_p(ds_profiles['PRES_INTERPOLATED'], ds_profiles['LATITUDE'], geo_strf_dyn_height=0, sea_surface_geopotential=0)
-    dsi = ds_profiles.assign_coords({'PRES_INTERPOLATED': zi.isel(N_PROF=0).values})
-    dsi['PRES_INTERPOLATED'].attrs['long_name'] = 'Depth'
-    dsi['PRES_INTERPOLATED'].attrs['unit'] = 'm'
-    dsi['PRES_INTERPOLATED'].attrs['axis'] = 'Z'
-    dsi = dsi.rename({'PRES_INTERPOLATED': 'DEPTH_INTERPOLATED'})
+
+    zi = gsw.z_from_p(
+        ds_profiles["PRES_INTERPOLATED"],
+        ds_profiles["LATITUDE"],
+        geo_strf_dyn_height=0,
+        sea_surface_geopotential=0,
+    )
+    dsi = ds_profiles.assign_coords({"PRES_INTERPOLATED": zi.isel(N_PROF=0).values})
+    dsi["PRES_INTERPOLATED"].attrs["long_name"] = "Depth"
+    dsi["PRES_INTERPOLATED"].attrs["unit"] = "m"
+    dsi["PRES_INTERPOLATED"].attrs["axis"] = "Z"
+    dsi = dsi.rename({"PRES_INTERPOLATED": "DEPTH_INTERPOLATED"})
     return dsi
 
-def process_list_in_parallel(item_processor, items,
-                             max_workers: int = 112,
-                             method: str = 'thread',
-                             progress: bool = True,
-                             errors='ignore'):
+
+def process_list_in_parallel(
+    item_processor,
+    items,
+    max_workers: int = 112,
+    method: str = "thread",
+    progress: bool = True,
+    errors="ignore",
+):
     """Process files independantly in parallel
 
     Use a Threads Pool by default for parallelization.
@@ -116,23 +141,31 @@ def process_list_in_parallel(item_processor, items,
 
     """
     import concurrent.futures
+
     if progress:
         # from tqdm import tqdm
         from tqdm.notebook import tqdm
 
-    if method == 'thread':
-        ConcurrentExecutor = concurrent.futures.ThreadPoolExecutor(max_workers=max_workers)
+    if method == "thread":
+        ConcurrentExecutor = concurrent.futures.ThreadPoolExecutor(
+            max_workers=max_workers
+        )
     else:
         if max_workers == 112:
             import multiprocessing
+
             max_workers = multiprocessing.cpu_count()
-        ConcurrentExecutor = concurrent.futures.ProcessPoolExecutor(max_workers=max_workers)
+        ConcurrentExecutor = concurrent.futures.ProcessPoolExecutor(
+            max_workers=max_workers
+        )
 
     results = []
     failed = []
 
     with ConcurrentExecutor as executor:
-        future_to_url = {executor.submit(item_processor, item=item): item for item in items}
+        future_to_url = {
+            executor.submit(item_processor, item=item): item for item in items
+        }
         futures = concurrent.futures.as_completed(future_to_url)
         if progress:
             futures = tqdm(futures, total=len(items))
@@ -143,7 +176,7 @@ def process_list_in_parallel(item_processor, items,
                 data = future.result()
             except Exception:
                 failed.append(future_to_url[future])
-                if errors == 'ignore':
+                if errors == "ignore":
                     # print(
                     #     "Ignored error with this file: %s\nException raised: %s"
                     #     % (future_to_url[future], str(e.args)))
@@ -183,12 +216,15 @@ def cal_dist_matrix(lats, lons):
     return dist_matrix
 
 
-def get_regulargrid_dataset(ds_in, corr_dist,
-                            season='all',
-                            sample_dim='N_PROF',
-                            lat_dim='LATITUDE',
-                            lon_dim='LONGITUDE',
-                            tim_dim='TIME'):
+def get_regulargrid_dataset(
+    ds_in,
+    corr_dist,
+    season="all",
+    sample_dim="N_PROF",
+    lat_dim="LATITUDE",
+    lon_dim="LONGITUDE",
+    tim_dim="TIME",
+):
     """Re-sampling od the dataset selecting profiles separated by a minimum correlation distance
 
     Function taken from: https://github.com/euroargodev/DMQC-PCM/blob/main/PCM-design/PCM_utils_forDMQC/data_processing.py
@@ -221,48 +257,61 @@ def get_regulargrid_dataset(ds_in, corr_dist,
     for i in n_iterations:
 
         # Choose 1 profile randomly:
-        random_p = np.random.choice(ds[sample_dim].where(np.isnan(ds['mask_s']), drop=True).values, 1, replace=False)
+        random_p = np.random.choice(
+            ds[sample_dim].where(np.isnan(ds["mask_s"]), drop=True).values,
+            1,
+            replace=False,
+        )
         random_p = int(random_p[0])
         lat_p = ds[lat_dim].loc[{sample_dim: random_p}].values
         long_p = ds[lon_dim].loc[{sample_dim: random_p}].values
 
         # Subset the dataset around this profile (rectangular box):
-        ds_slice = ds[[lat_dim, lon_dim, 'mask_s']]
+        ds_slice = ds[[lat_dim, lon_dim, "mask_s"]]
         ds_slice = ds_slice.where(ds[lat_dim] > (lat_p - plus_degrees), drop=True)
         ds_slice = ds_slice.where(ds_slice[lat_dim] < (lat_p + plus_degrees), drop=True)
-        ds_slice = ds_slice.where(ds_slice[lon_dim] > (long_p - plus_degrees), drop=True)
-        ds_slice = ds_slice.where(ds_slice[lon_dim] < (long_p + plus_degrees), drop=True)
+        ds_slice = ds_slice.where(
+            ds_slice[lon_dim] > (long_p - plus_degrees), drop=True
+        )
+        ds_slice = ds_slice.where(
+            ds_slice[lon_dim] < (long_p + plus_degrees), drop=True
+        )
         random_p_i = np.argwhere(ds_slice[sample_dim].values == random_p)
 
         # Calculate the distance matrix (i.e. distance between all subset profiles and the random one):
-        dist_matrix = cal_dist_matrix(ds_slice[lat_dim].values, ds_slice[lon_dim].values)
+        dist_matrix = cal_dist_matrix(
+            ds_slice[lat_dim].values, ds_slice[lon_dim].values
+        )
 
         # Points near than corr_dist = 1
-        mask_dist = np.isnan(ds_slice['mask_s'].values) * 1
-        dist_vector = np.array(np.squeeze(dist_matrix[:, random_p_i])).astype('float') * np.array(mask_dist)
+        mask_dist = np.isnan(ds_slice["mask_s"].values) * 1
+        dist_vector = np.array(np.squeeze(dist_matrix[:, random_p_i])).astype(
+            "float"
+        ) * np.array(mask_dist)
         dist_vector[dist_vector == 0] = np.NaN
-        bool_near_points = (dist_vector < corr_dist)
+        bool_near_points = dist_vector < corr_dist
         n_profiles_near_points = ds_slice[sample_dim].values[bool_near_points]
 
         # change mask
-        ds['mask_s'][random_p] = 1
-        ds['mask_s'][n_profiles_near_points] = 0
+        ds["mask_s"][random_p] = 1
+        ds["mask_s"][n_profiles_near_points] = 0
 
         # stop condition
         # print(sum(np.isnan(ds['mask_s'].values)))
-        if np.any(np.isnan(ds['mask_s'])) == False:
+        if np.any(np.isnan(ds["mask_s"])) == False:
             # print('no more points to delete')
             # print(i)
             break
 
     # choose season
-    if 'all' not in season:
-        season_idxs = ds.groupby('%s.season' % tim_dim).groups
+    if "all" not in season:
+        season_idxs = ds.groupby("%s.season" % tim_dim).groups
 
         season_select = []
         for key in season:
             season_select = np.concatenate(
-                (season_select, np.squeeze(season_idxs.get(key))))
+                (season_select, np.squeeze(season_idxs.get(key)))
+            )
 
         if len(season) == 1:
             season_select = np.array(season_select)
@@ -270,14 +319,14 @@ def get_regulargrid_dataset(ds_in, corr_dist,
         season_select = np.sort(season_select.astype(int))
         ds = ds[{sample_dim: season_select}]
 
-    ds_t = ds.where(ds['mask_s'] == 1, drop=True)
+    ds_t = ds.where(ds["mask_s"] == 1, drop=True)
 
     del dist_matrix
 
     return ds_t
 
 
-def reorder_class(this_ds, m, func, dim='pcm_class', sampling_dim='N_PROF'):
+def reorder_class(this_ds, m, func, dim="pcm_class", sampling_dim="N_PROF"):
     """Reorder classes according to a specific metric
 
     Be careful, this has to be down every time a prediction is done, since the order/name of classes
@@ -308,7 +357,10 @@ def reorder_class(this_ds, m, func, dim='pcm_class', sampling_dim='N_PROF'):
     """
 
     class_metrics = []
-    [class_metrics.append(func(this_ds.where(this_ds['PCM_LABELS'] == k, drop=True))) for k in m]
+    [
+        class_metrics.append(func(this_ds.where(this_ds["PCM_LABELS"] == k, drop=True)))
+        for k in m
+    ]
     new_order = np.argsort(class_metrics)
     print(class_metrics, new_order)
 
@@ -321,7 +373,103 @@ def reorder_class(this_ds, m, func, dim='pcm_class', sampling_dim='N_PROF'):
     # (I couldn't not figure how to run this on the whole array, without going through each profiles)
     new_labels = []
     for ii in range(len(this_ds[sampling_dim])):
-        new_labels.append(np.argmax(this_ds['PCM_POST'][{sampling_dim: ii}].values))
-    this_ds['PCM_LABELS'].values = new_labels
+        new_labels.append(np.argmax(this_ds["PCM_POST"][{sampling_dim: ii}].values))
+    this_ds["PCM_LABELS"].values = new_labels
 
     return this_ds
+
+
+def get_jsonapirequest_nrt(a_box, a_date, vname='sla'):
+    # vname: 'sla', 'adt', ...
+    data = {
+        "datasetId": "EO:MO:DAT:SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046:dataset-duacs-nrt-global-merged-allsat-phy-l4",
+        "boundingBoxValues": [
+            {"name": "bbox", "bbox": [a_box[0], a_box[2], a_box[1], a_box[3]]}
+        ],
+        "dateRangeSelectValues": [
+            {
+                "name": "position",
+                "start": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
+                "end": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
+            }
+        ],
+        "multiStringSelectValues": [{"name": "variable", "value": [vname]}],
+        "stringChoiceValues": [
+            {
+                "name": "service",
+                "value": "SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046-TDS",
+            },
+            {
+                "name": "product",
+                "value": "dataset-duacs-nrt-global-merged-allsat-phy-l4",
+            },
+        ],
+    }
+    return data
+
+
+def load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname='sla'):
+    dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046"
+    api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
+    download_dir_path = "data"
+    hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
+    hda_dict = hda_api.get_access_token(hda_dict)
+    hda_dict = hda_api.acceptTandC(hda_dict)
+    hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_nrt(a_box, a_date, vname=vname))
+    hda_dict = hda_api.get_results_list(hda_dict)
+    hda_dict = hda_api.get_order_ids(hda_dict)
+    hda_dict = hda_api.download_data(
+        hda_dict,
+        file_extension=".nc",
+        user_filename="SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046-TD",
+    )
+    ds = xr.open_dataset(hda_dict["filenames"][0])
+    return ds
+
+
+def get_jsonapirequest_mdt(a_box, a_date, vname='mdt'):
+    # vname: 'mdt', 'u', 'v', 'surface_geostrophic_sea_water_velocity', ...
+    data = {
+        "datasetId": "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063:cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y",
+        "boundingBoxValues": [
+            {"name": "bbox", "bbox": [a_box[0], a_box[2], a_box[1], a_box[3]]}
+        ],
+        "dateRangeSelectValues": [
+            {
+                "name": "position",
+                "start": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
+                "end": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
+            }
+        ],
+        "multiStringSelectValues": [{"name": "variable", "value": [vname]}],
+        "stringChoiceValues": [
+            {
+                "name": "service",
+                "value": "SEALEVEL_GLO_PHY_MDT_008_063-TDS",
+            },
+            {
+                "name": "product",
+                "value": "cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y",
+            },
+        ],
+    }
+    return data
+
+
+def load_aviso_mdt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname='mdt'):
+    dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063"
+    api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
+    download_dir_path = "data"
+    hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
+    hda_dict = hda_api.get_access_token(hda_dict)
+    hda_dict = hda_api.acceptTandC(hda_dict)
+    hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_mdt(a_box, a_date, vname=vname))
+    hda_dict = hda_api.get_results_list(hda_dict)
+    hda_dict = hda_api.get_order_ids(hda_dict)
+    hda_dict = hda_api.download_data(
+        hda_dict,
+        file_extension=".nc",
+        user_filename="SEALEVEL_GLO_PHY_MDT_008_063-TDS",
+    )
+    ds = xr.open_dataset(hda_dict["filenames"][0])
+    return ds
