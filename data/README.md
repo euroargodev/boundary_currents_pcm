@@ -6,7 +6,7 @@ There should be one file for each Boundary Current (BC) and for each monitor.
 - Files are updated only if the content has changed between 2 runs.
 - Since csv index files have a ``# Date of update :`` line in the header, they look the most recent files. But the list of profiles they contain may not change on each run.
 
-##``BCindex*.txt``
+## ``BCindex*.txt``
 
 These are the last 10 days GDAC-like profile index.  
 Produced by ``check_save_status.py``.
