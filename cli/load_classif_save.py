@@ -95,13 +95,13 @@ def labelled_index2csv(BCname, index, csvfile):
                 # lambda x: list(institution_dict.keys())[list(institution_dict.values()).index(x)])
             # df = df.rename(columns={'profiler_code': 'profiler_type'})
             # df = df[['file', 'date', 'latitude', 'longitude', 'ocean', 'profiler_type', 'institution', 'date_update']]
-            df = df[['file', 'date', 'latitude', 'longitude', 'ocean',
-                    'profiler_code', 'profiler',
-                    'institution_code', 'institution',
-                    'date_update',
-                    'wmo', 'cycle_number',
-                    'url',
-                    'pcm_label', 'reordered_label']]
+            # df = df[['file', 'date', 'latitude', 'longitude', 'ocean',
+            #         'profiler_code', 'profiler',
+            #         'institution_code', 'institution',
+            #         'date_update',
+            #         'wmo', 'cycle_number',
+            #         'url',
+            #         'pcm_label', 'reordered_label']]
             df.to_csv(f, index=False, date_format='%Y%m%d%H%M%S')
 
     return csvfile
