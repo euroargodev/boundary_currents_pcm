@@ -94,19 +94,19 @@ def save_this_region_endpoint(a_region, out_dir='data'):
     return outfile
 
 
-def index2csv(index, csvfile):
+def index2csv(BCname, index, csvfile):
     institution_dict = argopy.utilities.load_dict('institutions')
     df = index.copy()
 
-    txt_header = """# Title : Profile directory file of the Argo Global Data Assembly Center
-# Description : The directory file describes all individual profile files of the argo GDAC ftp site.
-# Project : ARGO
+    txt_header = """# Title : Profile directory file of the Argo Global Data Assembly Center for the Boundary Currents Monitor
+# Description : The directory file describes all individual profile files of the argo GDAC ftp site for one Boundary Current system ({})
+# Project : ARGO, EARISE, BC-monitor
 # Format version : 2.0
 # Date of update : {}
 # FTP root number 1 : ftp://ftp.ifremer.fr/ifremer/argo/dac
 # FTP root number 2 : ftp://usgodae.org/pub/outgoing/argo/dac
 # GDAC node : -
-""".format(pd.to_datetime('now', utc=True).strftime('%Y%m%d%H%M%S'))
+""".format(BCname, pd.to_datetime('now', utc=True).strftime('%Y%m%d%H%M%S'))
     with open(outfile, 'w') as f:
         f.write(txt_header)
 
@@ -123,18 +123,26 @@ def index2csv(index, csvfile):
     return csvfile
 
 if __name__ == '__main__':
+
     # Get the list of regionmask.Regions:
     dict_regions, regions = get_region_list()
+
     # Load index for the North Atlantic:
-    f = ArgoIndexFetcher(src='gdac', cache=True).region([-80, 0., 15, 65])
+    f = ArgoIndexFetcher(src='gdac', cache=True).region([-80, 15., 15, 78])  # Large enough to cover all regions
     print(f)
+
     # Get metrics and index for each regions:
     dict_regions, regions = analyse_regions(dict_regions, regions)
+
+    # Output directory:
+    out_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "..", "data"])
+
     # Save metrics in json files:
     for region in dict_regions.keys():
-        save_this_region_endpoint(dict_regions[region], out_dir='../data')
+        save_this_region_endpoint(dict_regions[region], out_dir=out_dir)
+
     # Save index in csf files:
     for region in dict_regions.keys():
         a_region = dict_regions[region]
-        outfile = os.path.join('../data', 'BCindex_%s.txt' % a_region['name'].replace(" ", "_").replace(".", ""))
-        index2csv(a_region['index'], outfile)
+        outfile = os.path.join(out_dir, 'BCindex_%s.txt' % a_region['name'].replace(" ", "_").replace(".", ""))
+        index2csv(a_region['name'], a_region['index'], outfile)
