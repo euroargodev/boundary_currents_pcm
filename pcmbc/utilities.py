@@ -434,7 +434,7 @@ def load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname='sla'):
                user=WEKEO_USERNAME,
                password=WEKEO_PASSWORD,
                retry_max=10,
-               timeout=5,
+               timeout=60,
                sleep_max=10)
     query = get_jsonapirequest_nrt(a_box, a_date, vname=vname)
     c.search(query).download()
@@ -501,7 +501,7 @@ def load_aviso_mdt(a_box, WEKEO_USERNAME, WEKEO_PASSWORD, vname='mdt'):
                user=WEKEO_USERNAME,
                password=WEKEO_PASSWORD,
                retry_max=10,
-               timeout=5,
+               timeout=60,
                sleep_max=10)
     query = get_jsonapirequest_mdt(a_box, vname=vname)
     c.search(query).download()
