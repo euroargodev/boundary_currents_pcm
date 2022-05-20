@@ -38,7 +38,7 @@ if __name__ == "__main__":
     #######################
 
     # Get a short name from the dict_regions:
-    BC = "GSE tight"
+    BCname = "GSE tight"
     pcm_name = "PCM_GulfStream.nc"
 
     # The corresponding box:
@@ -64,8 +64,8 @@ if __name__ == "__main__":
 
     # Load the BC profile index:
     index_file = (
-        "https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCindex_%s.txt"
-        % (BC.replace(" ", "_").replace(".", ""))
+        "https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_%s_index.txt"
+        % (BCname.replace(" ", "_").replace(".", ""))
     )
     idx = indexstore(host=os.path.split(index_file)[0], index_file=os.path.split(index_file)[1])
     index = idx.to_dataframe()
