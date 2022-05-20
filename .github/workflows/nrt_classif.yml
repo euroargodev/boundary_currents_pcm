@@ -49,6 +49,7 @@ jobs:
       run: |
         conda info -a
         conda list
+        python -c "import argopy; argopy.show_versions()"
 
 #    - name: Install dependencies
 #      run: |
@@ -87,7 +88,7 @@ jobs:
         WEKEO_USERNAME: ${{ secrets.WEKEO_USERNAME }}
         WEKEO_PASSWORD: ${{ secrets.WEKEO_PASSWORD }}
       run: |
-        python load_classif_save.py
+        python cli/load_classif_save.py
         ls -l data
 
     - name: Save report

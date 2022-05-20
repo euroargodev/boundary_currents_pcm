@@ -212,7 +212,7 @@ if __name__ == "__main__":
             index['date'].max().strftime('%Y/%m/%d %H:%M')),
         horizontalalignment='center', fontsize=12)
 
-    out_name = os.path.join("data", os.path.split(index_file)[1].replace(".txt", ".png"))
+    out_name = os.path.join("../data", os.path.split(index_file)[1].replace(".txt", ".png"))
     plt.savefig(out_name, bbox_inches='tight', pad_inches=0.1)
 
     # Tear down

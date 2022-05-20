@@ -132,9 +132,9 @@ if __name__ == '__main__':
     dict_regions, regions = analyse_regions(dict_regions, regions)
     # Save metrics in json files:
     for region in dict_regions.keys():
-        save_this_region_endpoint(dict_regions[region], out_dir='data')
+        save_this_region_endpoint(dict_regions[region], out_dir='../data')
     # Save index in csf files:
     for region in dict_regions.keys():
         a_region = dict_regions[region]
-        outfile = os.path.join('data', 'BCindex_%s.txt' % a_region['name'].replace(" ", "_").replace(".", ""))
+        outfile = os.path.join('../data', 'BCindex_%s.txt' % a_region['name'].replace(" ", "_").replace(".", ""))
         index2csv(a_region['index'], outfile)

@@ -44,7 +44,7 @@ jobs:
 
     - name: Check Argo status in BCs
       run: |
-        python check_save_status.py
+        python cli/check_save_status.py
         ls -l data
 
     - name: Save BC status
