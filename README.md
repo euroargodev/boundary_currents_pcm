@@ -15,7 +15,13 @@ Home page for the development of [Profile Classification Models (PCM)](https://p
 - [Science questions about your PCM](https://github.com/euroargodev/boundary_currents/discussions?discussions_q=label%3Aclassification)
 - [Technical issues about PCM in BCs](https://github.com/euroargodev/boundary_currents_pcm/issues)
 
-## BC Monitors
+# The "BC Monitor"
+
+On this repository, a couple of analysis are run automatically to *monitor* Boundary Current systems.
+
+🌿 Note that all BC monitors run on Github actions in order to minimise their impact on the environment, [since Github claims to be carbon neutral](https://github.blog/2021-04-22-environmental-sustainability-github). 
+
+## Census
 
 Below are the profile count reported for each BCs over the last 10 days.  
 You can click on badges to access directly to the corresponding index file.  
@@ -27,9 +33,15 @@ Counts and index are updated hourly.
 [![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_Lig_Sea_status.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_Lig_Sea_index.txt)  
 [![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_EGC_status.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_EGC_index.txt)
 
+## NRT Supervised classification of profiles (PCM)
+
+For boundary currents [with a stable PCM](https://github.com/euroargodev/boundary_currents_pcm/tree/main/pcmbc/assets), we run a near real time (NRT) analysis of profiles.   
+Results are saved in an *augmented* index file and synthesize in figures like this: 
+
 [![map](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.png)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.txt)  
 
 ***
+
 This repository has been developed within the framework of the Euro-ArgoRISE project. This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement no 824131. Call INFRADEV-03-2018-2019: Individual support to ESFRI and other world-class research infrastructures.
 
 <p align="center">
