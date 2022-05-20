@@ -2,11 +2,12 @@
 # Description : The directory file describes all individual profile files of the argo GDAC ftp site for one Boundary Current system (EGC)
 # Project : ARGO, EARISE, BC-monitor
 # Format version : 2.0
-# Date of update : 20220520230523
+# Date of update : 20220520233709
 # FTP root number 1 : ftp://ftp.ifremer.fr/ifremer/argo/dac
 # FTP root number 2 : ftp://usgodae.org/pub/outgoing/argo/dac
 # GDAC node : -
 file,date,latitude,longitude,ocean,profiler_type,institution,date_update
+coriolis/6903546/profiles/R6903546_146.nc,20220520202700,72.875,-5.925,A,844,IF,20220520212915
 coriolis/6903558/profiles/R6903558_109.nc,20220515065300,72.666,-12.088,A,838,IF,20220515091113
 coriolis/6903575/profiles/R6903575_079.nc,20220514112400,71.92,-9.238,A,836,IF,20220514135001
 coriolis/6903575/profiles/R6903575_080.nc,20220519112200,71.975,-9.196,A,836,IF,20220519135137
