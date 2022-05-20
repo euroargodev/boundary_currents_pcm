@@ -22,6 +22,7 @@ On this repository, a couple of analysis are run automatically to *monitor* Boun
 🌿 Note that all BC monitors run on Github actions in order to minimise their impact on the environment, [since Github claims to be carbon neutral](https://github.blog/2021-04-22-environmental-sustainability-github). 
 
 ## Census
+[![BC-status](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/status.yml/badge.svg)](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/status.yml)
 
 Below are the profile count reported for each BCs over the last 10 days.  
 You can click on badges to access directly to the corresponding index file.  
@@ -34,6 +35,7 @@ Counts and index are updated hourly.
 [![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_EGC_status.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_EGC_index.txt)
 
 ## NRT Supervised classification of profiles (PCM)
+[![NRT-classif](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml/badge.svg)](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml)
 
 For boundary currents [with a stable PCM](https://github.com/euroargodev/boundary_currents_pcm/tree/main/pcmbc/assets), we run a near real time (NRT) analysis of profiles.   
 Results are saved in an *augmented* index file and synthesize in figures like this: 
