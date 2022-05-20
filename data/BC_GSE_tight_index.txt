@@ -1,14 +1,13 @@
-# Title : Profile directory file of the Argo Global Data Assembly Center
-# Description : The directory file describes all individual profile files of the argo GDAC ftp site.
-# Project : ARGO
+# Title : Profile directory file of the Boundary Currents Monitor
+# Description : The directory file describes all individual profile files of the argo GDAC ftp site for one Boundary Current system (GSE tight)
+# Project : ARGO, EARISE, BC-monitor
 # Format version : 2.0
-# Date of update : 20220520080540
+# Date of update : 20220520134143
 # FTP root number 1 : ftp://ftp.ifremer.fr/ifremer/argo/dac
 # FTP root number 2 : ftp://usgodae.org/pub/outgoing/argo/dac
 # GDAC node : -
 file,date,latitude,longitude,ocean,profiler_type,institution,date_update
 aoml/1902392/profiles/R1902392_019.nc,20220518035941,42.027,-53.759,A,854,AO,20220518050109
-aoml/1902444/profiles/R1902444_016.nc,20220510110842,38.174,-68.974,A,876,AO,20220510140148
 aoml/3901219/profiles/R3901219_190.nc,20220514002955,40.769,-51.64,A,854,AO,20220514020109
 aoml/4902104/profiles/R4902104_245.nc,20220515120433,41.809,-60.802,A,854,AO,20220515140116
 aoml/4902111/profiles/R4902111_236.nc,20220517162113,37.542,-52.648,A,854,AO,20220517170113
@@ -53,6 +52,7 @@ meds/4902503/profiles/R4902503_058.nc,20220513064400,36.476,-64.026,A,844,ME,202
 meds/4902515/profiles/R4902515_024.nc,20220519083300,40.114,-53.779,A,844,ME,20220519071542
 meds/4902519/profiles/R4902519_023.nc,20220511183800,40.573,-55.466,A,844,ME,20220511161542
 meds/4902523/profiles/R4902523_058.nc,20220512063700,36.525,-68.496,A,844,ME,20220512041546
+meds/4902573/profiles/R4902573_016.nc,20220520085400,37.693,-55.399,A,844,ME,20220520071545
 meds/4902576/profiles/R4902576_005.nc,20220513183800,43.097,-60.639,A,844,ME,20220513161542
 meds/4902577/profiles/R4902577_005.nc,20220514021000,42.786,-59.286,A,844,ME,20220514011541
 meds/4902595/profiles/R4902595_003.nc,20220511155900,42.623,-48.082,A,844,ME,20220511161544

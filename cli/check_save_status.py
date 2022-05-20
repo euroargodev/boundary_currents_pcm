@@ -88,7 +88,7 @@ def save_this_region_endpoint(a_region, out_dir='data'):
     data['message'] = message
     data['style'] = style
     data['color'] = color
-    outfile = os.path.join(out_dir, 'BCstatus_%s.json' % a_region['name'].replace(" ", "_").replace(".", ""))
+    outfile = os.path.join(out_dir, 'BC_%s_status.json' % a_region['name'].replace(" ", "_").replace(".", ""))
     with open(outfile, 'w') as f:
         json.dump(data, f)
     return outfile
@@ -98,7 +98,7 @@ def index2csv(BCname, index, csvfile):
     institution_dict = argopy.utilities.load_dict('institutions')
     df = index.copy()
 
-    txt_header = """# Title : Profile directory file of the Argo Global Data Assembly Center for the Boundary Currents Monitor
+    txt_header = """# Title : Profile directory file of the Boundary Currents Monitor
 # Description : The directory file describes all individual profile files of the argo GDAC ftp site for one Boundary Current system ({})
 # Project : ARGO, EARISE, BC-monitor
 # Format version : 2.0
@@ -122,6 +122,7 @@ def index2csv(BCname, index, csvfile):
 
     return csvfile
 
+
 if __name__ == '__main__':
 
     # Get the list of regionmask.Regions:
@@ -144,5 +145,5 @@ if __name__ == '__main__':
     # Save index in csf files:
     for region in dict_regions.keys():
         a_region = dict_regions[region]
-        outfile = os.path.join(out_dir, 'BCindex_%s.txt' % a_region['name'].replace(" ", "_").replace(".", ""))
+        outfile = os.path.join(out_dir, 'BC_%s_index.txt' % a_region['name'].replace(" ", "_").replace(".", ""))
         index2csv(a_region['name'], a_region['index'], outfile)

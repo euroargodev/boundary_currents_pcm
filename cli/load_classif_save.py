@@ -1,7 +1,7 @@
 import sys, os
 
 import numpy as np
-# import pandas as pd
+import pandas as pd
 # import xarray as xr
 # xr.set_options(display_style="html", display_expand_attrs=False)
 import warnings
@@ -73,14 +73,50 @@ def load_and_classify(this_m, this_df):
     return this_df
 
 
+def labelled_index2csv(BCname, index, csvfile):
+    df = index.copy()
+
+    txt_header = """# Title : Profile directory PCM analysis file of the Boundary Currents Monitor
+# Description : The directory PCM analysis file describes all individual profile files of the argo GDAC ftp site for one Boundary Current system
+# Project : ARGO, EARISE, BC-monitor
+# Boundary Current system: {}
+# Format version : 1.0
+# Date of update : {}
+""".format(BCname, pd.to_datetime('now', utc=True).strftime('%Y%m%d%H%M%S'))
+    with open(csvfile, 'w') as f:
+        f.write(txt_header)
+
+    if len(df) > 0:
+        with open(csvfile, 'a+') as f:
+            # Since this is our custom index file with PCM results, we don't need to follow on GDAC index columns
+            # df = df.drop(['profiler', 'institution_code'], axis=1)
+            # df = df.rename(columns={'institution_code': 'institution'})
+            # df['institution'] = df['institution'].apply(
+                # lambda x: list(institution_dict.keys())[list(institution_dict.values()).index(x)])
+            # df = df.rename(columns={'profiler_code': 'profiler_type'})
+            # df = df[['file', 'date', 'latitude', 'longitude', 'ocean', 'profiler_type', 'institution', 'date_update']]
+            df = df[['file', 'date', 'latitude', 'longitude', 'ocean',
+                    'profiler_code', 'profiler',
+                    'institution_code', 'institution',
+                    'date_update',
+                    'wmo', 'cycle_number',
+                    'url',
+                    'pcm_label', 'reordered_label']]
+            df.to_csv(f, index=False, date_format='%Y%m%d%H%M%S')
+
+    return csvfile
+
+
 if __name__ == "__main__":
+
+    out_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "..", "data"])
 
     #######################
     # Define all parameters specific to a given Boundary Current: Gulf Stream
     #######################
 
     # Get a short name from the dict_regions:
-    BC = "GSE tight"
+    BCname = "GSE tight"
     pcm_name = "PCM_GulfStream.nc"
 
     # The corresponding box:
@@ -106,8 +142,8 @@ if __name__ == "__main__":
 
     # Load the BC profile index:
     index_file = (
-        "https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BCindex_%s.txt"
-        % (BC.replace(" ", "_").replace(".", ""))
+        "https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_%s_index.txt"
+        % (BCname.replace(" ", "_").replace(".", ""))
     )
     idx = indexstore(host=os.path.split(index_file)[0], index_file=os.path.split(index_file)[1])
     index = idx.to_dataframe()
@@ -169,6 +205,12 @@ if __name__ == "__main__":
         lambda x: 999 if (np.isnan(x['reordered_label']) and x['pcm_label'] >= 999) else x['reordered_label'], axis=1)
 
     #######################
+    # Index file with labels
+    #######################
+    csvfile = os.path.join(out_dir, 'BC_%s_index_classified.txt' % BCname.replace(" ", "_").replace(".", ""))
+    labelled_index2csv(BCname, index, csvfile)
+
+    #######################
     # Figures
     #######################
 
@@ -214,7 +256,7 @@ if __name__ == "__main__":
             index['date'].max().strftime('%Y/%m/%d %H:%M')),
         horizontalalignment='center', fontsize=12)
 
-    out_name = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "..", "data", os.path.split(index_file)[1].replace(".txt", ".png")])
+    out_name = os.path.join(*[out_dir, os.path.split(index_file)[1].replace(".txt", "_classified.png")])
     print(out_name)
     plt.savefig(out_name, bbox_inches='tight', pad_inches=0.1)
 
