@@ -5,9 +5,10 @@ dependencies:
   - python=3.8
   - argopy
   - cartopy
+  - dask-ml<=2022.1.22
   - matplotlib
   - netCDF4
-  - scikit-learn=1.0.2
+  - scikit-learn<1.1
   - seaborn
   - shapely
   - tqdm
@@ -19,4 +20,3 @@ dependencies:
     - pyxpcm
     - regionmask
     - hda
-    - dask-ml[complete]
