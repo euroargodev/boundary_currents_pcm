@@ -1,17 +1,20 @@
-import os
+import sys, os
 
 import numpy as np
 # import pandas as pd
 # import xarray as xr
 # xr.set_options(display_style="html", display_expand_attrs=False)
 import warnings
+import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 import pyxpcm
 import argopy
 from argopy import DataFetcher
 from argopy.stores.argo_index_pd import indexstore_pandas as indexstore
+
+sys.path.insert(0, os.sep.join([os.path.split(os.path.realpath(__file__))[0], '..']))
 from pcmbc.utilities import from_misc_pres_2_std_depth, load_aviso_nrt, load_aviso_mdt
-import matplotlib.pyplot as plt
 
 
 def download_aviso_from_wekeo(a_box, a_date):
@@ -73,7 +76,7 @@ def load_and_classify(this_m, this_df):
 if __name__ == "__main__":
 
     #######################
-    # Define all parameters specific to a given Boundary Current
+    # Define all parameters specific to a given Boundary Current: Gulf Stream
     #######################
 
     # Get a short name from the dict_regions:
@@ -153,7 +156,7 @@ if __name__ == "__main__":
     # Load profiles data and classify:
     # pcm_label==999: could not interpolate and classify for this PCM
     # pcm_label==NaN: could not laod the data
-    for prof, df in index.groupby(['wmo', 'cycle_number']):
+    for prof, df in tqdm(index.groupby(['wmo', 'cycle_number'])):
         wmo, cyc = prof[0], prof[1]
         df_updated = load_and_classify(m, df)
         index = index.mask(np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc), df_updated)
@@ -175,7 +178,6 @@ if __name__ == "__main__":
         n = np.count_nonzero(index['reordered_label'] == korder[k])
         print("%i profiles in k=%i (%s)" % (n, korder[k], class_descriptions[korder[k]]))
         yticklabels[korder[k]] = "Class #%i:%s\n%i profiles" % (korder[k], class_descriptions[korder[k]], n)
-    print(yticklabels)
 
     proj = argopy.plot.utils.cartopy.crs.PlateCarree()
     dx, dy = 1, 1  # How much to extent the map contours wrt to the data set real domain
@@ -212,7 +214,8 @@ if __name__ == "__main__":
             index['date'].max().strftime('%Y/%m/%d %H:%M')),
         horizontalalignment='center', fontsize=12)
 
-    out_name = os.path.join("../data", os.path.split(index_file)[1].replace(".txt", ".png"))
+    out_name = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "..", "data", os.path.split(index_file)[1].replace(".txt", ".png")])
+    print(out_name)
     plt.savefig(out_name, bbox_inches='tight', pad_inches=0.1)
 
     # Tear down
