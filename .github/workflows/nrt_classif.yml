@@ -71,7 +71,7 @@ jobs:
       with:
         author_name: argobot-hub
         author_email: argobot84@gmail.com
-        message: 'Update PCM results'
-        add: "data/*.png --force"
+        message: 'Update PCM analysis results'
+        add: "data/* --force"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
