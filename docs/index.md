@@ -1,11 +1,10 @@
 # Boundary Currents Monitor
 
 [![status](https://img.shields.io/badge/lifecycle-experimental-orange)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Binder](https://img.shields.io/static/v1.svg?logo=Jupyter&label=MyBinder&message=demo&color=blue)](https://mybinder.org/v2/gh/euroargodev/binder-sandbox/virtual-fleet?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Feuroargodev%252Fboundary_currents_pcm%26urlpath%3Dlab%252Ftree%252Fboundary_currents_pcm%252Fdocs%252FPCM-demo.ipynb)
 
-Home page for the development of [Profile Classification Models (PCM)](https://pyxpcm.readthedocs.io/en/latest/overview.html) dedicated to the identification/classification of Argo profiles in boundary current systems of interest within the Euro-ArgoRISE project. 
+Within the Euro-ArgoRISE project, a couple of analysis are run automatically to *monitor* Boundary Current systems of interest in the following regions:
 
-On this repository, a couple of analysis are run automatically to *monitor* Boundary Current systems.
+![BC](https://user-images.githubusercontent.com/1956032/168844751-a77785d1-bd65-413f-9598-34bcb36d1f9a.png)
 
 🌿 Note that all BC monitors run on Github actions in order to minimise their impact on the environment, [since Github claims to be carbon neutral](https://github.blog/2021-04-22-environmental-sustainability-github). 
 
@@ -24,6 +23,8 @@ Counts and index are updated hourly.
 
 ## NRT Supervised classification of profiles (PCM)
 [![NRT-classif](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml/badge.svg)](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml)
+
+Our work include the development of [Profile Classification Models (PCM)](https://pyxpcm.readthedocs.io/en/latest/overview.html) dedicated to the identification/classification of Argo profiles in boundary current systems of interest. 
 
 For boundary currents [with a stable PCM](https://github.com/euroargodev/boundary_currents_pcm/tree/main/pcmbc/assets), we run a near real time (NRT) analysis of profiles.   
 Results are saved in an *augmented* index file and synthesize in figures like this: 
