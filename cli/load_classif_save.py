@@ -178,7 +178,7 @@ if __name__ == "__main__":
     index['pcm_label'] = np.nan
 
     # Then add cycle number of each profiles:
-    index['cycle_number'] = index.apply(lambda x: int(x['file'].split("/")[-1].split("_")[-1].split(".nc")[0]), axis=1)
+    index['cycle_number'] = index.apply(lambda x: int("".join([c for c in x['file'].split("/")[-1].split("_")[-1].split(".nc")[0] if c.isdigit()])), axis=1)
 
     # Add url to profiles:
     for prof, df in index.groupby(['wmo', 'cycle_number']):
