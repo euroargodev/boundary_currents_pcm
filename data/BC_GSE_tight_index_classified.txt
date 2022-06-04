@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20220603231049
+# Date of update : 20220604001645
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_020.nc,20220528010219,41.998,-54.084,A,854,AO,20220528020113,1902392,"AOML, USA",S2A float,20,https://dataselection.euro-argo.eu/cycle/5227387,3.0,2.0
 aoml/1902444/profiles/R1902444_018.nc,20220531202228,38.4,-64.397,A,876,AO,20220531223234,1902444,"AOML, USA",Unknown,18,https://dataselection.euro-argo.eu/cycle/5229348,2.0,1.0
@@ -53,7 +53,6 @@ meds/4902573/profiles/R4902573_017.nc,20220530135900,37.695,-56.178,A,844,ME,202
 meds/4902575/profiles/R4902575_005.nc,20220529015500,40.38,-49.838,A,844,ME,20220601164308,4902575,"MEDS, Canada","Arvor, Seabird conductivity sensor",5,https://dataselection.euro-argo.eu/cycle/5229984,3.0,2.0
 meds/4902576/profiles/R4902576_007.nc,20220603121700,42.845,-60.983,A,844,ME,20220603101545,4902576,"MEDS, Canada","Arvor, Seabird conductivity sensor",7,https://dataselection.euro-argo.eu/cycle/5230971,0.0,0.0
 meds/4902577/profiles/R4902577_007.nc,20220603121000,42.843,-59.522,A,844,ME,20220603101546,4902577,"MEDS, Canada","Arvor, Seabird conductivity sensor",7,https://dataselection.euro-argo.eu/cycle/5230972,0.0,0.0
-meds/4902578/profiles/R4902578_001.nc,20220526060200,42.04,-61.205,A,844,ME,20220601164313,4902578,"MEDS, Canada","Arvor, Seabird conductivity sensor",1,https://dataselection.euro-argo.eu/cycle/5230004,999.0,999.0
-meds/4902578/profiles/R4902578_001D.nc,20220524222100,42.039,-61.1,A,844,ME,20220601164312,4902578,"MEDS, Canada","Arvor, Seabird conductivity sensor",1,https://dataselection.euro-argo.eu/cycle/5230004,999.0,999.0
+meds/4902578/profiles/R4902578_001.nc,20220526060200,42.04,-61.205,A,844,ME,20220601164313,4902578,"MEDS, Canada","Arvor, Seabird conductivity sensor",1,https://dataselection.euro-argo.eu/cycle/5230004,3.0,2.0
 meds/4902590/profiles/R4902590_001.nc,20220526060100,41.483,-60.621,A,844,ME,20220601164327,4902590,"MEDS, Canada","Arvor, Seabird conductivity sensor",1,https://dataselection.euro-argo.eu/cycle/5230005,0.0,0.0
 meds/4902595/profiles/R4902595_005.nc,20220601020200,42.352,-48.33,A,844,ME,20220601164332,4902595,"MEDS, Canada","Arvor, Seabird conductivity sensor",5,https://dataselection.euro-argo.eu/cycle/5230001,0.0,0.0
