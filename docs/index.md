@@ -12,8 +12,8 @@ Within the Euro-ArgoRISE project, a couple of analysis are run automatically to 
 [![BC-status](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/status.yml/badge.svg)](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/status.yml)
 
 Below are the profile count reported for each BCs over the last 10 days.  
-You can click on badges to access directly to the corresponding index file.  
-Counts and index are updated hourly.
+You can **click on badges to access profile index file**.  
+Counts and index are updated every 6 hours.
 
 [![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_status.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index.txt)  
 [![index](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GoC_status.json)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GoC_index.txt)  
