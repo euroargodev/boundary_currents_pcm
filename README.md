@@ -38,7 +38,7 @@ Counts and index are updated hourly.
 [![NRT-classif](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml/badge.svg)](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml)
 
 For boundary currents [with a stable PCM](https://github.com/euroargodev/boundary_currents_pcm/tree/main/pcmbc/assets), we run a near real time (NRT) analysis of profiles.   
-Results are saved in an *augmented* index file and synthesize in figures like this: 
+Results are saved in an [*augmented* index file](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.txt) and synthesized in [figures like this one](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.png): 
 
 [![map](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.png)](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.txt)  
 
