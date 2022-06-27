@@ -145,8 +145,9 @@ if __name__ == '__main__':
     dict_regions, regions = get_region_list()
 
     # Load index for the North Atlantic:
-    cache_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "cache"])
-    argopy.set_options(cachedir=cache_dir)
+    if os.uname()[0] == 'Darwin':
+        cache_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "cache"])
+        argopy.set_options(cachedir=cache_dir)
     print(argopy.show_options())
     f = ArgoIndexFetcher(src='gdac', cache=True).region([-80, 15., 15, 78])  # Large enough to cover all regions
     print(f)
