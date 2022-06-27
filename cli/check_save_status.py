@@ -1,6 +1,6 @@
 import regionmask
 import pandas as pd
-
+import time
 import os
 import json
 import argopy
@@ -56,15 +56,25 @@ def analyse_regions(dict_regions, regions):
         dict_regions[r.abbrev]['index'] = []
         dict_regions[r.abbrev]['N_PROF'] = 0
         dict_regions[r.abbrev]['N_WMO'] = 0
-        try:
-            argo = ArgoIndexFetcher(src='gdac', cache=True).region(index_box).load()
-            dict_regions[r.abbrev]['fetcher'] = argo
-            dict_regions[r.abbrev]['index'] = argo.index
-            dict_regions[r.abbrev]['N_PROF'] = len(argo.index)
-            dict_regions[r.abbrev]['N_WMO'] = len(argo.index.groupby('wmo').count())
-        except argopy.errors.DataNotFound:
-            pass
-        print("%30s: %i profiles in the last 10 days" % (r.name, len(argo.index)))
+        max_try = 10
+        counter = 1
+        while counter < max_try:
+            try:
+                argo = ArgoIndexFetcher(src='gdac', cache=True).region(index_box).load()
+                dict_regions[r.abbrev]['fetcher'] = argo
+                dict_regions[r.abbrev]['index'] = argo.index
+                dict_regions[r.abbrev]['N_PROF'] = len(argo.index)
+                dict_regions[r.abbrev]['N_WMO'] = len(argo.index.groupby('wmo').count())
+            except argopy.errors.DataNotFound:
+                pass
+            except argopy.errors.FtpPathError:
+                print("FtpPathError, trying again in 30 seconds ... (%i/%i)" % (counter, max_try))
+                time.sleep(30)
+                counter += 1
+        if counter == max_try:
+            print("%30s: Maximum attempts reached, can't get index !" % r.name)
+        else:
+            print("%30s: %i profiles in the last 10 days" % (r.name, len(argo.index)))
     return dict_regions, regions
 
 
