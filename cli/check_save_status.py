@@ -48,7 +48,9 @@ def get_region_list():
 
 
 def analyse_regions(dict_regions, regions):
+    print("\nLoad index for regions:")
     for r in regions:
+        print("%30s..." % r.name)
         index_box = dict_regions[r.abbrev]['box']
         dict_regions[r.abbrev]['long_name'] = r.name
         dict_regions[r.abbrev]['name'] = r.abbrev
@@ -59,22 +61,26 @@ def analyse_regions(dict_regions, regions):
         max_try = 10
         counter = 1
         while counter < max_try:
+            # print(counter)
             try:
                 argo = ArgoIndexFetcher(src='gdac', cache=True).region(index_box).load()
                 dict_regions[r.abbrev]['fetcher'] = argo
                 dict_regions[r.abbrev]['index'] = argo.index
                 dict_regions[r.abbrev]['N_PROF'] = len(argo.index)
                 dict_regions[r.abbrev]['N_WMO'] = len(argo.index.groupby('wmo').count())
+                counter = max_try + 1
             except argopy.errors.DataNotFound:
+                counter = max_try + 1
                 pass
             except argopy.errors.FtpPathError:
-                print("FtpPathError, trying again in 30 seconds ... (%i/%i)" % (counter, max_try))
+                print("%30s: FtpPathError, trying again in 30 seconds ... (%i/%i)" % (" ", counter, max_try))
                 time.sleep(30)
                 counter += 1
         if counter == max_try:
-            print("%30s: Maximum attempts reached, can't get index !" % r.name)
+            print("%30s: Maximum attempts reached, can't get index !" % " ")
         else:
-            print("%30s: %i profiles in the last 10 days" % (r.name, len(argo.index)))
+            print("%30s: %i profiles in the last 10 days" % (" ", dict_regions[r.abbrev]['N_PROF']))
+
     return dict_regions, regions
 
 
@@ -139,6 +145,9 @@ if __name__ == '__main__':
     dict_regions, regions = get_region_list()
 
     # Load index for the North Atlantic:
+    cache_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "cache"])
+    argopy.set_options(cachedir=cache_dir)
+    print(argopy.show_options())
     f = ArgoIndexFetcher(src='gdac', cache=True).region([-80, 15., 15, 78])  # Large enough to cover all regions
     print(f)
 
@@ -157,3 +166,6 @@ if __name__ == '__main__':
         a_region = dict_regions[region]
         outfile = os.path.join(out_dir, 'BC_%s_index.txt' % a_region['name'].replace(" ", "_").replace(".", ""))
         index2csv(a_region['name'], a_region['index'], outfile)
+
+    #
+    argopy.clear_cache()
