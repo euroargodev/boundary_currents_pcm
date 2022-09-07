@@ -27,7 +27,7 @@ Counts and index are updated every 6 hours.
 Our work include the development of [Profile Classification Models (PCM)](https://pyxpcm.readthedocs.io/en/latest/overview.html) dedicated to the identification/classification of Argo profiles in boundary current systems of interest. 
 
 For boundary currents [with a stable PCM](https://github.com/euroargodev/boundary_currents_pcm/tree/main/pcmbc/assets), we run a near real time (NRT) analysis of profiles.   
-Results are saved in an *augmented* index file and synthesize in figures like this: 
+Results are saved in an [*augmented* index file](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.txt) and synthesized in [figures like this one](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.png):
 
 ### Gulf Stream
 
