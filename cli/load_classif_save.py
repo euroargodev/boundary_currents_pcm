@@ -5,6 +5,7 @@ import pandas as pd
 # import xarray as xr
 # xr.set_options(display_style="html", display_expand_attrs=False)
 import warnings
+import logging
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
@@ -17,17 +18,35 @@ sys.path.insert(0, os.sep.join([os.path.split(os.path.realpath(__file__))[0], '.
 from pcmbc.utilities import from_misc_pres_2_std_depth, load_aviso_nrt, load_aviso_mdt
 
 
-def download_aviso_from_wekeo(a_box, a_date):
-    WEKEO_USERNAME, WEKEO_PASSWORD = (
-        os.getenv("WEKEO_USERNAME"),
-        os.getenv("WEKEO_PASSWORD"),
+log = logging.getLogger("load_classif_save")
+
+
+# def download_aviso_from_wekeo(a_box, a_date):
+#     WEKEO_USERNAME, WEKEO_PASSWORD = (
+#         os.getenv("WEKEO_USERNAME"),
+#         os.getenv("WEKEO_PASSWORD"),
+#     )
+#     if not WEKEO_USERNAME:
+#         raise ValueError("No WEKEO_USERNAME in environment ! ")
+#
+#     aviso = load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname="sla")
+#     aviso_clim = load_aviso_mdt(a_box, WEKEO_USERNAME, WEKEO_PASSWORD, vname="mdt")
+#
+#     return aviso, aviso_clim
+
+
+def download_aviso_with_motu(a_box, a_date):
+    MOTU_USERNAME, MOTU_PASSWORD = (
+        os.getenv("MOTU_USERNAME"),
+        os.getenv("MOTU_PASSWORD"),
     )
-    if not WEKEO_USERNAME:
-        raise ValueError("No WEKEO_USERNAME in environment ! ")
+    if not MOTU_USERNAME:
+        raise ValueError("No MOTU_USERNAME in environment ! ")
 
-    aviso = load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname="sla")
-    aviso_clim = load_aviso_mdt(a_box, WEKEO_USERNAME, WEKEO_PASSWORD, vname="mdt")
-
+    aviso = load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname="sla")
+    # aviso_clim = load_aviso_mdt(a_box, MOTU_USERNAME, MOTU_PASSWORD, vname="mdt")
+    aviso_clim = None
+    
     return aviso, aviso_clim
 
 
@@ -126,7 +145,7 @@ if __name__ == "__main__":
     cname = 'Paired'
 
     # Define the possible re-ordering of class labels:
-    # (this was determined in See PCM-GulfStream-step02-fit.ipynb)
+    # (this was determined in PCM-GulfStream-step02-fit.ipynb)
     korder = [0, 3, 1, 2]
 
     class_descriptions = {
@@ -160,8 +179,10 @@ if __name__ == "__main__":
 
     # Load AVISO data for the map:
     try:
-        aviso_nrt, aviso_mdt = download_aviso_from_wekeo(box, index["date"].max())
+        # aviso_nrt, aviso_mdt = download_aviso_from_wekeo(box, index["date"].max())
+        aviso_nrt, aviso_mdt = download_aviso_with_motu(box, index["date"].max())
     except:
+        print("Can't load AVISO data")
         aviso_nrt, aviso_mdt = None, None
         pass
     # download_aviso_from_wekeo(box, pd.to_datetime('now', utc=True))
