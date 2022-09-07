@@ -621,7 +621,7 @@ class Plotter:
         return fig, ax
 
     def plot_robustness(self, proj=ccrs.PlateCarree(), extent='auto', time_slice=0, maxcols=3, lon_grid=4, lat_grid=4, **kwargs):
-        """Plot posteriors in a map
+        """Plot robustness in a map
 
            Parameters
            ----------
