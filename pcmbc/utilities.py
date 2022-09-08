@@ -645,8 +645,10 @@ def download_MDT(a_box, outdir='./', vname=['mdt'], MOTU_USERNAME=None, MOTU_PAS
 
 
 def load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname='sla'):
+    if not isinstance(vname, list):
+        vname = [vname]
     fileout = download_SLA(a_box, a_date, fileout='latest_dataset-duacs-nrt-global-merged-allsat-phy-l4.nc',
-                           vname=[vname])
+                           vname=vname)
     ds = xr.open_dataset(fileout)
     ds.attrs['local_file'] = fileout
     return ds
