@@ -43,7 +43,8 @@ def download_aviso_with_motu(a_box, a_date):
     if not MOTU_USERNAME:
         raise ValueError("No MOTU_USERNAME in environment ! ")
 
-    aviso = load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname="sla")
+    # aviso = load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname="sla")
+    aviso = load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname=["sla", 'adt'])
     # aviso_clim = load_aviso_mdt(a_box, MOTU_USERNAME, MOTU_PASSWORD, vname="mdt")
     aviso_clim = None
 
