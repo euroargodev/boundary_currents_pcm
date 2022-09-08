@@ -212,7 +212,7 @@ if __name__ == "__main__":
 
     # Load profiles data and classify:
     # pcm_label==999: could not interpolate and classify for this PCM
-    # pcm_label==NaN: could not laod the data
+    # pcm_label==NaN: could not load the data
     for prof, df in tqdm(index.groupby(['wmo', 'cycle_number'])):
         wmo, cyc = prof[0], prof[1]
         df_updated = load_and_classify(m, df)

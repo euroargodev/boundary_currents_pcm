@@ -15,7 +15,7 @@ jobs:
   classify-and-report:
 
     runs-on: ubuntu-latest
-    environment: wekeo
+    environment: motu
     defaults:
       run:
         shell: bash -l {0}
