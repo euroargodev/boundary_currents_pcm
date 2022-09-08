@@ -60,8 +60,10 @@ jobs:
 
     - name: Classify and report
       env:
-        WEKEO_USERNAME: ${{ secrets.WEKEO_USERNAME }}
-        WEKEO_PASSWORD: ${{ secrets.WEKEO_PASSWORD }}
+#        WEKEO_USERNAME: ${{ secrets.WEKEO_USERNAME }}
+#        WEKEO_PASSWORD: ${{ secrets.WEKEO_PASSWORD }}
+        MOTU_USERNAME: ${{ secrets.MOTU_USERNAME }}
+        MOTU_PASSWORD: ${{ secrets.MOTU_PASSWORD }}
       run: |
         python cli/load_classif_save.py
         ls -l data

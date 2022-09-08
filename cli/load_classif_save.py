@@ -46,7 +46,7 @@ def download_aviso_with_motu(a_box, a_date):
     aviso = load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname="sla")
     # aviso_clim = load_aviso_mdt(a_box, MOTU_USERNAME, MOTU_PASSWORD, vname="mdt")
     aviso_clim = None
-    
+
     return aviso, aviso_clim
 
 
