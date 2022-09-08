@@ -252,11 +252,13 @@ if __name__ == "__main__":
 
     if aviso_nrt:
         # aviso_clim['mdt'].isel(time=0).plot.contour(levels=np.arange(-2,2,0.1), ax=ax, colors='red', zorder=0, linewidths=0.5)
-        aviso_nrt['sla'].isel(time=0).plot.contour(levels=np.arange(-2, 2, 0.1), ax=ax, colors='gray', zorder=0, linewidths=0.5)
+        # aviso_nrt['sla'].isel(time=0).plot.contour(levels=np.arange(-2, 2, 0.1), ax=ax, colors='gray', zorder=0, linewidths=0.5)
+        aviso_nrt['adt'].isel(time=0).plot.contourf(levels=np.arange(-2, 2, 0.1), ax=ax, cmap='RdBu_r', zorder=0, vmin=-1, vmax=1, add_colorbar=False)
+        aviso_nrt['adt'].isel(time=0).plot.contour(levels=np.arange(-2, 2, 0.1), ax=ax, colors='gray', zorder=0, linewidths=0.1)
 
     classified = index.where(np.logical_and(index['reordered_label'] < 999, ~np.isnan(index['reordered_label'])))
-    sc = ax.scatter(classified['longitude'], classified['latitude'], s=28, c=classified['reordered_label'],
-                    cmap=m.plot.cmap(name=cname), transform=proj, vmin=0, vmax=m.K)
+    sc = ax.scatter(classified['longitude'], classified['latitude'], s=46, c=classified['reordered_label'],
+                    cmap=m.plot.cmap(name=cname), transform=proj, vmin=0, vmax=m.K, edgecolors='k')
     cbar = m.plot.colorbar(ax=ax, name=cname)
     cbar.ax.set_yticklabels([yticklabels[k] for k in m])
 
