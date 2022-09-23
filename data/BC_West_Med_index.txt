@@ -2,11 +2,12 @@
 # Description : The directory file describes all individual profile files of the argo GDAC ftp site for one Boundary Current system (West. Med.)
 # Project : ARGO, EARISE, BC-monitor
 # Format version : 2.0
-# Date of update : 20220923120510
+# Date of update : 20220923180511
 # FTP root number 1 : ftp://ftp.ifremer.fr/ifremer/argo/dac
 # FTP root number 2 : ftp://usgodae.org/pub/outgoing/argo/dac
 # GDAC node : -
 file,date,latitude,longitude,ocean,profiler_type,institution,date_update
+coriolis/4903632/profiles/R4903632_003.nc,20220923084940,41.991,4.813,A,878,IF,20220923092533
 coriolis/6901250/profiles/R6901250_370.nc,20220914062100,41.145,3.36,A,844,IF,20220914073003
 coriolis/6901250/profiles/R6901250_371.nc,20220919062600,41.167,3.344,A,844,IF,20220919074517
 coriolis/6901281/profiles/R6901281_137.nc,20220917064730,38.589,2.508,A,844,IF,20220917091056
@@ -31,5 +32,5 @@ coriolis/6903239/profiles/R6903239_328.nc,20220914055800,37.849,2.732,A,844,IF,2
 coriolis/6903239/profiles/R6903239_329.nc,20220919060300,37.86,2.637,A,844,IF,20220919065341
 coriolis/6903248/profiles/R6903248_448.nc,20220915120330,37.213,4.904,A,844,IF,20220915132821
 coriolis/6903817/profiles/R6903817_183.nc,20220917194420,40.012,2.414,A,844,IF,20220917203031
-coriolis/6903818/profiles/R6903818_188.nc,20220913165630,40.097,4.543,A,844,IF,20220913182721
+coriolis/6903817/profiles/R6903817_184.nc,20220923120020,39.913,2.294,A,844,IF,20220923124049
 coriolis/6903818/profiles/R6903818_189.nc,20220918164620,40.168,4.457,A,844,IF,20220918173517
