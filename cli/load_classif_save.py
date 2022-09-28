@@ -54,18 +54,20 @@ def download_aviso_with_motu(a_box, a_date):
 def load_and_classify(this_m, this_df):
     # Load data for this profile:
     try:
-        ds = DataFetcher(src='erddap', mode='expert', cache=True).profile(this_df['wmo'].values,
+        ds = DataFetcher(src='erddap', mode='expert', cache=False).profile(this_df['wmo'].values,
                                                                           this_df['cycle_number'].values).data
         ds = ds.argo.filter_data_mode()
         dsp_float = ds.argo.point2profile()
         # Rq: Here I use the 'expert' mode in order to only filter variables according to DATA MODE. If I use the 'standard' mode, data are
         # also filtered by QC, which can reduce the number of "classifiable" profiles.
 
+        std = False
         try:
             # Process profile:
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 dsi_float = from_misc_pres_2_std_depth(this_m, dsp_float, feature_name='temperature')
+                std = True
 
             # Predict:
             this_m.predict(dsi_float, features={'temperature': 'TEMP', 'salinity': 'PSAL'}, dim='DEPTH_INTERPOLATED',
@@ -75,6 +77,11 @@ def load_and_classify(this_m, this_df):
             this_df['pcm_label'] = dsi_float['PCM_LABELS'].values
 
         except:
+            if std:
+                msg = "Data downloaded but can't be classified: PCM prediction failed"
+            else:
+                msg = "Data downloaded but can't be classified: data can't be projected on standard depth levels"
+            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values, this_df['cycle_number'].values, msg))
             this_df['pcm_label'] = 999
             pass
 
