@@ -276,10 +276,11 @@ if __name__ == "__main__":
     missing = index.where(np.isnan(index['reordered_label']))
     ax.plot(missing['longitude'], missing['latitude'], '.', color='lightgray', transform=proj)
 
-    ax.text(box[0] - dx, box[2] - dy,
-            "Color shading: Absolute Dynamic Topography [%s]" %
-            pd.to_datetime(aviso_nrt['adt'].isel(time=0)['time'].values).strftime('%Y/%m/%d %H:%M'),
-            color='gray', fontsize=10, verticalalignment='bottom')
+    if aviso_nrt:
+        ax.text(box[0] - dx, box[2] - dy,
+                "Color shading: Absolute Dynamic Topography [%s]" %
+                pd.to_datetime(aviso_nrt['adt'].isel(time=0)['time'].values).strftime('%Y/%m/%d %H:%M'),
+                color='gray', fontsize=10, verticalalignment='bottom')
 
     argopy.plot.utils.latlongrid(ax)
     ax.add_feature(argopy.plot.utils.land_feature)
