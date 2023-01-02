@@ -17,7 +17,7 @@ dependencies:
   - pip
   - pip:
     - cmocean
-    - pyxpcm
+    - git+https://github.com/obidam/pyxpcm.git@master
     - regionmask
     - hda
     - motuclient
