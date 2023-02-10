@@ -29,7 +29,7 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Install Conda environment
+    - name: Install Conda environment (with micro-Mamba)
       uses: mamba-org/provision-with-micromamba@main
       with:
         environment-file: environment.yml
