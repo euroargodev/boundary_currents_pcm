@@ -6,8 +6,6 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 */6 * * *'
-  push:
-    branches: [ master ]
   workflow_dispatch: # allows you to trigger the workflow run manually
 
 jobs:
@@ -31,24 +29,18 @@ jobs:
       with:
         python-version: '3.8'
 
-    - uses: conda-incubator/setup-miniconda@v2
+    - name: Install Conda environment (with micro-Mamba)
+      uses: mamba-org/provision-with-micromamba@main
       with:
-        channels: conda-forge
-        channel-priority: strict
-        mamba-version: "*"
-        activate-environment: bc-monitor
-        auto-update-conda: false
-        python-version: 3.8
+        environment-file: environment.yml
+        environment-name: bc-monitor
+        cache-env: true
 
-    - name: Set up conda environment
-      run: |
-        mamba env update -f environment.yml
-
-    - name: Python environment info
-      run: |
-        conda info -a
-        conda list
-        python -c "import argopy; argopy.show_versions()"
+    # - name: Python environment info
+    #   run: |
+    #     conda info -a
+    #     conda list
+    #     python -c "import argopy; argopy.show_versions()"
 
 #    - name: Load AVISO data from wekeo
 #      env:
