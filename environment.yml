@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.8
-  - argopy=0.1.12
+#  - argopy=0.1.12
   - cartopy=0.20.2
   - cmocean=2.0
   - dask-ml=2022.5.27
@@ -21,4 +21,4 @@ dependencies:
   - pip
   - pip:
     - git+https://github.com/obidam/pyxpcm.git@master
-#    - git+https://github.com/euroargodev/argopy.git@master
+    - git+https://github.com/euroargodev/argopy.git@master
