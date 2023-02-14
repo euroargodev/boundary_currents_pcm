@@ -1,4 +1,5 @@
 import sys, os
+import traceback
 
 import numpy as np
 import pandas as pd
@@ -82,18 +83,21 @@ def load_and_classify(this_m, this_df):
             else:
                 msg = "Data downloaded but can't be classified: data can't be projected on standard depth levels"
             print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values, this_df['cycle_number'].values, msg))
+            print(traceback.format_exc())
             this_df['pcm_label'] = 999
             pass
 
-    except:
+    except Exception as e:
         try:
             print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values, this_df['cycle_number'].values,
                                                      argopy.dashboard(wmo=this_df['wmo'].values,
                                                                       cyc=this_df['cycle_number'].values,
                                                                       url_only=True)))
+            print(traceback.format_exc())
         except:
             print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values, this_df['cycle_number'].values,
                                                      argopy.dashboard(wmo=this_df['wmo'].values, url_only=True)))
+            print(traceback.format_exc())
             pass
         this_df['pcm_label'] = np.nan
 
@@ -206,7 +210,7 @@ if __name__ == "__main__":
     index['url'] = np.nan
     index['pcm_label'] = np.nan
 
-    # Then add cycle number of each profiles:
+    # Then add cycle number of each profile:
     index['cycle_number'] = index.apply(lambda x: int("".join([c for c in x['file'].split("/")[-1].split("_")[-1].split(".nc")[0] if c.isdigit()])), axis=1)
 
     # Add url to profiles:
