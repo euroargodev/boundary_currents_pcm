@@ -48,7 +48,7 @@ jobs:
         ls -l data
 
     - name: Save BC status
-      uses: EndBug/add-and-commit@v9.1.1
+      uses: EndBug/add-and-commit@v9.1.3
       with:
         author_name: argobot-hub
         author_email: argobot84@gmail.com
@@ -58,7 +58,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Save BC index
-      uses: EndBug/add-and-commit@v9.1.1
+      uses: EndBug/add-and-commit@v9.1.3
       with:
         author_name: argobot-hub
         author_email: argobot84@gmail.com
