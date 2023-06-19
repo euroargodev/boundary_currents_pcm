@@ -63,7 +63,7 @@ def analyse_regions(dict_regions, regions):
         while counter < max_try:
             # print(counter)
             try:
-                argo = ArgoIndexFetcher(src='gdac', cache=True).region(index_box).load()
+                argo = ArgoIndexFetcher(src='gdac', cache=False).region(index_box).load()
                 dict_regions[r.abbrev]['fetcher'] = argo
                 dict_regions[r.abbrev]['index'] = argo.index
                 dict_regions[r.abbrev]['N_PROF'] = len(argo.index)
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         cache_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "cache"])
         argopy.set_options(cachedir=cache_dir)
     print(argopy.show_options())
-    f = ArgoIndexFetcher(src='gdac', cache=True).region([-80, 15., 15, 78])  # Large enough to cover all regions
+    f = ArgoIndexFetcher(src='gdac', cache=False).region([-80, 15., 15, 78])  # Large enough to cover all regions
     print(f)
 
     # Get metrics and index for each regions:

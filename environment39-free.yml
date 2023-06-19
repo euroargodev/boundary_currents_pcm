@@ -1,0 +1,40 @@
+name: bc-monitor
+channels:
+  - conda-forge
+dependencies:
+  - python = 3.9.16
+
+# CORE:
+  - aiohttp
+  - fsspec
+  - netCDF4
+  - scipy
+  - xarray
+
+# UTIL:
+  - gsw
+  - tqdm
+
+# STAT:
+  - dask
+  - distributed
+  - scikit-learn
+  - xhistogram
+
+# PLOT:
+  - cartopy
+  - ipykernel
+  - matplotlib
+  - regionmask
+  - seaborn
+
+# DEV:
+  - numpy
+  - pandas
+  - pip
+
+# PIP:
+  - pip:
+      - motuclient
+      - git+https://github.com/obidam/pyxpcm.git@master
+      - git+https://github.com/euroargodev/argopy.git@master

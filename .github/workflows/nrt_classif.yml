@@ -24,15 +24,15 @@ jobs:
       with:
         ref: 'main'
 
-    - name: Set up Python 3.8
+    - name: Set up Python 3.9
       uses: actions/setup-python@v4
       with:
-        python-version: '3.8'
+        python-version: '3.9'
 
     - name: Install Conda environment (with micro-Mamba)
       uses: mamba-org/provision-with-micromamba@main
       with:
-        environment-file: environment.yml
+        environment-file: environment39-pinned.yml
         environment-name: bc-monitor
         cache-env: true
 
