@@ -115,7 +115,7 @@ def show_versions(file=sys.stdout, conda=False, free=False, core=False):  # noqa
             ("distributed", lambda mod: mod.__version__),
             ("sklearn", lambda mod: mod.__version__),
             ("xhistogram", lambda mod: mod.__version__),
-            # ("pyxpcm", lambda mod: mod.__version__),
+            ("dask_ml", lambda mod: mod.__version__),
         ]),
         'plot': sorted([
             ("matplotlib", lambda mod: mod.__version__),
@@ -141,6 +141,8 @@ def show_versions(file=sys.stdout, conda=False, free=False, core=False):  # noqa
     def fix_modname(name):
         if name == 'sklearn':
             return "scikit-learn"
+        elif name == 'dask_ml':
+            return "dask-ml"
         else:
             return name
 
