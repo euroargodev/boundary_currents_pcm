@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20230813005053
+# Date of update : 20230813063625
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_064.nc,20230805194708,36.943,-60.582,A,854,AO,20230805223127,1902392,"AOML, USA",S2A float,64,https://dataselection.euro-argo.eu/cycle/5466792,2.0,1.0
 aoml/1902444/profiles/R1902444_061.nc,20230803111128,40.811,-61.56,A,876,AO,20230803140107,1902444,"AOML, USA",Unknown,61,https://dataselection.euro-argo.eu/cycle/5465691,0.0,0.0
@@ -16,7 +16,7 @@ aoml/4902345/profiles/R4902345_272.nc,20230803120747,41.665,-60.56,A,854,AO,2023
 aoml/4902928/profiles/R4902928_209.nc,20230807175609,34.508,-70.894,A,854,AO,20230807223151,4902928,"AOML, USA",S2A float,209,https://dataselection.euro-argo.eu/cycle/5467737,2.0,1.0
 aoml/4903035/profiles/R4903035_218.nc,20230806001053,34.786,-66.021,A,854,AO,20230806020044,4903035,"AOML, USA",S2A float,218,https://dataselection.euro-argo.eu/cycle/5466869,1.0,3.0
 aoml/4903042/profiles/R4903042_178.nc,20230803075920,40.423,-50.917,A,854,AO,20230803090111,4903042,"AOML, USA",S2A float,178,https://dataselection.euro-argo.eu/cycle/5465546,2.0,1.0
-aoml/4903048/profiles/R4903048_177.nc,20230803021620,33.794,-52.737,A,854,AO,20230803030041,4903048,"AOML, USA",S2A float,177,https://dataselection.euro-argo.eu/cycle/5465429,2.0,1.0
+aoml/4903048/profiles/R4903048_178.nc,20230813000553,33.48,-53.097,A,854,AO,20230813020051,4903048,"AOML, USA",S2A float,178,,2.0,1.0
 aoml/4903049/profiles/R4903049_177.nc,20230803091734,38.36,-66.799,A,854,AO,20230803110044,4903049,"AOML, USA",S2A float,177,https://dataselection.euro-argo.eu/cycle/5465599,0.0,0.0
 aoml/4903050/profiles/R4903050_165.nc,20230810164617,33.526,-64.003,A,854,AO,20230810190113,4903050,"AOML, USA",S2A float,165,https://dataselection.euro-argo.eu/cycle/5469232,1.0,3.0
 aoml/4903233/profiles/R4903233_318.nc,20230806041628,33.916,-66.696,A,854,AO,20230811020054,4903233,"AOML, USA",S2A float,318,https://dataselection.euro-argo.eu/cycle/5466920,2.0,1.0
@@ -26,6 +26,7 @@ aoml/4903256/profiles/R4903256_281.nc,20230808132923,36.514,-71.504,A,854,AO,202
 aoml/4903258/profiles/R4903258_242.nc,20230812084657,42.111,-55.027,A,854,AO,20230812100051,4903258,"AOML, USA",S2A float,242,https://dataselection.euro-argo.eu/cycle/5470081,0.0,0.0
 aoml/4903260/profiles/R4903260_139.nc,20230805122113,37.531,-52.001,A,854,AO,20230805140057,4903260,"AOML, USA",S2A float,139,https://dataselection.euro-argo.eu/cycle/5466618,2.0,1.0
 aoml/4903273/profiles/R4903273_080.nc,20230812055342,35.73,-69.297,A,869,AO,20230812190050,4903273,"AOML, USA",Unknown,80,,2.0,1.0
+aoml/4903277/profiles/R4903277_224.nc,20230812220819,35.102,-74.813,A,854,AO,20230813000040,4903277,"AOML, USA",S2A float,224,,999.0,999.0
 aoml/4903280/profiles/R4903280_104.nc,20230812100337,39.679,-67.659,A,854,AO,20230812110058,4903280,"AOML, USA",S2A float,104,https://dataselection.euro-argo.eu/cycle/5470086,0.0,0.0
 aoml/4903456/profiles/R4903456_034.nc,20230807091938,37.631,-59.678,A,869,AO,20230807223217,4903456,"AOML, USA",Unknown,34,https://dataselection.euro-argo.eu/cycle/5467818,2.0,1.0
 aoml/5906342/profiles/R5906342_087.nc,20230807002047,34.465,-68.009,A,846,AO,20230807040042,5906342,"AOML, USA","Webb Research, Seabird sensor",87,https://dataselection.euro-argo.eu/cycle/5467395,2.0,1.0
