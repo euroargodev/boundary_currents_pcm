@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20230829063557
+# Date of update : 20230829124350
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_066.nc,20230825141134,36.696,-61.671,A,854,AO,20230825170100,1902392,"AOML, USA",S2A float,66,https://dataselection.euro-argo.eu/cycle/5476520,2.0,1.0
 aoml/1902444/profiles/R1902444_063.nc,20230823054702,41.022,-62.284,A,876,AO,20230823090130,1902444,"AOML, USA",Unknown,63,https://dataselection.euro-argo.eu/cycle/5475395,0.0,0.0
@@ -35,6 +35,7 @@ aoml/5906342/profiles/R5906342_089.nc,20230827030801,34.196,-67.022,A,846,AO,202
 bodc/5906966/profiles/R5906966_073.nc,20230821005835,34.141,-74.96,A,877,BO,20230821081951,5906966,"BODC, United Kingdom",Unknown,73,https://dataselection.euro-argo.eu/cycle/5474424,1.0,3.0
 bodc/5906966/profiles/R5906966_074.nc,20230823165422,34.338,-74.744,A,877,BO,20230824023412,5906966,"BODC, United Kingdom",Unknown,74,https://dataselection.euro-argo.eu/cycle/5475724,1.0,3.0
 bodc/5906966/profiles/R5906966_075.nc,20230826085019,34.553,-74.44,A,877,BO,20230826141816,5906966,"BODC, United Kingdom",Unknown,75,https://dataselection.euro-argo.eu/cycle/5477003,1.0,3.0
+bodc/5906966/profiles/R5906966_076.nc,20230829010602,34.806,-74.097,A,877,BO,20230829081948,5906966,"BODC, United Kingdom",Unknown,76,,2.0,1.0
 bodc/6901194/profiles/R6901194_259.nc,20230828154816,43.436,-58.593,A,846,BO,20230829023630,6901194,"BODC, United Kingdom","Webb Research, Seabird sensor",259,,0.0,0.0
 bodc/7901008/profiles/R7901008_060.nc,20230820004448,40.291,-62.153,A,846,BO,20230820081948,7901008,"BODC, United Kingdom","Webb Research, Seabird sensor",60,https://dataselection.euro-argo.eu/cycle/5473930,0.0,0.0
 coriolis/3901601/profiles/R3901601_254.nc,20230828043645,38.472,-63.012,A,846,IF,20230828091539,3901601,"Ifremer, France","Webb Research, Seabird sensor",254,,3.0,2.0
