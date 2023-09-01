@@ -3,11 +3,11 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20230901124308
+# Date of update : 20230901183552
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_066.nc,20230825141134,36.696,-61.671,A,854,AO,20230825170100,1902392,"AOML, USA",S2A float,66,https://dataselection.euro-argo.eu/cycle/5476520,2.0,1.0
 aoml/1902444/profiles/R1902444_063.nc,20230823054702,41.022,-62.284,A,876,AO,20230823090130,1902444,"AOML, USA",Unknown,63,https://dataselection.euro-argo.eu/cycle/5475395,0.0,0.0
-aoml/4902104/profiles/R4902104_293.nc,20230901034829,34.567,-58.848,A,854,AO,20230901050033,4902104,"AOML, USA",S2A float,293,,2.0,1.0
+aoml/4902104/profiles/R4902104_293.nc,20230901034829,34.567,-58.848,A,854,AO,20230901050033,4902104,"AOML, USA",S2A float,293,https://dataselection.euro-argo.eu/cycle/5479893,2.0,1.0
 aoml/4902111/profiles/R4902111_284.nc,20230826173612,41.285,-63.385,A,854,AO,20230826183046,4902111,"AOML, USA",S2A float,284,https://dataselection.euro-argo.eu/cycle/5477072,999.0,999.0
 aoml/4902121/profiles/R4902121_272.nc,20230826140228,39.251,-65.869,A,854,AO,20230828211509,4902121,"AOML, USA",S2A float,272,https://dataselection.euro-argo.eu/cycle/5477034,999.0,999.0
 aoml/4902337/profiles/R4902337_301.nc,20230828034048,37.937,-64.517,A,854,AO,20230828050038,4902337,"AOML, USA",S2A float,301,https://dataselection.euro-argo.eu/cycle/5477742,1.0,3.0
@@ -24,17 +24,15 @@ aoml/4903233/profiles/R4903233_322.nc,20230825120045,33.952,-66.21,A,854,AO,2023
 aoml/4903233/profiles/R4903233_323.nc,20230830080017,34.075,-66.339,A,854,AO,20230830110045,4903233,"AOML, USA",S2A float,323,https://dataselection.euro-argo.eu/cycle/5478974,2.0,1.0
 aoml/4903252/profiles/R4903252_234.nc,20230825154713,41.709,-57.603,A,854,AO,20230825170047,4903252,"AOML, USA",S2A float,234,https://dataselection.euro-argo.eu/cycle/5476522,0.0,0.0
 aoml/4903256/profiles/R4903256_283.nc,20230828074353,37.17,-71.042,A,854,AO,20230828090052,4903256,"AOML, USA",S2A float,283,https://dataselection.euro-argo.eu/cycle/5477838,2.0,1.0
-aoml/4903258/profiles/R4903258_243.nc,20230822122034,42.209,-55.019,A,854,AO,20230822140104,4903258,"AOML, USA",S2A float,243,https://dataselection.euro-argo.eu/cycle/5475063,0.0,0.0
 aoml/4903260/profiles/R4903260_141.nc,20230825060606,39.191,-52.099,A,854,AO,20230825070102,4903260,"AOML, USA",S2A float,141,https://dataselection.euro-argo.eu/cycle/5476318,2.0,1.0
 aoml/4903273/profiles/R4903273_081.nc,20230823064330,35.546,-69.646,A,869,AO,20230824223224,4903273,"AOML, USA",Unknown,81,https://dataselection.euro-argo.eu/cycle/5476134,2.0,1.0
-aoml/4903277/profiles/R4903277_228.nc,20230822122917,37.885,-68.736,A,854,AO,20230822140110,4903277,"AOML, USA",S2A float,228,https://dataselection.euro-argo.eu/cycle/5475062,999.0,999.0
-aoml/4903280/profiles/R4903280_106.nc,20230901023538,39.275,-68.965,A,854,AO,20230901030044,4903280,"AOML, USA",S2A float,106,,0.0,0.0
+aoml/4903280/profiles/R4903280_106.nc,20230901023538,39.275,-68.965,A,854,AO,20230901030044,4903280,"AOML, USA",S2A float,106,https://dataselection.euro-argo.eu/cycle/5479858,0.0,0.0
 aoml/4903456/profiles/R4903456_036.nc,20230827092945,38.742,-56.873,A,869,AO,20230827223139,4903456,"AOML, USA",Unknown,36,https://dataselection.euro-argo.eu/cycle/5477604,2.0,1.0
 aoml/5906342/profiles/R5906342_089.nc,20230827030801,34.196,-67.022,A,846,AO,20230827070100,5906342,"AOML, USA","Webb Research, Seabird sensor",89,https://dataselection.euro-argo.eu/cycle/5477306,1.0,3.0
 bodc/5906966/profiles/R5906966_074.nc,20230823165422,34.338,-74.744,A,877,BO,20230824023412,5906966,"BODC, United Kingdom",Unknown,74,https://dataselection.euro-argo.eu/cycle/5475724,1.0,3.0
 bodc/5906966/profiles/R5906966_075.nc,20230826085019,34.553,-74.44,A,877,BO,20230826141816,5906966,"BODC, United Kingdom",Unknown,75,https://dataselection.euro-argo.eu/cycle/5477003,1.0,3.0
 bodc/5906966/profiles/R5906966_076.nc,20230829010602,34.806,-74.097,A,877,BO,20230829081948,5906966,"BODC, United Kingdom",Unknown,76,https://dataselection.euro-argo.eu/cycle/5478273,2.0,1.0
-bodc/5906966/profiles/R5906966_077.nc,20230831170726,35.174,-73.728,A,877,BO,20230901031847,5906966,"BODC, United Kingdom",Unknown,77,,2.0,1.0
+bodc/5906966/profiles/R5906966_077.nc,20230831170726,35.174,-73.728,A,877,BO,20230901031847,5906966,"BODC, United Kingdom",Unknown,77,https://dataselection.euro-argo.eu/cycle/5479831,2.0,1.0
 bodc/6901194/profiles/R6901194_259.nc,20230828154816,43.436,-58.593,A,846,BO,20230829023630,6901194,"BODC, United Kingdom","Webb Research, Seabird sensor",259,https://dataselection.euro-argo.eu/cycle/5478036,0.0,0.0
 bodc/7901008/profiles/R7901008_061.nc,20230829184800,40.272,-62.387,A,846,BO,20230830023921,7901008,"BODC, United Kingdom","Webb Research, Seabird sensor",61,https://dataselection.euro-argo.eu/cycle/5478644,3.0,2.0
 coriolis/3901601/profiles/R3901601_254.nc,20230828043645,38.472,-63.012,A,846,IF,20230829131843,3901601,"Ifremer, France","Webb Research, Seabird sensor",254,https://dataselection.euro-argo.eu/cycle/5478039,3.0,2.0
@@ -50,7 +48,7 @@ meds/4902470/profiles/R4902470_158.nc,20230826204900,36.283,-67.834,A,844,ME,202
 meds/4902481/profiles/R4902481_153.nc,20230828220000,42.716,-51.081,A,844,ME,20230828221547,4902481,"MEDS, Canada","Arvor, Seabird conductivity sensor",153,https://dataselection.euro-argo.eu/cycle/5478140,0.0,0.0
 meds/4902498/profiles/R4902498_136.nc,20230830023500,36.59,-74.251,A,844,ME,20230830011541,4902498,"MEDS, Canada","Arvor, Seabird conductivity sensor",136,https://dataselection.euro-argo.eu/cycle/5478711,3.0,2.0
 meds/4902503/profiles/R4902503_104.nc,20230825210500,34.282,-66.983,A,844,ME,20230825221547,4902503,"MEDS, Canada","Arvor, Seabird conductivity sensor",104,https://dataselection.euro-argo.eu/cycle/5476743,1.0,3.0
-meds/4902515/profiles/R4902515_070.nc,20230831232700,42.053,-56.499,A,844,ME,20230831221536,4902515,"MEDS, Canada","Arvor, Seabird conductivity sensor",70,,0.0,0.0
+meds/4902515/profiles/R4902515_070.nc,20230831232700,42.053,-56.499,A,844,ME,20230831221536,4902515,"MEDS, Canada","Arvor, Seabird conductivity sensor",70,https://dataselection.euro-argo.eu/cycle/5479817,0.0,0.0
 meds/4902519/profiles/R4902519_069.nc,20230824085100,35.69,-53.069,A,844,ME,20230824071537,4902519,"MEDS, Canada","Arvor, Seabird conductivity sensor",69,https://dataselection.euro-argo.eu/cycle/5475909,2.0,1.0
 meds/4902523/profiles/R4902523_104.nc,20230824205900,34.388,-69.115,A,844,ME,20230824191547,4902523,"MEDS, Canada","Arvor, Seabird conductivity sensor",104,https://dataselection.euro-argo.eu/cycle/5476156,2.0,1.0
 meds/4902524/profiles/R4902524_104.nc,20230824205300,33.548,-74.881,A,844,ME,20230824221540,4902524,"MEDS, Canada","Arvor, Seabird conductivity sensor",104,https://dataselection.euro-argo.eu/cycle/5476200,2.0,1.0
@@ -60,5 +58,4 @@ meds/4902577/profiles/R4902577_051.nc,20230826160600,33.519,-60.625,A,844,ME,202
 meds/4902578/profiles/R4902578_046.nc,20230828151400,40.155,-50.085,A,844,ME,20230828131540,4902578,"MEDS, Canada","Arvor, Seabird conductivity sensor",46,https://dataselection.euro-argo.eu/cycle/5477991,0.0,0.0
 meds/4902590/profiles/R4902590_046.nc,20230828145600,39.243,-71.685,A,844,ME,20230828131542,4902590,"MEDS, Canada","Arvor, Seabird conductivity sensor",46,https://dataselection.euro-argo.eu/cycle/5477992,3.0,2.0
 meds/4902598/profiles/R4902598_035.nc,20230828093800,35.83,-66.339,A,836,ME,20230829141608,4902598,"MEDS, Canada",Unknown,35,https://dataselection.euro-argo.eu/cycle/5478520,2.0,1.0
-meds/4902599/profiles/R4902599_033.nc,20230901041700,37.428,-59.488,A,836,ME,20230901060127,4902599,"MEDS, Canada",Unknown,33,,1.0,3.0
-meds/4902606/profiles/R4902606_008.nc,20230822172100,40.976,-64.421,A,844,ME,20230823091655,4902606,"MEDS, Canada","Arvor, Seabird conductivity sensor",8,https://dataselection.euro-argo.eu/cycle/5475504,0.0,0.0
+meds/4902599/profiles/R4902599_033.nc,20230901041700,37.428,-59.488,A,836,ME,20230901060127,4902599,"MEDS, Canada",Unknown,33,https://dataselection.euro-argo.eu/cycle/5480015,1.0,3.0
