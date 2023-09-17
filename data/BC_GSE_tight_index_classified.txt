@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20230917124054
+# Date of update : 20230917183526
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_068.nc,20230914085035,36.788,-59.277,A,854,AO,20230914100049,1902392,"AOML, USA",S2A float,68,https://dataselection.euro-argo.eu/cycle/5505904,2.0,1.0
 aoml/1902444/profiles/R1902444_065.nc,20230911231303,41.287,-62.48,A,876,AO,20230912020122,1902444,"AOML, USA",Unknown,65,https://dataselection.euro-argo.eu/cycle/5485139,0.0,0.0
@@ -33,8 +33,8 @@ aoml/5906342/profiles/R5906342_091.nc,20230916052650,35.518,-68.445,A,846,AO,202
 aoml/5906435/profiles/R5906435_090.nc,20230911102559,33.305,-48.84,A,846,AO,20230911140118,5906435,"AOML, USA","Webb Research, Seabird sensor",90,https://dataselection.euro-argo.eu/cycle/5484736,2.0,1.0
 aoml/5906438/profiles/R5906438_086.nc,20230913024159,43.644,-48.416,A,846,AO,20230913070104,5906438,"AOML, USA","Webb Research, Seabird sensor",86,https://dataselection.euro-argo.eu/cycle/5498594,0.0,0.0
 bodc/5906966/profiles/R5906966_080.nc,20230908201130,36.78,-73.53,A,877,BO,20230909023522,5906966,"BODC, United Kingdom",Unknown,80,https://dataselection.euro-argo.eu/cycle/5483480,1.0,3.0
-bodc/6901194/profiles/R6901194_260.nc,20230907125201,43.196,-58.658,A,846,BO,20230907202032,6901194,"BODC, United Kingdom","Webb Research, Seabird sensor",260,https://dataselection.euro-argo.eu/cycle/5482820,0.0,0.0
 bodc/7901008/profiles/R7901008_062.nc,20230908124648,40.64,-62.709,A,846,BO,20230908202107,7901008,"BODC, United Kingdom","Webb Research, Seabird sensor",62,https://dataselection.euro-argo.eu/cycle/5483366,3.0,2.0
+coriolis/3901601/profiles/R3901601_256.nc,20230917042009,40.232,-61.045,A,846,IF,20230917091539,3901601,"Ifremer, France","Webb Research, Seabird sensor",256,,2.0,1.0
 coriolis/3901602/profiles/R3901602_256.nc,20230913143142,34.088,-58.113,A,846,IF,20230915001731,3901602,"Ifremer, France","Webb Research, Seabird sensor",256,https://dataselection.euro-argo.eu/cycle/5505562,1.0,3.0
 coriolis/3901603/profiles/R3901603_256.nc,20230915010947,40.254,-61.441,A,846,IF,20230916101628,3901603,"Ifremer, France","Webb Research, Seabird sensor",256,https://dataselection.euro-argo.eu/cycle/5506270,0.0,0.0
 coriolis/3901687/profiles/R3901687_130.nc,20230914205320,34.941,-49.271,A,844,IF,20230914212743,3901687,"Ifremer, France","Arvor, Seabird conductivity sensor",130,https://dataselection.euro-argo.eu/cycle/5506120,1.0,3.0
