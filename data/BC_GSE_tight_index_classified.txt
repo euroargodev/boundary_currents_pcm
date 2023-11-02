@@ -3,9 +3,10 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20231102004953
+# Date of update : 20231102063550
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902444/profiles/R1902444_070.nc,20231031044821,40.844,-64.876,A,876,AO,20231031070116,1902444,70,"AOML, USA",Unknown,70,https://dataselection.euro-argo.eu/cycle/5531982,0.0,0.0
+aoml/3901219/profiles/R3901219_244.nc,20231101220132,42.276,-48.883,A,854,AO,20231102000056,3901219,244,"AOML, USA",Unknown,244,,2.0,1.0
 aoml/4902104/profiles/R4902104_299.nc,20231030080117,35.871,-55.587,A,854,AO,20231030090044,4902104,299,"AOML, USA",Unknown,299,https://dataselection.euro-argo.eu/cycle/5531466,999.0,999.0
 aoml/4902111/profiles/R4902111_290.nc,20231024030051,39.685,-67.812,A,854,AO,20231024040036,4902111,290,"AOML, USA",Unknown,290,https://dataselection.euro-argo.eu/cycle/5528761,999.0,999.0
 aoml/4902121/profiles/R4902121_278.nc,20231026065804,37.881,-65.985,A,854,AO,20231026090038,4902121,278,"AOML, USA",Unknown,278,https://dataselection.euro-argo.eu/cycle/5529612,999.0,999.0
@@ -46,6 +47,7 @@ meds/4902498/profiles/R4902498_142.nc,20231030080300,35.96,-74.244,A,844,ME,2023
 meds/4902501/profiles/R4902501_110.nc,20231025030300,33.092,-70.896,A,844,ME,20231025031550,4902501,110,"MEDS, Canada",Unknown,110,https://dataselection.euro-argo.eu/cycle/5529125,2.0,1.0
 meds/4902503/profiles/R4902503_110.nc,20231026030100,37.759,-69.651,A,844,ME,20231026071557,4902503,110,"MEDS, Canada",Unknown,110,https://dataselection.euro-argo.eu/cycle/5529675,3.0,2.0
 meds/4902515/profiles/R4902515_076.nc,20231101045400,42.827,-60.653,A,844,ME,20231101041542,4902515,76,"MEDS, Canada",Unknown,76,https://dataselection.euro-argo.eu/cycle/5532537,3.0,2.0
+meds/4902518/profiles/R4902518_076.nc,20231101194600,33.974,-65.734,A,844,ME,20231101191542,4902518,76,"MEDS, Canada",Unknown,76,,2.0,1.0
 meds/4902519/profiles/R4902519_075.nc,20231024150000,34.822,-52.838,A,844,ME,20231024131542,4902519,75,"MEDS, Canada",Unknown,75,https://dataselection.euro-argo.eu/cycle/5528930,3.0,2.0
 meds/4902523/profiles/R4902523_110.nc,20231025025300,34.936,-68.242,A,844,ME,20231025031555,4902523,110,"MEDS, Canada",Unknown,110,https://dataselection.euro-argo.eu/cycle/5529128,2.0,1.0
 meds/4902524/profiles/R4902524_110.nc,20231025030500,38.683,-72.331,A,844,ME,20231025031556,4902524,110,"MEDS, Canada",Unknown,110,https://dataselection.euro-argo.eu/cycle/5529129,0.0,0.0
