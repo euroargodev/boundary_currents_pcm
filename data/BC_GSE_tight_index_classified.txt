@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20231103183615
+# Date of update : 20231104004951
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_073.nc,20231102183052,37.866,-61.493,A,854,AO,20231102223202,1902392,73,"AOML, USA",Unknown,73,https://dataselection.euro-argo.eu/cycle/5536343,3.0,2.0
 aoml/1902444/profiles/R1902444_070.nc,20231031044821,40.844,-64.876,A,876,AO,20231031070116,1902444,70,"AOML, USA",Unknown,70,https://dataselection.euro-argo.eu/cycle/5531982,0.0,0.0
@@ -40,6 +40,8 @@ coriolis/3901601/profiles/R3901601_260.nc,20231027041744,38.964,-61.172,A,846,IF
 coriolis/3901602/profiles/R3901602_261.nc,20231102142615,36.186,-56.113,A,846,IF,20231102221526,3901602,261,"Ifremer, France",Unknown,261,https://dataselection.euro-argo.eu/cycle/5536228,2.0,1.0
 coriolis/3901603/profiles/R3901603_260.nc,20231025005316,41.102,-64.745,A,846,IF,20231026101635,3901603,260,"Ifremer, France",Unknown,260,https://dataselection.euro-argo.eu/cycle/5529057,0.0,0.0
 coriolis/3901687/profiles/R3901687_134.nc,20231025163520,36.938,-52.402,A,844,IF,20231025172546,3901687,134,"Ifremer, France",Unknown,134,https://dataselection.euro-argo.eu/cycle/5529301,1.0,3.0
+coriolis/6903121/profiles/R6903121_070.nc,20231103143430,36.938,-51.115,A,844,IF,20231103152822,6903121,70,"Ifremer, France",Unknown,70,,2.0,1.0
+coriolis/6903122/profiles/R6903122_070.nc,20231103142230,34.497,-61.419,A,844,IF,20231103152619,6903122,70,"Ifremer, France",Unknown,70,,3.0,2.0
 coriolis/6990501/profiles/R6990501_043.nc,20231026110632,38.469,-55.649,A,846,IF,20231027211534,6990501,43,"Ifremer, France",Unknown,43,https://dataselection.euro-argo.eu/cycle/5529828,2.0,1.0
 meds/4902467/profiles/R4902467_164.nc,20231027024700,41.158,-57.684,A,844,ME,20231027011539,4902467,164,"MEDS, Canada",Unknown,164,https://dataselection.euro-argo.eu/cycle/5530028,0.0,0.0
 meds/4902470/profiles/R4902470_164.nc,20231027025700,39.257,-65.32,A,844,ME,20231027011540,4902470,164,"MEDS, Canada",Unknown,164,https://dataselection.euro-argo.eu/cycle/5530029,2.0,1.0
