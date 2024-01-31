@@ -173,7 +173,7 @@ if __name__ == "__main__":
     except:
         print("Can't load AVISO data")
         aviso_nrt, aviso_mdt = None, None
-        pass
+        raise 
 
     #######################
     # Load floats data and classify them
