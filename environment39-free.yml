@@ -2,7 +2,7 @@ name: bc-monitor
 channels:
   - conda-forge
 dependencies:
-  - python = 3.9.16
+  - python = 3.9
 
 # CORE:
   - aiohttp
@@ -10,6 +10,7 @@ dependencies:
   - netCDF4
   - scipy
   - xarray
+  - argopy
 
 # UTIL:
   - gsw
@@ -36,6 +37,5 @@ dependencies:
 
 # PIP:
   - pip:
-      - motuclient
       - git+https://github.com/obidam/pyxpcm.git@master
-      - git+https://github.com/euroargodev/argopy.git@master
+      - copernicusmarine>=1.0<=2.0
