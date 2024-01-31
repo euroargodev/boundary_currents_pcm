@@ -22,31 +22,9 @@ from pcmbc.utilities import from_misc_pres_2_std_depth, load_aviso_nrt, load_avi
 log = logging.getLogger("load_classif_save")
 
 
-# def download_aviso_from_wekeo(a_box, a_date):
-#     WEKEO_USERNAME, WEKEO_PASSWORD = (
-#         os.getenv("WEKEO_USERNAME"),
-#         os.getenv("WEKEO_PASSWORD"),
-#     )
-#     if not WEKEO_USERNAME:
-#         raise ValueError("No WEKEO_USERNAME in environment ! ")
-#
-#     aviso = load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname="sla")
-#     aviso_clim = load_aviso_mdt(a_box, WEKEO_USERNAME, WEKEO_PASSWORD, vname="mdt")
-#
-#     return aviso, aviso_clim
-
-
-def download_aviso_with_motu(a_box, a_date):
-    MOTU_USERNAME, MOTU_PASSWORD = (
-        os.getenv("MOTU_USERNAME"),
-        os.getenv("MOTU_PASSWORD"),
-    )
-    if not MOTU_USERNAME:
-        raise ValueError("No MOTU_USERNAME in environment ! ")
-
-    # aviso = load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname="sla")
-    aviso = load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname=["sla", 'adt'])
-    # aviso_clim = load_aviso_mdt(a_box, MOTU_USERNAME, MOTU_PASSWORD, vname="mdt")
+def download_aviso_with_cmt(a_box, a_date):
+    aviso = load_aviso_nrt(a_box, a_date, vname=["sla", 'adt'])
+    # aviso_clim = load_aviso_mdt(a_box, vname="mdt")
     aviso_clim = None
 
     return aviso, aviso_clim
@@ -191,15 +169,11 @@ if __name__ == "__main__":
 
     # Load AVISO data for the map:
     try:
-        # aviso_nrt, aviso_mdt = download_aviso_from_wekeo(box, index["date"].max())
-        aviso_nrt, aviso_mdt = download_aviso_with_motu(box, index["date"].max())
+        aviso_nrt, aviso_mdt = download_aviso_with_cmt(box, index["date"].max())
     except:
         print("Can't load AVISO data")
         aviso_nrt, aviso_mdt = None, None
         pass
-    # download_aviso_from_wekeo(box, pd.to_datetime('now', utc=True))
-    # print(aviso_nrt)
-    # print(aviso_mdt)
 
     #######################
     # Load floats data and classify them
@@ -255,7 +229,7 @@ if __name__ == "__main__":
         yticklabels[korder[k]] = "Class #%i:%s\n%i profiles" % (korder[k], class_descriptions[korder[k]], n)
 
     proj = argopy.plot.utils.cartopy.crs.PlateCarree()
-    dx, dy = 1, 1  # How much to extent the map contours wrt to the data set real domain
+    dx, dy = 1, 1  # How much to extend the map contours wrt to the data set real domain
     subplot_kw = {'projection': proj, 'extent': np.array(box) + np.array([-dx, +dx, -dy, +dy])}
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(10, 5), dpi=120, facecolor='w', edgecolor='k',
                            subplot_kw=subplot_kw)
@@ -303,7 +277,3 @@ if __name__ == "__main__":
 
     # Tear down
     os.remove(pcm_name)
-    if aviso_nrt:
-        os.remove(aviso_nrt.attrs['local_file'])
-    if aviso_mdt:
-        os.remove(aviso_mdt.attrs['local_file'])

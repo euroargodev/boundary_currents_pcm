@@ -1,10 +1,7 @@
 import os
-import sys
 import numpy as np
-import xarray as xr
-# from . import hda_api
-# import glob
-from subprocess import Popen, PIPE
+import copernicusmarine
+
 
 def from_misc_pres_2_std_depth(
     a_pcm, ds_profiles, feature_name="temperature", max_pres_delta=50
@@ -228,7 +225,7 @@ def get_regulargrid_dataset(
     lon_dim="LONGITUDE",
     tim_dim="TIME",
 ):
-    """Re-sampling od the dataset selecting profiles separated by a minimum correlation distance
+    """Re-sampling of the dataset selecting profiles separated by a minimum correlation distance
 
     Function taken from: https://github.com/euroargodev/DMQC-PCM/blob/main/PCM-design/PCM_utils_forDMQC/data_processing.py
 
@@ -373,7 +370,7 @@ def reorder_class(this_ds, m, func, dim="pcm_class", sampling_dim="N_PROF"):
     this_ds[dim] = range(m.K)
 
     # Compute new labels for each profile:
-    # (I couldn't not figure how to run this on the whole array, without going through each profiles)
+    # (I could not figure how to run this on the whole array, without going through each profiles)
     new_labels = []
     for ii in range(len(this_ds[sampling_dim])):
         new_labels.append(np.argmax(this_ds["PCM_POST"][{sampling_dim: ii}].values))
@@ -382,281 +379,34 @@ def reorder_class(this_ds, m, func, dim="pcm_class", sampling_dim="N_PROF"):
     return this_ds
 
 
-# def get_jsonapirequest_nrt(a_box, a_date, vname='sla'):
-#     # vname: 'sla', 'adt', ...
-#     data = {
-#         # "datasetId": "EO:MO:DAT:SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046:dataset-duacs-nrt-global-merged-allsat-phy-l4",
-#         "datasetId": "EO:MO:DAT:SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046:dataset-duacs-nrt-global-merged-allsat-phy-l4_202112",
-#         "boundingBoxValues": [
-#             {"name": "bbox", "bbox": [a_box[0], a_box[2], a_box[1], a_box[3]]}
-#         ],
-#         "dateRangeSelectValues": [
-#             {
-#                 "name": "position",
-#                 "start": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
-#                 "end": a_date.strftime("%Y-%m-%dT00:00:00.000Z"),
-#             }
-#         ],
-#         "multiStringSelectValues": [{"name": "variable", "value": [vname]}],
-#         "stringChoiceValues": [
-#             {
-#                 "name": "service",
-#                 "value": "SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046-TDS",
-#             },
-#             {
-#                 "name": "product",
-#                 # "value": "dataset-duacs-nrt-global-merged-allsat-phy-l4",
-#                 "value": "dataset-duacs-nrt-global-merged-allsat-phy-l4_202112",
-#             },
-#         ],
-#     }
-#     return data
-#
-#
-# def load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname='sla'):
-#     # dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046"
-#     # api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
-#     # download_dir_path = "data"
-#     # hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
-#     # hda_dict = hda_api.get_access_token(hda_dict)
-#     # hda_dict = hda_api.acceptTandC(hda_dict)
-#     # hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_nrt(a_box, a_date, vname=vname))
-#     # hda_dict = hda_api.get_results_list(hda_dict)
-#     # hda_dict = hda_api.get_order_ids(hda_dict)
-#     # hda_dict = hda_api.download_data(
-#     #     hda_dict,
-#     #     file_extension=".nc",
-#     #     user_filename="SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046-TD",
-#     # )
-#     # ds = xr.open_dataset(hda_dict["filenames"][0])
-#     from hda import Client
-#
-#     c = Client(debug=True,
-#                quiet=False,
-#                url="https://wekeo-broker.apps.mercator.dpi.wekeo.eu/databroker",
-#                user=WEKEO_USERNAME,
-#                password=WEKEO_PASSWORD,
-#                retry_max=10,
-#                timeout=60,
-#                sleep_max=10)
-#     query = get_jsonapirequest_nrt(a_box, a_date, vname=vname)
-#     c.search(query).download()
-#     # file_name = sorted(
-#     #     glob.glob("%s*.nc" % [item for item in query['stringChoiceValues'] if item['name'] == 'product'][0]['value']))[
-#     #     -1]
-#     file_name = sorted(
-#         glob.glob("nrt_global_allsat_phy_l4*.nc"))[
-#         -1]
-#     ds = xr.open_dataset(file_name)
-#     ds.attrs['local_file'] = file_name
-#
-#     return ds
-#
-#
-# def get_jsonapirequest_mdt(a_box, vname='mdt'):
-#     # vname: 'mdt', 'u', 'v', 'surface_geostrophic_sea_water_velocity', ...
-#     data = {
-#         # "datasetId": "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063:cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y",
-#         "datasetId": "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063:cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y_202012",
-#         "boundingBoxValues": [
-#             {"name": "bbox", "bbox": [a_box[0], a_box[2], a_box[1], a_box[3]]}
-#         ],
-#         "dateRangeSelectValues": [
-#             {
-#                 "name": "position",
-#                 "start": "2003-01-01T00:00:00.000Z",
-#                 "end": "2003-01-01T00:00:00.000Z"
-#             }
-#         ],
-#         "multiStringSelectValues": [{"name": "variable", "value": [vname]}],
-#         "stringChoiceValues": [
-#             {
-#                 "name": "service",
-#                 "value": "SEALEVEL_GLO_PHY_MDT_008_063-TDS",
-#             },
-#             {
-#                 "name": "product",
-#                 # "value": "cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y",
-#                 "value": "cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y_202012",
-#             },
-#         ],
-#     }
-#     return data
-#
-#
-# def load_aviso_mdt(a_box, WEKEO_USERNAME, WEKEO_PASSWORD, vname='mdt'):
-#     # dataset_id = "EO:MO:DAT:SEALEVEL_GLO_PHY_MDT_008_063"
-#     # api_key = hda_api.generate_api_key(WEKEO_USERNAME, WEKEO_PASSWORD)
-#     # download_dir_path = "data"
-#     # hda_dict = hda_api.init(dataset_id, api_key, download_dir_path)
-#     # hda_dict = hda_api.get_access_token(hda_dict)
-#     # hda_dict = hda_api.acceptTandC(hda_dict)
-#     # hda_dict = hda_api.get_job_id(hda_dict, get_jsonapirequest_mdt(a_box, vname=vname))
-#     # hda_dict = hda_api.get_results_list(hda_dict)
-#     # hda_dict = hda_api.get_order_ids(hda_dict)
-#     # hda_dict = hda_api.download_data(
-#     #     hda_dict,
-#     #     file_extension=".nc",
-#     #     user_filename="SEALEVEL_GLO_PHY_MDT_008_063-TDS",
-#     # )
-#     # ds = xr.open_dataset(hda_dict["filenames"][0])
-#
-#     from hda import Client
-#
-#     c = Client(debug=True,
-#                quiet=False,
-#                url="https://wekeo-broker.apps.mercator.dpi.wekeo.eu/databroker",
-#                user=WEKEO_USERNAME,
-#                password=WEKEO_PASSWORD,
-#                retry_max=10,
-#                timeout=60,
-#                sleep_max=10)
-#     query = get_jsonapirequest_mdt(a_box, vname=vname)
-#     c.search(query).download()
-#     file_name = sorted(
-#         glob.glob("%s*.nc" % [item for item in query['stringChoiceValues'] if item['name'] == 'product'][0]['value']))[
-#         -1]
-#     ds = xr.open_dataset(file_name)
-#     ds.attrs['local_file'] = file_name
-#
-#     return ds
-
-def download_this(cmd):
-    process = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)
-    try:
-        while True:
-            line = process.stdout.readline()
-            if not line:
-                break
-            print(line.decode("utf-8"))
-            sys.stdout.flush()
-        return True
-    except:
-        print("Motuclient error:", sys.exc_info()[0])
-        return False
-
-
-def download_SLA(a_box, a_date, outdir='./', vname=['sla'], fileout=None):
-    """Download daily snapshot of SLA
-
-        TODAY = pd.to_datetime('now', utc=True)
-        file = download_SLA([-75.0, -48.0, 33, 45.5], TODAY, outdir='./')
-    """
-
-    serviceid = 'SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046-TDS'
-    productid = 'dataset-duacs-nrt-global-merged-allsat-phy-l4'
-
-    if not fileout:
-        fileout = ("%s_%s.nc") % (a_date.strftime('%Y%m%d'), productid)
-    absfileout = os.path.join(outdir, fileout)
-    if os.path.isfile(absfileout):
-        # print(("This file already exists:\n%s") % (absfileout))
-        return absfileout
-
-    cmd = (
-        'motuclient'
-        ' --user {}'
-        ' --pwd {}'
-        ' --motu {}'
-        ' --service-id {}'
-        ' --product-id {}'
-        ' --date-min {}'
-        ' --date-max {}'
-        ' --longitude-min {}'
-        ' --longitude-max {}'
-        ' --latitude-min {}'
-        ' --latitude-max {}'
-        ' {}'
-        ' --out-dir {}'
-        ' --out-name {}').format
-
-    this_cmd = cmd(
-        "\"%s\"" % os.getenv('MOTU_USERNAME'),
-        "\"%s\"" % os.getenv('MOTU_PASSWORD'),
-        'http://nrt.cmems-du.eu/motu-web/Motu',
-        serviceid,
-        productid,
-        ("\"%s\"") % (a_date.strftime('%Y-%m-%d 00:00:00')), ("\"%s\"") % (a_date.strftime('%Y-%m-%d 00:00:00')),
-        "%s" % a_box[0], "%s" % a_box[1],
-        "%s" % a_box[2], "%s" % a_box[3],
-        " ".join([("--variable %s") % (v) for v in vname]),
-        outdir, fileout)
-    print(this_cmd, "\n")
-
-    download_this(this_cmd)
-
-    return absfileout
-
-
-def download_MDT(a_box, outdir='./', vname=['mdt'], MOTU_USERNAME=None, MOTU_PASSWORD=None):
-    """Download MDT
-
-        TODAY = pd.to_datetime('now', utc=True)
-        file = download_SLA([-75.0, -48.0, 33, 45.5], TODAY, outdir='./')
-    """
-    if not MOTU_USERNAME:
-        MOTU_USERNAME = os.getenv('MOTU_USERNAME')
-    if not MOTU_PASSWORD:
-        MOTU_PASSWORD = os.getenv('MOTU_PASSWORD')
-
-    serviceid = 'SEALEVEL_GLO_PHY_MDT_008_063-TDS'
-    productid = 'cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y'
-
-    fileout = "%s.nc" % "cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y"
-    absfileout = os.path.join(outdir, fileout)
-    if os.path.isfile(absfileout):
-        # print(("This file already exists:\n%s") % (absfileout))
-        return absfileout
-
-    cmd = (
-        'motuclient'
-        ' --user {}'
-        ' --pwd {}'
-        ' --motu {}'
-        ' --service-id {}'
-        ' --product-id {}'
-        ' --date-min {}'
-        ' --date-max {}'
-        ' --longitude-min {}'
-        ' --longitude-max {}'
-        ' --latitude-min {}'
-        ' --latitude-max {}'
-        ' {}'
-        ' --out-dir {}'
-        ' --out-name {}').format
-
-    this_cmd = cmd(
-        "\"%s\"" % MOTU_USERNAME,
-        "\"%s\"" % MOTU_PASSWORD,
-        'https://my.cmems-du.eu/motu-web/Motu',
-        serviceid,
-        productid,
-        "\"2003-01-01 00:00:00\"",
-        "\"2003-01-01 00:00:00\"",
-        "%s" % a_box[0], "%s" % a_box[1],
-        "%s" % a_box[2], "%s" % a_box[3],
-        " ".join([("--variable %s") % (v) for v in vname]),
-        outdir, fileout)
-    print(this_cmd, "\n")
-
-    download_this(this_cmd)
-
-    return absfileout
-
-
-def load_aviso_nrt(a_box, a_date, MOTU_USERNAME, MOTU_PASSWORD, vname='sla'):
+def load_aviso_nrt(a_box, a_date, vname='sla'):
     if not isinstance(vname, list):
         vname = [vname]
-    fileout = download_SLA(a_box, a_date, fileout='latest_dataset-duacs-nrt-global-merged-allsat-phy-l4.nc',
-                           vname=vname)
-    ds = xr.open_dataset(fileout)
-    ds.attrs['local_file'] = fileout
+
+    ds = copernicusmarine.open_dataset(
+        dataset_id="cmems_obs-sl_glo_phy-ssh_nrt_allsat-l4-duacs-0.25deg_P1D",
+        minimum_longitude=a_box[0],
+        maximum_longitude=a_box[1],
+        minimum_latitude=a_box[2],
+        maximum_latitude=a_box[3],
+        start_datetime=a_date.strftime('%Y-%m-%d 00:00:00'),
+        end_datetime=a_date.strftime('%Y-%m-%d 00:00:00'),
+        variables=vname,
+    )
+
     return ds
 
+def load_aviso_mdt(a_box, vname='mdt'):
+    if not isinstance(vname, list):
+        vname = [vname]
 
-def load_aviso_mdt(a_box, MOTU_USERNAME, MOTU_PASSWORD, vname='mdt'):
-    fileout = download_MDT(a_box, vname=[vname])
-    ds = xr.open_dataset(fileout)
+    ds = copernicusmarine.open_dataset(
+        dataset_id="cnes_obs-sl_glo_phy-mdt_my_0.125deg_P20Y",
+        minimum_longitude=a_box[0],
+        maximum_longitude=a_box[1],
+        minimum_latitude=a_box[2],
+        maximum_latitude=a_box[3],
+        variables=vname,
+    )
     ds = ds.isel(time=0)
-    ds.attrs['local_file'] = fileout
     return ds
