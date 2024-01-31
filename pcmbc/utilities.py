@@ -393,6 +393,7 @@ def load_aviso_nrt(a_box, a_date, vname='sla'):
         end_datetime=a_date.strftime('%Y-%m-%d 00:00:00'),
         variables=vname,
     )
+    print(ds)
 
     return ds
 
