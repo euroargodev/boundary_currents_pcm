@@ -170,11 +170,11 @@ if __name__ == "__main__":
     # Load AVISO data for the map:
     try:
         aviso_nrt, aviso_mdt = download_aviso_with_cmt(box, index["date"].max())
-        print(aviso_nrt)
+        # print(aviso_nrt)
     except:
         print("Can't load AVISO data")
         aviso_nrt, aviso_mdt = None, None
-        pass
+        raise
 
     #######################
     # Load floats data and classify them
