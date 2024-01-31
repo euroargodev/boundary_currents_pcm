@@ -29,13 +29,6 @@ jobs:
       with:
         python-version: '3.9'
 
-#    - name: Install Conda environment (with micro-Mamba)
-#      uses: mamba-org/provision-with-micromamba@main
-#      with:
-#        environment-file: environment39-free.yml
-#        environment-name: bc-monitor
-#        cache-env: true
-
     - name: Setup Micromamba
       uses: mamba-org/setup-micromamba@v1
       with:
