@@ -13,7 +13,6 @@ jobs:
   classify-and-report:
 
     runs-on: ubuntu-latest
-    environment: motu
     defaults:
       run:
         shell: bash -l {0}
