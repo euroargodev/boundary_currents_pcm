@@ -1,34 +1,24 @@
-import sys, os
-
-import numpy as np
-# import pandas as pd
-# import xarray as xr
-# xr.set_options(display_style="html", display_expand_attrs=False)
-import warnings
-import matplotlib.pyplot as plt
-from tqdm import tqdm
-
-import pyxpcm
-import argopy
-from argopy import DataFetcher
+import os
 from argopy.stores.argo_index_pd import indexstore_pandas as indexstore
-
-sys.path.insert(0, os.sep.join([os.path.split(os.path.realpath(__file__))[0], '..']))
-from pcmbc.utilities import from_misc_pres_2_std_depth, load_aviso_nrt, load_aviso_mdt
+import copernicusmarine
 
 
-def download_aviso_from_wekeo(a_box, a_date):
-    WEKEO_USERNAME, WEKEO_PASSWORD = (
-        os.getenv("WEKEO_USERNAME"),
-        os.getenv("WEKEO_PASSWORD"),
+def load_aviso_nrt(a_box, a_date, vname='sla'):
+    if not isinstance(vname, list):
+        vname = [vname]
+
+    ds = copernicusmarine.open_dataset(
+        dataset_id="cmems_obs-sl_glo_phy-ssh_nrt_allsat-l4-duacs-0.25deg_P1D",
+        minimum_longitude=a_box[0],
+        maximum_longitude=a_box[1],
+        minimum_latitude=a_box[2],
+        maximum_latitude=a_box[3],
+        start_datetime=a_date.strftime('%Y-%m-%d 00:00:00'),
+        end_datetime=a_date.strftime('%Y-%m-%d 00:00:00'),
+        variables=vname,
     )
-    if not WEKEO_USERNAME:
-        raise ValueError("No WEKEO_USERNAME in environment ! ")
 
-    aviso = load_aviso_nrt(a_box, a_date, WEKEO_USERNAME, WEKEO_PASSWORD, vname="sla")
-    aviso_clim = load_aviso_mdt(a_box, WEKEO_USERNAME, WEKEO_PASSWORD, vname="mdt")
-
-    return aviso, aviso_clim
+    return ds
 
 
 if __name__ == "__main__":
@@ -72,13 +62,6 @@ if __name__ == "__main__":
     WMO_list = idx.read_wmo()
 
     # Load AVISO data for the map:
-    aviso_nrt, aviso_mdt = download_aviso_from_wekeo(box, index["date"].max())
+    aviso_nrt = load_aviso_nrt(box, index["date"].max())
 
     print(aviso_nrt)
-    print(aviso_mdt)
-
-    # Tear down
-    if aviso_nrt:
-        os.remove(aviso_nrt.attrs['local_file'])
-    if aviso_mdt:
-        os.remove(aviso_mdt.attrs['local_file'])
