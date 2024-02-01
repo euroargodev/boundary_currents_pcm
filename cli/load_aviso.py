@@ -57,7 +57,7 @@ if __name__ == "__main__":
         "https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_%s_index.txt"
         % (BCname.replace(" ", "_").replace(".", ""))
     )
-    idx = indexstore(host=os.path.split(index_file)[0], index_file=os.path.split(index_file)[1])
+    idx = indexstore(host=os.path.split(index_file)[0], index_file=os.path.split(index_file)[1], convention='ar_index_global_prof')
     index = idx.to_dataframe()
     WMO_list = idx.read_wmo()
 
