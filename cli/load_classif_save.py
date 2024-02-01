@@ -60,20 +60,20 @@ def load_and_classify(this_m, this_df):
                 msg = "Data downloaded but can't be classified: PCM prediction failed"
             else:
                 msg = "Data downloaded but can't be classified: data can't be projected on standard depth levels"
-            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values, this_df['cycle_number'].values, msg))
+            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0], msg))
             print(traceback.format_exc())
             this_df['pcm_label'] = 999
             pass
 
     except Exception as e:
         try:
-            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values, this_df['cycle_number'].values,
+            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0],
                                                      argopy.dashboard(wmo=this_df['wmo'].values,
                                                                       cyc=this_df['cycle_number'].values,
                                                                       url_only=True)))
             print(traceback.format_exc())
         except:
-            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values, this_df['cycle_number'].values,
+            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0],
                                                      argopy.dashboard(wmo=this_df['wmo'].values, url_only=True)))
             print(traceback.format_exc())
             pass
@@ -183,7 +183,7 @@ if __name__ == "__main__":
 
     # Prepare index with new columns:
     index['cycle_number'] = np.nan
-    index['url'] = np.nan
+    index['url'] = ''
     index['pcm_label'] = np.nan
 
     # Then add cycle number of each profile:
@@ -194,7 +194,8 @@ if __name__ == "__main__":
         wmo, cyc = prof[0], prof[1]
         try:
             df['url'] = argopy.dashboard(wmo=df['wmo'].values, cyc=df['cycle_number'].values, url_only=True)
-            index = index.mask(np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc), df)
+            # index = index.mask(np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc), df)
+            index.loc[np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc)] = df
         except:
             pass
 
@@ -204,7 +205,7 @@ if __name__ == "__main__":
     for prof, df in tqdm(index.groupby(['wmo', 'cycle_number'])):
         wmo, cyc = prof[0], prof[1]
         df_updated = load_and_classify(m, df)
-        index = index.mask(np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc), df_updated)
+        index.loc[np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc)] = df_updated
 
     # Re-order class labels according to the PCM best fit ordering
     index['reordered_label'] = index.apply(
