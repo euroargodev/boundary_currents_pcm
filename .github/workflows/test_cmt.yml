@@ -10,6 +10,7 @@ jobs:
   classify-and-report:
 
     runs-on: ubuntu-latest
+    environment: COPERNICUS_MARINE_SERVICE
     defaults:
       run:
         shell: bash -l {0}
@@ -32,8 +33,15 @@ jobs:
         environment-file: environment39-free.yml
         cache-environment: true
 
-    - name: Classify and report
+    - name: Test login CMS
+      env:
+        USERNAME: ${{secrets.COPERNICUS_MARINE_SERVICE_USERNAME}}
+        PASSWORD: ${{secrets.COPERNICUS_MARINE_SERVICE_PASSWORD}}
       run: |
+        copernicusmarine login --username $USERNAME --password $PASSWORD --overwrite-configuration-file --log-level INFO
         ls -al ~/.copernicusmarine
         more ~/.copernicusmarine/.copernicusmarine-credentials
+
+    - name: Test
+      run: |
         python cli/load_aviso.py
