@@ -31,53 +31,56 @@ def download_aviso_with_cmt(a_box, a_date):
 
 
 def load_and_classify(this_m, this_df):
-    # Load data for this profile:
-    try:
-        ds = DataFetcher(src='erddap', mode='expert', cache=False).profile(this_df['wmo'].values,
-                                                                          this_df['cycle_number'].values).data
-        ds = ds.argo.filter_data_mode()
-        dsp_float = ds.argo.point2profile()
-        # Rq: Here I use the 'expert' mode in order to only filter variables according to DATA MODE. If I use the 'standard' mode, data are
-        # also filtered by QC, which can reduce the number of "classifiable" profiles.
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=FutureWarning)
 
-        std = False
+        # Load data for this profile:
         try:
-            # Process profile:
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                dsi_float = from_misc_pres_2_std_depth(this_m, dsp_float, feature_name='temperature')
-                std = True
+            ds = DataFetcher(src='erddap', mode='expert', cache=False).profile(this_df['wmo'].values,
+                                                                              this_df['cycle_number'].values).data
+            ds = ds.argo.filter_data_mode()
+            dsp_float = ds.argo.point2profile()
+            # Rq: Here I use the 'expert' mode in order to only filter variables according to DATA MODE. If I use the 'standard' mode, data are
+            # also filtered by QC, which can reduce the number of "classifiable" profiles.
 
-            # Predict:
-            this_m.predict(dsi_float, features={'temperature': 'TEMP', 'salinity': 'PSAL'}, dim='DEPTH_INTERPOLATED',
-                           inplace=True)
+            std = False
+            try:
+                # Process profile:
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore")
+                    dsi_float = from_misc_pres_2_std_depth(this_m, dsp_float, feature_name='temperature')
+                    std = True
 
-            # Add predictions to this float:
-            this_df['pcm_label'] = dsi_float['PCM_LABELS'].values
+                # Predict:
+                this_m.predict(dsi_float, features={'temperature': 'TEMP', 'salinity': 'PSAL'}, dim='DEPTH_INTERPOLATED',
+                               inplace=True)
 
-        except:
-            if std:
-                msg = "Data downloaded but can't be classified: PCM prediction failed"
-            else:
-                msg = "Data downloaded but can't be classified: data can't be projected on standard depth levels"
-            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0], msg))
-            print(traceback.format_exc())
-            this_df['pcm_label'] = 999
-            pass
+                # Add predictions to this float:
+                this_df['pcm_label'] = dsi_float['PCM_LABELS'].values
 
-    except Exception as e:
-        try:
-            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0],
-                                                     argopy.dashboard(wmo=this_df['wmo'].values,
-                                                                      cyc=this_df['cycle_number'].values,
-                                                                      url_only=True)))
-            print(traceback.format_exc())
-        except:
-            print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0],
-                                                     argopy.dashboard(wmo=this_df['wmo'].values, url_only=True)))
-            print(traceback.format_exc())
-            pass
-        this_df['pcm_label'] = np.nan
+            except:
+                if std:
+                    msg = "Data downloaded but can't be classified: PCM prediction failed"
+                else:
+                    msg = "Data downloaded but can't be classified: data can't be projected on standard depth levels"
+                print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0], msg))
+                print(traceback.format_exc())
+                this_df['pcm_label'] = 999
+                pass
+
+        except Exception as e:
+            try:
+                print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0],
+                                                         argopy.dashboard(wmo=this_df['wmo'].values,
+                                                                          cyc=this_df['cycle_number'].values,
+                                                                          url_only=True)))
+                print(traceback.format_exc())
+            except:
+                print("Error with WMO=%i, CYC=%i: %s" % (this_df['wmo'].values[0], this_df['cycle_number'].values[0],
+                                                         argopy.dashboard(wmo=this_df['wmo'].values, url_only=True)))
+                print(traceback.format_exc())
+                pass
+            this_df['pcm_label'] = np.nan
 
     return this_df
 
@@ -168,14 +171,12 @@ if __name__ == "__main__":
     m = pyxpcm.load_netcdf(pcm_name)
 
     # Load AVISO data for the map:
-    aviso_nrt, aviso_mdt = download_aviso_with_cmt(box, index["date"].max())
-    # try:
-    #     aviso_nrt, aviso_mdt = download_aviso_with_cmt(box, index["date"].max())
-    print(aviso_nrt)
-    # except:
-    #     print("Can't load AVISO data")
-    #     aviso_nrt, aviso_mdt = None, None
-    #     raise
+    try:
+        aviso_nrt, aviso_mdt = download_aviso_with_cmt(box, index["date"].max())
+    except:
+        print("Can't load AVISO data")
+        aviso_nrt, aviso_mdt = None, None
+        pass
 
     #######################
     # Load floats data and classify them
@@ -194,7 +195,6 @@ if __name__ == "__main__":
         wmo, cyc = prof[0], prof[1]
         try:
             df['url'] = argopy.dashboard(wmo=df['wmo'].values, cyc=df['cycle_number'].values, url_only=True)
-            # index = index.mask(np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc), df)
             index.loc[np.logical_and(index['wmo'] == wmo, index['cycle_number'] == cyc)] = df
         except:
             pass
@@ -242,8 +242,8 @@ if __name__ == "__main__":
     if aviso_nrt:
         # aviso_clim['mdt'].isel(time=0).plot.contour(levels=np.arange(-2,2,0.1), ax=ax, colors='red', zorder=0, linewidths=0.5)
         # aviso_nrt['sla'].isel(time=0).plot.contour(levels=np.arange(-2, 2, 0.1), ax=ax, colors='gray', zorder=0, linewidths=0.5)
-        aviso_nrt['adt'].isel(time=0).plot.contourf(levels=np.arange(-2, 2, 0.1), ax=ax, cmap='RdBu_r', zorder=0, vmin=-1, vmax=1, add_colorbar=False)
-        aviso_nrt['adt'].isel(time=0).plot.contour(levels=np.arange(-2, 2, 0.1), ax=ax, colors='gray', zorder=0, linewidths=0.1)
+        aviso_nrt['adt'].plot.contourf(levels=np.arange(-2, 2, 0.1), ax=ax, cmap='RdBu_r', zorder=0, vmin=-1, vmax=1, add_colorbar=False)
+        aviso_nrt['adt'].plot.contour(levels=np.arange(-2, 2, 0.1), ax=ax, colors='gray', zorder=0, linewidths=0.1)
 
     classified = index.where(np.logical_and(index['reordered_label'] < 999, ~np.isnan(index['reordered_label'])))
     sc = ax.scatter(classified['longitude'], classified['latitude'], s=46, c=classified['reordered_label'],
@@ -260,7 +260,7 @@ if __name__ == "__main__":
     if aviso_nrt:
         ax.text(box[0] - dx, box[2] - dy,
                 "Color shading: Absolute Dynamic Topography [%s]" %
-                pd.to_datetime(aviso_nrt['adt'].isel(time=0)['time'].values).strftime('%Y/%m/%d %H:%M'),
+                pd.to_datetime(aviso_nrt['adt']['time'].values).strftime('%Y/%m/%d %H:%M'),
                 color='gray', fontsize=10, verticalalignment='bottom')
 
     argopy.plot.utils.latlongrid(ax)
