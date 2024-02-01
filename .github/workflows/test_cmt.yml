@@ -34,4 +34,6 @@ jobs:
 
     - name: Classify and report
       run: |
+        ls -al ~/.copernicusmarine
+        more ~/.copernicusmarine/.copernicusmarine-credentials
         python cli/load_aviso.py
