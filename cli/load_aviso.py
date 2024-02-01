@@ -61,10 +61,10 @@ if __name__ == "__main__":
     index = idx.to_dataframe()
     WMO_list = idx.read_wmo()
 
-    # Load AVISO data for the map:
-    # aviso_nrt = load_aviso_nrt(box, index["date"].max())
-    # print(aviso_nrt)
-
     print('copernicusmarine:', copernicusmarine.__version__)
     catalogue = copernicusmarine.describe(contains=["SEALEVEL_GLO_PHY_L4_NRT_008_046"], include_datasets=True)
     print(catalogue['products'][0]['datasets'])
+
+    # Load AVISO data for the map:
+    aviso_nrt = load_aviso_nrt(box, index["date"].max())
+    print(aviso_nrt)
