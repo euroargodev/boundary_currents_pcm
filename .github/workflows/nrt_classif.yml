@@ -13,6 +13,7 @@ jobs:
   classify-and-report:
 
     runs-on: ubuntu-latest
+    environment: COPERNICUS_MARINE_SERVICE
     defaults:
       run:
         shell: bash -l {0}
@@ -28,13 +29,6 @@ jobs:
       with:
         python-version: '3.9'
 
-#    - name: Install Conda environment (with micro-Mamba)
-#      uses: mamba-org/provision-with-micromamba@main
-#      with:
-#        environment-file: environment39-free.yml
-#        environment-name: bc-monitor
-#        cache-env: true
-
     - name: Setup Micromamba
       uses: mamba-org/setup-micromamba@v1
       with:
@@ -42,11 +36,12 @@ jobs:
         environment-file: environment39-free.yml
         cache-environment: true
 
-    # - name: Python environment info
-    #   run: |
-    #     conda info -a
-    #     conda list
-    #     python -c "import argopy; argopy.show_versions()"
+    - name: Login to Copernicus Marine Service
+      env:
+        USERNAME: ${{secrets.COPERNICUS_MARINE_SERVICE_USERNAME}}
+        PASSWORD: ${{secrets.COPERNICUS_MARINE_SERVICE_PASSWORD}}
+      run: |
+        copernicusmarine login --username $USERNAME --password $PASSWORD --overwrite-configuration-file --log-level INFO
 
     - name: Classify and report
       run: |
