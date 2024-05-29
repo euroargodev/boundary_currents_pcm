@@ -16,6 +16,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Energy Estimation - Initialize
+      uses: green-coding-berlin/eco-ci-energy-estimation@v3
+      with:
+        task: start-measurement
+        company-uuid: ${{ secrets.CARBONDB_COMPANY_UUID }}
+        project-uuid: ${{ secrets.CARBONDB_PROJECT_UUID }}
+      continue-on-error: true
+
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
@@ -66,3 +74,20 @@ jobs:
         add: "data/*.txt --force"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Energy Estimation - Get Measurement
+      uses: green-coding-berlin/eco-ci-energy-estimation@v3
+      with:
+        task: get-measurement
+        label: 'BCmonitor census'
+        company-uuid: ${{ secrets.CARBONDB_COMPANY_UUID }}
+        project-uuid: ${{ secrets.CARBONDB_PROJECT_UUID }}
+      continue-on-error: true
+
+    - name: Energy Estimation - Show Results
+      uses: green-coding-berlin/eco-ci-energy-estimation@v3
+      with:
+        task: display-results
+        company-uuid: ${{ secrets.CARBONDB_COMPANY_UUID }}
+        project-uuid: ${{ secrets.CARBONDB_PROJECT_UUID }}
+      continue-on-error: true
