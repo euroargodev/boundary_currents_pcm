@@ -7,8 +7,8 @@
 [ci-energy-badge-census]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
 [ci-energy-link-census]: https://metrics.green-coding.io/ci.html?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
 
-[ci-energy-badge-pcm]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
-[ci-energy-link-pcm]: https://metrics.green-coding.io/ci.html?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
+[ci-energy-badge-pcm]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26424386
+[ci-energy-link-pcm]: https://metrics.green-coding.io/ci.html?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26424386
 
 Home page for the development of [Profile Classification Models (PCM)](https://pyxpcm.readthedocs.io/en/latest/overview.html) dedicated to the identification/classification of Argo profiles in boundary current systems of interest within the Euro-ArgoRISE project.  
 
