@@ -51,3 +51,13 @@ This repository has been developed within the framework of the Euro-ArgoRISE pro
 <img src="https://user-images.githubusercontent.com/59824937/146353317-56b3e70e-aed9-40e0-9212-3393d2e0ddd9.png" height="75"/>
 </a>
 </p>
+
+
+# Energy impact of this monitoring
+
+[![CI Energy][ci-energy-badge]][ci-energy-link]
+
+[More details on the Green-coding page here][ci-energy-link]
+
+[ci-energy-badge]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
+[ci-energy-link]: https://metrics.green-coding.io/ci.html?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
