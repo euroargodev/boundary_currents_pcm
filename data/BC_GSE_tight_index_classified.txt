@@ -3,13 +3,14 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20240720005036
+# Date of update : 20240720063851
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_099.nc,20240716170958,40.471,-57.199,A,854,AO,20240716190057,1902392,99,"AOML, USA",S2A float with SBE conductivity sensor,99,https://dataselection.euro-argo.eu/cycle/5698057,0.0,0.0
 aoml/1902444/profiles/R1902444_096.nc,20240713123430,35.934,-71.659,A,876,AO,20240713153055,1902444,96,"AOML, USA",ALTO float with SBE conductivity sensor,96,https://dataselection.euro-argo.eu/cycle/5696342,3.0,2.0
 aoml/3901219/profiles/R3901219_270.nc,20240717123318,42.006,-55.566,A,854,AO,20240717140032,3901219,270,"AOML, USA",S2A float with SBE conductivity sensor,270,https://dataselection.euro-argo.eu/cycle/5698364,2.0,1.0
 aoml/4902109/profiles/R4902109_315.nc,20240718155442,35.688,-65.588,A,854,AO,20240718171953,4902109,315,"AOML, USA",S2A float with SBE conductivity sensor,315,https://dataselection.euro-argo.eu/cycle/5698950,999.0,999.0
 aoml/4902111/profiles/R4902111_317.nc,20240712100140,34.475,-69.013,A,854,AO,20240712110032,4902111,317,"AOML, USA",S2A float with SBE conductivity sensor,317,https://dataselection.euro-argo.eu/cycle/5695949,1.0,3.0
+aoml/4902120/profiles/R4902120_305.nc,20240719184748,36.288,-69.455,A,854,AO,20240720000117,4902120,305,"AOML, USA",S2A float with SBE conductivity sensor,305,,999.0,999.0
 aoml/4902337/profiles/R4902337_334.nc,20240713224017,42.205,-50.187,A,854,AO,20240714000033,4902337,334,"AOML, USA",S2A float with SBE conductivity sensor,334,https://dataselection.euro-argo.eu/cycle/5696527,999.0,999.0
 aoml/4902345/profiles/R4902345_307.nc,20240711010540,38.742,-72.135,A,854,AO,20240711020033,4902345,307,"AOML, USA",S2A float with SBE conductivity sensor,307,https://dataselection.euro-argo.eu/cycle/5695051,2.0,1.0
 aoml/4902928/profiles/R4902928_244.nc,20240718084046,37.533,-69.398,A,854,AO,20240718172234,4902928,244,"AOML, USA",S2A float with SBE conductivity sensor,244,https://dataselection.euro-argo.eu/cycle/5698958,1.0,3.0
@@ -51,9 +52,6 @@ meds/4902481/profiles/R4902481_184.nc,20240710091200,42.754,-62.129,A,844,ME,202
 meds/4902498/profiles/R4902498_167.nc,20240711123300,39.096,-54.718,A,844,ME,20240711101552,4902498,167,"MEDS, Canada",ARVOR float with SBE conductivity sensor,167,https://dataselection.euro-argo.eu/cycle/5695122,2.0,1.0
 meds/4902515/profiles/R4902515_101.nc,20240713105700,36.568,-74.32,A,844,ME,20240713101553,4902515,101,"MEDS, Canada",ARVOR float with SBE conductivity sensor,101,https://dataselection.euro-argo.eu/cycle/5696127,0.0,0.0
 meds/4902518/profiles/R4902518_101.nc,20240714010600,34.793,-67.558,A,844,ME,20240714011550,4902518,101,"MEDS, Canada",ARVOR float with SBE conductivity sensor,101,https://dataselection.euro-argo.eu/cycle/5696458,1.0,3.0
-meds/4902556/profiles/R4902556_077.nc,20240710014600,35.947,-56.457,A,878,ME,20240710011553,4902556,77,"MEDS, Canada",ARVOR float with RBR conductivity sensor,77,https://dataselection.euro-argo.eu/cycle/5694289,1.0,3.0
-meds/4902578/profiles/R4902578_077.nc,20240710021000,38.344,-48.999,A,844,ME,20240710011555,4902578,77,"MEDS, Canada",ARVOR float with SBE conductivity sensor,77,,1.0,3.0
-meds/4902590/profiles/R4902590_077.nc,20240710021200,33.679,-72.388,A,844,ME,20240710011557,4902590,77,"MEDS, Canada",ARVOR float with SBE conductivity sensor,77,https://dataselection.euro-argo.eu/cycle/5694290,2.0,1.0
 meds/4902598/profiles/R4902598_067.nc,20240713033000,41.328,-59.622,A,836,ME,20240713000056,4902598,67,"MEDS, Canada",PROVOR III,67,https://dataselection.euro-argo.eu/cycle/5695830,3.0,2.0
 meds/4902599/profiles/R4902599_065.nc,20240717122800,34.513,-61.902,A,836,ME,20240717120145,4902599,65,"MEDS, Canada",PROVOR III,65,https://dataselection.euro-argo.eu/cycle/5698177,2.0,1.0
 meds/4902600/profiles/R4902600_032.nc,20240718043400,36.656,-72.999,A,836,ME,20240718060059,4902600,32,"MEDS, Canada",PROVOR III,32,https://dataselection.euro-argo.eu/cycle/5698586,3.0,2.0
