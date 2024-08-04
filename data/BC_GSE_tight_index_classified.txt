@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20240803183755
+# Date of update : 20240804005112
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_100.nc,20240726143017,40.176,-56.941,A,854,AO,20240726190110,1902392,100,"AOML, USA",S2A float with SBE conductivity sensor,100,https://dataselection.euro-argo.eu/cycle/5703336,0.0,0.0
 aoml/1902444/profiles/R1902444_098.nc,20240802053348,36.979,-70.48,A,876,AO,20240802070046,1902444,98,"AOML, USA",ALTO float with SBE conductivity sensor,98,https://dataselection.euro-argo.eu/cycle/5706611,1.0,3.0
@@ -30,7 +30,8 @@ aoml/4903277/profiles/R4903277_261.nc,20240726191934,34.27,-61.33,A,854,AO,20240
 aoml/4903280/profiles/R4903280_140.nc,20240731200649,36.051,-61.382,A,854,AO,20240731223347,4903280,140,"AOML, USA",S2A float with SBE conductivity sensor,140,https://dataselection.euro-argo.eu/cycle/5706227,2.0,1.0
 aoml/4903329/profiles/R4903329_139.nc,20240728175025,35.7,-63.209,A,854,AO,20240728190038,4903329,139,"AOML, USA",S2A float with SBE conductivity sensor,139,https://dataselection.euro-argo.eu/cycle/5704323,2.0,1.0
 aoml/4903377/profiles/R4903377_868.nc,20240726035855,43.703,-56.558,A,876,AO,20240730170126,4903377,868,"AOML, USA",ALTO float with SBE conductivity sensor,868,https://dataselection.euro-argo.eu/cycle/5703030,999.0,999.0
-aoml/4903377/profiles/R4903377_869.nc,20240730154819,43.726,-56.596,A,876,AO,20240730170126,4903377,869,"AOML, USA",ALTO float with SBE conductivity sensor,869,https://dataselection.euro-argo.eu/cycle/5705512,999.0,999.0
+aoml/4903377/profiles/R4903377_869.nc,20240730154819,43.726,-56.596,A,876,AO,20240803223102,4903377,869,"AOML, USA",ALTO float with SBE conductivity sensor,869,https://dataselection.euro-argo.eu/cycle/5705512,999.0,999.0
+aoml/4903377/profiles/R4903377_870.nc,20240803213231,43.722,-56.622,A,876,AO,20240803223102,4903377,870,"AOML, USA",ALTO float with SBE conductivity sensor,870,,999.0,999.0
 aoml/4903456/profiles/R4903456_070.nc,20240801145625,37.169,-53.036,A,869,AO,20240802000130,4903456,70,"AOML, USA",Unknown,70,https://dataselection.euro-argo.eu/cycle/5706525,1.0,3.0
 aoml/5906342/profiles/R5906342_123.nc,20240802151212,36.653,-67.293,A,846,AO,20240802190049,5906342,123,"AOML, USA",Teledyne Webb Research float with SBE conductivity sensor,123,,1.0,3.0
 aoml/5906435/profiles/R5906435_122.nc,20240728051125,34.794,-55.554,A,846,AO,20240728090059,5906435,122,"AOML, USA",Teledyne Webb Research float with SBE conductivity sensor,122,https://dataselection.euro-argo.eu/cycle/5704367,2.0,1.0
