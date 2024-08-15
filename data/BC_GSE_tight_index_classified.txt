@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20240815005108
+# Date of update : 20240815064014
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_101.nc,20240805113013,40.606,-57.868,A,854,AO,20240805140103,1902392,101,"AOML, USA",Unknown,101,https://dataselection.euro-argo.eu/cycle/5712561,0.0,0.0
 aoml/1902444/profiles/R1902444_099.nc,20240812020352,36.217,-70.982,A,876,AO,20240812040155,1902444,99,"AOML, USA",Unknown,99,https://dataselection.euro-argo.eu/cycle/5715878,2.0,1.0
@@ -49,8 +49,6 @@ coriolis/3901603/profiles/R3901603_289.nc,20240810013450,41.885,-60.945,A,846,IF
 coriolis/3901604/profiles/R3901604_289.nc,20240809191029,34.632,-73.836,A,846,IF,20240811041723,3901604,289,"Ifremer, France",Unknown,289,https://dataselection.euro-argo.eu/cycle/5714645,2.0,1.0
 coriolis/3901687/profiles/R3901687_162.nc,20240806131320,42.5,-52.356,A,844,IF,20240806142641,3901687,162,"Ifremer, France",Unknown,162,https://dataselection.euro-argo.eu/cycle/5712925,0.0,0.0
 coriolis/3902001/profiles/R3902001_098.nc,20240813104030,33.705,-54.979,A,844,IF,20240813113058,3902001,98,"Ifremer, France",Unknown,98,https://dataselection.euro-argo.eu/cycle/5716611,1.0,3.0
-coriolis/6903121/profiles/R6903121_097.nc,20240805054030,35.713,-62.767,A,844,IF,20240805062911,6903121,97,"Ifremer, France",Unknown,97,https://dataselection.euro-argo.eu/cycle/5712241,2.0,1.0
-coriolis/6903122/profiles/R6903122_097.nc,20240805053830,37.029,-61.798,A,844,IF,20240805062729,6903122,97,"Ifremer, France",Unknown,97,https://dataselection.euro-argo.eu/cycle/5712242,2.0,1.0
 meds/4902467/profiles/R4902467_192.nc,20240807233100,41.657,-56.202,A,844,ME,20240807221551,4902467,192,"MEDS, Canada",Unknown,192,https://dataselection.euro-argo.eu/cycle/5713870,0.0,0.0
 meds/4902470/profiles/R4902470_192.nc,20240807224800,37.427,-51.439,A,844,ME,20240807221553,4902470,192,"MEDS, Canada",Unknown,192,https://dataselection.euro-argo.eu/cycle/5713871,2.0,1.0
 meds/4902481/profiles/R4902481_187.nc,20240809231000,42.433,-63.507,A,844,ME,20240809221603,4902481,187,"MEDS, Canada",Unknown,187,,0.0,0.0
