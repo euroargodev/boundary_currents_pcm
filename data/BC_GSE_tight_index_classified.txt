@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20240825183755
+# Date of update : 20240826005205
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_103.nc,20240825052733,38.077,-58.428,A,854,AO,20240825070116,1902392,103,"AOML, USA",Unknown,103,,1.0,3.0
 aoml/1902444/profiles/R1902444_100.nc,20240821223226,36.345,-71.122,A,876,AO,20240822020148,1902444,100,"AOML, USA",Unknown,100,https://dataselection.euro-argo.eu/cycle/5730536,2.0,1.0
@@ -48,6 +48,8 @@ coriolis/3901603/profiles/R3901603_290.nc,20240820013019,42.149,-60.757,A,846,IF
 coriolis/3901604/profiles/R3901604_290.nc,20240819164458,35.434,-73.277,A,846,IF,20240821041710,3901604,290,"Ifremer, France",Unknown,290,https://dataselection.euro-argo.eu/cycle/5729486,2.0,1.0
 coriolis/3901687/profiles/R3901687_163.nc,20240816181220,43.106,-52.662,A,844,IF,20240816193113,3901687,163,"Ifremer, France",Unknown,163,https://dataselection.euro-argo.eu/cycle/5718498,0.0,0.0
 coriolis/3902001/profiles/R3902001_099.nc,20240823153530,34.381,-54.859,A,844,IF,20240823164009,3902001,99,"Ifremer, France",Unknown,99,https://dataselection.euro-argo.eu/cycle/5731344,1.0,3.0
+coriolis/6903121/profiles/R6903121_099.nc,20240825155130,34.663,-62.252,A,844,IF,20240825164106,6903121,99,"Ifremer, France",Unknown,99,,1.0,3.0
+coriolis/6903122/profiles/R6903122_099.nc,20240825154330,36.749,-63.428,A,844,IF,20240825163744,6903122,99,"Ifremer, France",Unknown,99,,2.0,1.0
 meds/4902467/profiles/R4902467_193.nc,20240818041500,40.61,-55.039,A,844,ME,20240818041557,4902467,193,"MEDS, Canada",Unknown,193,https://dataselection.euro-argo.eu/cycle/5724605,3.0,2.0
 meds/4902470/profiles/R4902470_193.nc,20240818040600,37.079,-52.584,A,844,ME,20240818041559,4902470,193,"MEDS, Canada",Unknown,193,https://dataselection.euro-argo.eu/cycle/5724610,2.0,1.0
 meds/4902481/profiles/R4902481_188.nc,20240820050500,42.271,-64.056,A,844,ME,20240820041607,4902481,188,"MEDS, Canada",Unknown,188,,0.0,0.0
