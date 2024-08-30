@@ -111,7 +111,7 @@ def save_this_region_endpoint(a_region, out_dir='data'):
 
 
 def index2csv(BCname, index, csvfile):
-    institution_dict = argopy.utilities.load_dict('institutions')
+    institution_dict = argopy.related.load_dict('institutions')
     df = index.copy()
 
     txt_header = """# Title : Profile directory file of the Boundary Currents Monitor
