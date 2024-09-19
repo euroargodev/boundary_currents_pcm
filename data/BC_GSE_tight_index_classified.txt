@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20240919005126
+# Date of update : 20240919064051
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_105.nc,20240913234350,38.883,-58.533,A,854,AO,20240914020144,1902392,105,"AOML, USA",Unknown,105,https://dataselection.euro-argo.eu/cycle/5743030,3.0,2.0
 aoml/1902444/profiles/R1902444_102.nc,20240910151335,36.253,-71.149,A,876,AO,20240910170110,1902444,102,"AOML, USA",Unknown,102,https://dataselection.euro-argo.eu/cycle/5740208,2.0,1.0
@@ -25,7 +25,7 @@ aoml/4903256/profiles/R4903256_322.nc,20240916113739,33.684,-70.58,A,854,AO,2024
 aoml/4903260/profiles/R4903260_180.nc,20240913052638,34.219,-50.557,A,854,AO,20240913070106,4903260,180,"AOML, USA",Unknown,180,https://dataselection.euro-argo.eu/cycle/5742398,1.0,3.0
 aoml/4903273/profiles/R4903273_117.nc,20240911052506,38.809,-61.52,A,869,AO,20240912000122,4903273,117,"AOML, USA",Unknown,117,https://dataselection.euro-argo.eu/cycle/5741753,1.0,3.0
 aoml/4903277/profiles/R4903277_266.nc,20240916042448,34.871,-64.368,A,854,AO,20240916050038,4903277,266,"AOML, USA",Unknown,266,https://dataselection.euro-argo.eu/cycle/5743771,2.0,1.0
-aoml/4903280/profiles/R4903280_144.nc,20240909054341,36.192,-65.886,A,854,AO,20240909070102,4903280,144,"AOML, USA",Unknown,144,https://dataselection.euro-argo.eu/cycle/5739456,0.0,0.0
+aoml/4903280/profiles/R4903280_145.nc,20240919020621,37.389,-67.031,A,854,AO,20240919030052,4903280,145,"AOML, USA",Unknown,145,,3.0,2.0
 aoml/4903329/profiles/R4903329_144.nc,20240916035017,35.687,-60.459,A,854,AO,20240916050041,4903329,144,"AOML, USA",Unknown,144,https://dataselection.euro-argo.eu/cycle/5743772,1.0,3.0
 aoml/4903456/profiles/R4903456_074.nc,20240910153938,36.823,-53.159,A,869,AO,20240911000107,4903456,74,"AOML, USA",Unknown,74,https://dataselection.euro-argo.eu/cycle/5740371,1.0,3.0
 aoml/5906342/profiles/R5906342_127.nc,20240911191938,36.673,-65.955,A,846,AO,20240911224035,5906342,127,"AOML, USA",Unknown,127,https://dataselection.euro-argo.eu/cycle/5741626,3.0,2.0
@@ -38,8 +38,8 @@ bodc/7901008/profiles/R7901008_100.nc,20240912124901,34.921,-65.349,A,846,BO,202
 coriolis/1902663/profiles/R1902663_005.nc,20240915161000,43.509,-53.231,A,838,IF,20240915173015,1902663,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5743563,0.0,0.0
 coriolis/2903881/profiles/R2903881_005.nc,20240914181800,42.933,-52.333,A,838,IF,20240914192856,2903881,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5742901,3.0,2.0
 coriolis/3901601/profiles/R3901601_292.nc,20240911044559,40.514,-66.268,A,846,IF,20240912141648,3901601,292,"Ifremer, France",Unknown,292,https://dataselection.euro-argo.eu/cycle/5740570,2.0,1.0
-coriolis/3901602/profiles/R3901602_293.nc,20240917133647,33.138,-62.315,A,846,IF,20240917161509,3901602,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5744487,2.0,1.0
-coriolis/3901603/profiles/R3901603_292.nc,20240909012249,42.182,-61.507,A,846,IF,20240912040340,3901603,292,"Ifremer, France",Unknown,292,https://dataselection.euro-argo.eu/cycle/5739420,2.0,1.0
+coriolis/3901602/profiles/R3901602_293.nc,20240917133647,33.138,-62.315,A,846,IF,20240919001709,3901602,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5744487,2.0,1.0
+coriolis/3901604/profiles/R3901604_293.nc,20240918191501,37.458,-69.729,A,846,IF,20240918231509,3901604,293,"Ifremer, France",Unknown,293,,2.0,1.0
 coriolis/3901687/profiles/R3901687_166.nc,20240916091220,43.738,-54.694,A,844,IF,20240916102548,3901687,166,"Ifremer, France",Unknown,166,https://dataselection.euro-argo.eu/cycle/5743877,0.0,0.0
 coriolis/3902001/profiles/R3902001_101.nc,20240913013530,33.627,-55.682,A,844,IF,20240913024016,3902001,101,"Ifremer, France",Unknown,101,https://dataselection.euro-argo.eu/cycle/5742334,2.0,1.0
 coriolis/4903763/profiles/R4903763_005.nc,20240915145900,43.035,-52.211,A,838,IF,20240915162840,4903763,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5743554,3.0,2.0
