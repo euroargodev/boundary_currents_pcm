@@ -3,65 +3,65 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20240924064322
+# Date of update : 20240924125058
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,profiler,cycle_number,url,pcm_label,reordered_label
-aoml/1902392/profiles/R1902392_106.nc,20240923205038,38.498,-58.61,A,854,AO,20240924000143,1902392,106,"AOML, USA",Unknown,106,,,
-aoml/1902444/profiles/R1902444_103.nc,20240920114202,36.419,-71.53,A,876,AO,20240920140101,1902444,103,"AOML, USA",Unknown,103,https://dataselection.euro-argo.eu/cycle/5745670,,
-aoml/3901219/profiles/R3901219_276.nc,20240915055410,41.823,-55.819,A,854,AO,20240915070038,3901219,276,"AOML, USA",Unknown,276,https://dataselection.euro-argo.eu/cycle/5743235,,
-aoml/4902109/profiles/R4902109_321.nc,20240914232339,34.887,-65.273,A,854,AO,20240915000128,4902109,321,"AOML, USA",Unknown,321,https://dataselection.euro-argo.eu/cycle/5743259,,
-aoml/4902337/profiles/R4902337_341.nc,20240920014626,39.696,-52.169,A,854,AO,20240920030051,4902337,341,"AOML, USA",Unknown,341,https://dataselection.euro-argo.eu/cycle/5745518,,
-aoml/4902345/profiles/R4902345_314.nc,20240917133437,37.747,-72.755,A,854,AO,20240917170043,4902345,314,"AOML, USA",Unknown,314,https://dataselection.euro-argo.eu/cycle/5744471,,
-aoml/4902928/profiles/R4902928_250.nc,20240915151711,37.331,-65.495,A,854,AO,20240915170035,4902928,250,"AOML, USA",Unknown,250,https://dataselection.euro-argo.eu/cycle/5743542,,
-aoml/4903043/profiles/R4903043_216.nc,20240915161419,37.688,-48.427,A,854,AO,20240915190052,4903043,216,"AOML, USA",Unknown,216,https://dataselection.euro-argo.eu/cycle/5743576,,
-aoml/4903049/profiles/R4903049_219.nc,20240922150127,34.766,-61.574,A,854,AO,20240922170045,4903049,219,"AOML, USA",Unknown,219,https://dataselection.euro-argo.eu/cycle/5746584,,
-aoml/4903056/profiles/R4903056_208.nc,20240919114449,36.868,-54.026,A,854,AO,20240919140117,4903056,208,"AOML, USA",Unknown,208,https://dataselection.euro-argo.eu/cycle/5745245,,
-aoml/4903233/profiles/R4903233_402.nc,20240915073835,35.306,-65.229,A,854,AO,20240920050028,4903233,402,"AOML, USA",Unknown,402,https://dataselection.euro-argo.eu/cycle/5743270,,
-aoml/4903233/profiles/R4903233_403.nc,20240920034354,35.304,-65.506,A,854,AO,20240920050028,4903233,403,"AOML, USA",Unknown,403,https://dataselection.euro-argo.eu/cycle/5745551,,
-aoml/4903237/profiles/R4903237_398.nc,20240915192450,34.738,-73.327,A,854,AO,20240921090053,4903237,398,"AOML, USA",Unknown,398,https://dataselection.euro-argo.eu/cycle/5743659,,
-aoml/4903237/profiles/R4903237_399.nc,20240921063207,34.818,-73.767,A,854,AO,20240921090054,4903237,399,"AOML, USA",Unknown,399,https://dataselection.euro-argo.eu/cycle/5746004,,
-aoml/4903238/profiles/R4903238_407.nc,20240919033341,37.566,-72.666,A,854,AO,20240919050042,4903238,407,"AOML, USA",Unknown,407,https://dataselection.euro-argo.eu/cycle/5745101,,
+aoml/1902392/profiles/R1902392_106.nc,20240923205038,38.498,-58.61,A,854,AO,20240924000143,1902392,106,"AOML, USA",Unknown,106,,3.0,2.0
+aoml/1902444/profiles/R1902444_103.nc,20240920114202,36.419,-71.53,A,876,AO,20240920140101,1902444,103,"AOML, USA",Unknown,103,https://dataselection.euro-argo.eu/cycle/5745670,2.0,1.0
+aoml/3901219/profiles/R3901219_276.nc,20240915055410,41.823,-55.819,A,854,AO,20240915070038,3901219,276,"AOML, USA",Unknown,276,https://dataselection.euro-argo.eu/cycle/5743235,2.0,1.0
+aoml/4902109/profiles/R4902109_321.nc,20240914232339,34.887,-65.273,A,854,AO,20240915000128,4902109,321,"AOML, USA",Unknown,321,https://dataselection.euro-argo.eu/cycle/5743259,999.0,999.0
+aoml/4902337/profiles/R4902337_341.nc,20240920014626,39.696,-52.169,A,854,AO,20240920030051,4902337,341,"AOML, USA",Unknown,341,https://dataselection.euro-argo.eu/cycle/5745518,3.0,2.0
+aoml/4902345/profiles/R4902345_314.nc,20240917133437,37.747,-72.755,A,854,AO,20240917170043,4902345,314,"AOML, USA",Unknown,314,https://dataselection.euro-argo.eu/cycle/5744471,2.0,1.0
+aoml/4902928/profiles/R4902928_250.nc,20240915151711,37.331,-65.495,A,854,AO,20240915170035,4902928,250,"AOML, USA",Unknown,250,https://dataselection.euro-argo.eu/cycle/5743542,1.0,3.0
+aoml/4903043/profiles/R4903043_216.nc,20240915161419,37.688,-48.427,A,854,AO,20240915190052,4903043,216,"AOML, USA",Unknown,216,https://dataselection.euro-argo.eu/cycle/5743576,2.0,1.0
+aoml/4903049/profiles/R4903049_219.nc,20240922150127,34.766,-61.574,A,854,AO,20240922170045,4903049,219,"AOML, USA",Unknown,219,https://dataselection.euro-argo.eu/cycle/5746584,1.0,3.0
+aoml/4903056/profiles/R4903056_208.nc,20240919114449,36.868,-54.026,A,854,AO,20240919140117,4903056,208,"AOML, USA",Unknown,208,https://dataselection.euro-argo.eu/cycle/5745245,2.0,1.0
+aoml/4903233/profiles/R4903233_402.nc,20240915073835,35.306,-65.229,A,854,AO,20240920050028,4903233,402,"AOML, USA",Unknown,402,https://dataselection.euro-argo.eu/cycle/5743270,2.0,1.0
+aoml/4903233/profiles/R4903233_403.nc,20240920034354,35.304,-65.506,A,854,AO,20240920050028,4903233,403,"AOML, USA",Unknown,403,https://dataselection.euro-argo.eu/cycle/5745551,2.0,1.0
+aoml/4903237/profiles/R4903237_398.nc,20240915192450,34.738,-73.327,A,854,AO,20240921090053,4903237,398,"AOML, USA",Unknown,398,https://dataselection.euro-argo.eu/cycle/5743659,2.0,1.0
+aoml/4903237/profiles/R4903237_399.nc,20240921063207,34.818,-73.767,A,854,AO,20240921090054,4903237,399,"AOML, USA",Unknown,399,https://dataselection.euro-argo.eu/cycle/5746004,2.0,1.0
+aoml/4903238/profiles/R4903238_407.nc,20240919033341,37.566,-72.666,A,854,AO,20240919050042,4903238,407,"AOML, USA",Unknown,407,https://dataselection.euro-argo.eu/cycle/5745101,0.0,0.0
 aoml/4903252/profiles/R4903252_274.nc,20240923231110,36.461,-73.483,A,854,AO,20240924000128,4903252,274,"AOML, USA",Unknown,274,,,
-aoml/4903256/profiles/R4903256_322.nc,20240916113739,33.684,-70.58,A,854,AO,20240919223639,4903256,322,"AOML, USA",Unknown,322,https://dataselection.euro-argo.eu/cycle/5743914,,
-aoml/4903260/profiles/R4903260_181.nc,20240923021602,34.211,-50.808,A,854,AO,20240923030105,4903260,181,"AOML, USA",Unknown,181,https://dataselection.euro-argo.eu/cycle/5746732,,
-aoml/4903273/profiles/R4903273_118.nc,20240921062622,37.798,-60.936,A,869,AO,20240922020121,4903273,118,"AOML, USA",Unknown,118,https://dataselection.euro-argo.eu/cycle/5746297,,
-aoml/4903277/profiles/R4903277_266.nc,20240916042448,34.871,-64.368,A,854,AO,20240916050038,4903277,266,"AOML, USA",Unknown,266,https://dataselection.euro-argo.eu/cycle/5743771,,
-aoml/4903280/profiles/R4903280_145.nc,20240919020621,37.389,-67.031,A,854,AO,20240919030052,4903280,145,"AOML, USA",Unknown,145,https://dataselection.euro-argo.eu/cycle/5745077,,
-aoml/4903329/profiles/R4903329_144.nc,20240916035017,35.687,-60.459,A,854,AO,20240916050041,4903329,144,"AOML, USA",Unknown,144,https://dataselection.euro-argo.eu/cycle/5743772,,
-aoml/4903456/profiles/R4903456_075.nc,20240920153030,35.692,-53.28,A,869,AO,20240921000109,4903456,75,"AOML, USA",Unknown,75,https://dataselection.euro-argo.eu/cycle/5745880,,
-aoml/5906342/profiles/R5906342_128.nc,20240921202716,37.503,-66.611,A,846,AO,20240922000051,5906342,128,"AOML, USA",Unknown,128,https://dataselection.euro-argo.eu/cycle/5746252,,
-aoml/5906435/profiles/D5906435_127.nc,20240916105422,36.968,-58.031,A,846,AO,20240920115557,5906435,127,"AOML, USA",Unknown,127,https://dataselection.euro-argo.eu/cycle/5743925,,
-aoml/5906438/profiles/R5906438_123.nc,20240918235202,37.326,-59.779,A,846,AO,20240919040038,5906438,123,"AOML, USA",Unknown,123,https://dataselection.euro-argo.eu/cycle/5745089,,
-bodc/3902491/profiles/R3902491_083.nc,20240920150500,36.305,-64.701,A,836,BO,20240920181901,3902491,83,"BODC, United Kingdom",Unknown,83,https://dataselection.euro-argo.eu/cycle/5745793,,
-bodc/4903662/profiles/R4903662_106.nc,20240919152200,35.293,-60.207,A,836,BO,20240919182254,4903662,106,"BODC, United Kingdom",Unknown,106,https://dataselection.euro-argo.eu/cycle/5745368,,
-bodc/6901930/profiles/R6901930_236.nc,20240916215300,37.966,-54.282,A,844,BO,20240917001859,6901930,236,"BODC, United Kingdom",Unknown,236,https://dataselection.euro-argo.eu/cycle/5744137,,
-coriolis/1902663/profiles/R1902663_005.nc,20240915161000,43.509,-53.231,A,838,IF,20240915173015,1902663,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5743563,,
-coriolis/2903881/profiles/R2903881_005.nc,20240914181800,42.933,-52.333,A,838,IF,20240914192856,2903881,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5742901,,
-coriolis/3901601/profiles/R3901601_293.nc,20240921043617,40.195,-67.321,A,846,IF,20240922141646,3901601,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5746039,,
-coriolis/3901602/profiles/R3901602_293.nc,20240917133647,33.138,-62.315,A,846,IF,20240919001709,3901602,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5744487,,
-coriolis/3901603/profiles/R3901603_293.nc,20240919011904,41.802,-62.03,A,846,IF,20240920101624,3901603,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5745092,,
-coriolis/3901604/profiles/R3901604_293.nc,20240918191501,37.458,-69.729,A,846,IF,20240920041712,3901604,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5745025,,
-coriolis/3901687/profiles/R3901687_166.nc,20240916091220,43.738,-54.694,A,844,IF,20240916102548,3901687,166,"Ifremer, France",Unknown,166,https://dataselection.euro-argo.eu/cycle/5743877,,
-coriolis/3902001/profiles/R3902001_102.nc,20240923063530,33.263,-56.786,A,844,IF,20240923073321,3902001,102,"Ifremer, France",Unknown,102,https://dataselection.euro-argo.eu/cycle/5746800,,
-coriolis/4903763/profiles/R4903763_005.nc,20240915145900,43.035,-52.211,A,838,IF,20240915162840,4903763,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5743554,,
-coriolis/5907126/profiles/R5907126_005.nc,20240914214600,42.761,-52.503,A,838,IF,20240914232842,5907126,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5742939,,
-coriolis/6903121/profiles/R6903121_101.nc,20240915013530,36.121,-60.494,A,844,IF,20240915023709,6903121,101,"Ifremer, France",Unknown,101,https://dataselection.euro-argo.eu/cycle/5742959,,
-coriolis/6903122/profiles/R6903122_101.nc,20240915013930,35.812,-66.108,A,844,IF,20240915023943,6903122,101,"Ifremer, France",Unknown,101,https://dataselection.euro-argo.eu/cycle/5742960,,
-meds/4902467/profiles/R4902467_196.nc,20240917184800,42.525,-53.069,A,844,ME,20240917191558,4902467,196,"MEDS, Canada",Unknown,196,https://dataselection.euro-argo.eu/cycle/5744593,,
-meds/4902470/profiles/R4902470_196.nc,20240917184600,35.816,-53.686,A,844,ME,20240917191559,4902470,196,"MEDS, Canada",Unknown,196,https://dataselection.euro-argo.eu/cycle/5744594,,
-meds/4902481/profiles/R4902481_191.nc,20240919194700,41.157,-66.005,A,844,ME,20240920131605,4902481,191,"MEDS, Canada",Unknown,191,,,
-meds/4902498/profiles/R4902498_174.nc,20240920235300,40.827,-53.247,A,844,ME,20240920221556,4902498,174,"MEDS, Canada",Unknown,174,https://dataselection.euro-argo.eu/cycle/5745869,,
-meds/4902503/profiles/R4902503_142.nc,20240916185300,39.186,-49.448,A,844,ME,20240916161554,4902503,142,"MEDS, Canada",Unknown,142,https://dataselection.euro-argo.eu/cycle/5744055,,
-meds/4902515/profiles/R4902515_108.nc,20240922215400,36.9,-73.433,A,844,ME,20240922191556,4902515,108,"MEDS, Canada",Unknown,108,https://dataselection.euro-argo.eu/cycle/5746673,,
-meds/4902519/profiles/R4902519_107.nc,20240915065800,37.799,-56.099,A,844,ME,20240915041551,4902519,107,"MEDS, Canada",Unknown,107,https://dataselection.euro-argo.eu/cycle/5743025,,
-meds/4902523/profiles/R4902523_142.nc,20240915192400,40.81,-62.218,A,844,ME,20240915191609,4902523,142,"MEDS, Canada",Unknown,142,https://dataselection.euro-argo.eu/cycle/5743635,,
-meds/4902524/profiles/R4902524_142.nc,20240915181500,38.779,-59.434,A,844,ME,20240915161556,4902524,142,"MEDS, Canada",Unknown,142,https://dataselection.euro-argo.eu/cycle/5743601,,
-meds/4902556/profiles/R4902556_084.nc,20240919125000,39.528,-56.06,A,878,ME,20240919101553,4902556,84,"MEDS, Canada",Unknown,84,https://dataselection.euro-argo.eu/cycle/5745272,,
-meds/4902576/profiles/R4902576_089.nc,20240917141100,40.569,-58.607,A,844,ME,20240917131557,4902576,89,"MEDS, Canada",Unknown,89,,,
-meds/4902578/profiles/R4902578_084.nc,20240919131600,39.92,-49.604,A,844,ME,20240919131553,4902578,84,"MEDS, Canada",Unknown,84,,,
-meds/4902592/profiles/R4902592_085.nc,20240923181100,44.038,-48.543,A,844,ME,20240923161602,4902592,85,"MEDS, Canada",Unknown,85,,,
-meds/4902598/profiles/R4902598_074.nc,20240921163800,40.269,-57.59,A,836,ME,20240921180059,4902598,74,"MEDS, Canada",Unknown,74,https://dataselection.euro-argo.eu/cycle/5746195,,
-meds/4902606/profiles/R4902606_047.nc,20240923200200,33.655,-64.312,A,844,ME,20240923191556,4902606,47,"MEDS, Canada",Unknown,47,,,
-meds/4902608/profiles/R4902608_035.nc,20240921040700,42.14,-55.508,A,844,ME,20240921041601,4902608,35,"MEDS, Canada",Unknown,35,https://dataselection.euro-argo.eu/cycle/5745999,,
-meds/4902627/profiles/R4902627_038.nc,20240919182700,39.001,-69.163,A,836,ME,20240919180118,4902627,38,"MEDS, Canada",Unknown,38,,,
-meds/4902651/profiles/R4902651_008.nc,20240920190700,43.194,-53.938,A,844,ME,20240920191555,4902651,8,"MEDS, Canada",Unknown,8,,,
-meds/4902659/profiles/R4902659_008.nc,20240920190800,41.949,-48.463,A,844,ME,20240920191556,4902659,8,"MEDS, Canada",Unknown,8,https://dataselection.euro-argo.eu/cycle/5745813,,
+aoml/4903256/profiles/R4903256_322.nc,20240916113739,33.684,-70.58,A,854,AO,20240919223639,4903256,322,"AOML, USA",Unknown,322,https://dataselection.euro-argo.eu/cycle/5743914,2.0,1.0
+aoml/4903260/profiles/R4903260_181.nc,20240923021602,34.211,-50.808,A,854,AO,20240923030105,4903260,181,"AOML, USA",Unknown,181,https://dataselection.euro-argo.eu/cycle/5746732,1.0,3.0
+aoml/4903273/profiles/R4903273_118.nc,20240921062622,37.798,-60.936,A,869,AO,20240922020121,4903273,118,"AOML, USA",Unknown,118,https://dataselection.euro-argo.eu/cycle/5746297,2.0,1.0
+aoml/4903277/profiles/R4903277_266.nc,20240916042448,34.871,-64.368,A,854,AO,20240916050038,4903277,266,"AOML, USA",Unknown,266,https://dataselection.euro-argo.eu/cycle/5743771,2.0,1.0
+aoml/4903280/profiles/R4903280_145.nc,20240919020621,37.389,-67.031,A,854,AO,20240919030052,4903280,145,"AOML, USA",Unknown,145,https://dataselection.euro-argo.eu/cycle/5745077,3.0,2.0
+aoml/4903329/profiles/R4903329_144.nc,20240916035017,35.687,-60.459,A,854,AO,20240916050041,4903329,144,"AOML, USA",Unknown,144,https://dataselection.euro-argo.eu/cycle/5743772,1.0,3.0
+aoml/4903456/profiles/R4903456_075.nc,20240920153030,35.692,-53.28,A,869,AO,20240921000109,4903456,75,"AOML, USA",Unknown,75,https://dataselection.euro-argo.eu/cycle/5745880,1.0,3.0
+aoml/5906342/profiles/R5906342_128.nc,20240921202716,37.503,-66.611,A,846,AO,20240922000051,5906342,128,"AOML, USA",Unknown,128,https://dataselection.euro-argo.eu/cycle/5746252,3.0,2.0
+aoml/5906435/profiles/D5906435_127.nc,20240916105422,36.968,-58.031,A,846,AO,20240920115557,5906435,127,"AOML, USA",Unknown,127,https://dataselection.euro-argo.eu/cycle/5743925,2.0,1.0
+aoml/5906438/profiles/R5906438_123.nc,20240918235202,37.326,-59.779,A,846,AO,20240919040038,5906438,123,"AOML, USA",Unknown,123,https://dataselection.euro-argo.eu/cycle/5745089,2.0,1.0
+bodc/3902491/profiles/R3902491_083.nc,20240920150500,36.305,-64.701,A,836,BO,20240920181901,3902491,83,"BODC, United Kingdom",Unknown,83,https://dataselection.euro-argo.eu/cycle/5745793,2.0,1.0
+bodc/4903662/profiles/R4903662_106.nc,20240919152200,35.293,-60.207,A,836,BO,20240919182254,4903662,106,"BODC, United Kingdom",Unknown,106,https://dataselection.euro-argo.eu/cycle/5745368,1.0,3.0
+bodc/6901930/profiles/R6901930_236.nc,20240916215300,37.966,-54.282,A,844,BO,20240917001859,6901930,236,"BODC, United Kingdom",Unknown,236,https://dataselection.euro-argo.eu/cycle/5744137,2.0,1.0
+coriolis/1902663/profiles/R1902663_005.nc,20240915161000,43.509,-53.231,A,838,IF,20240915173015,1902663,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5743563,0.0,0.0
+coriolis/2903881/profiles/R2903881_005.nc,20240914181800,42.933,-52.333,A,838,IF,20240914192856,2903881,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5742901,3.0,2.0
+coriolis/3901601/profiles/R3901601_293.nc,20240921043617,40.195,-67.321,A,846,IF,20240922141646,3901601,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5746039,2.0,1.0
+coriolis/3901602/profiles/R3901602_293.nc,20240917133647,33.138,-62.315,A,846,IF,20240919001709,3901602,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5744487,2.0,1.0
+coriolis/3901603/profiles/R3901603_293.nc,20240919011904,41.802,-62.03,A,846,IF,20240920101624,3901603,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5745092,2.0,1.0
+coriolis/3901604/profiles/R3901604_293.nc,20240918191501,37.458,-69.729,A,846,IF,20240920041712,3901604,293,"Ifremer, France",Unknown,293,https://dataselection.euro-argo.eu/cycle/5745025,2.0,1.0
+coriolis/3901687/profiles/R3901687_166.nc,20240916091220,43.738,-54.694,A,844,IF,20240916102548,3901687,166,"Ifremer, France",Unknown,166,https://dataselection.euro-argo.eu/cycle/5743877,0.0,0.0
+coriolis/3902001/profiles/R3902001_102.nc,20240923063530,33.263,-56.786,A,844,IF,20240923073321,3902001,102,"Ifremer, France",Unknown,102,https://dataselection.euro-argo.eu/cycle/5746800,1.0,3.0
+coriolis/4903763/profiles/R4903763_005.nc,20240915145900,43.035,-52.211,A,838,IF,20240915162840,4903763,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5743554,3.0,2.0
+coriolis/5907126/profiles/R5907126_005.nc,20240914214600,42.761,-52.503,A,838,IF,20240914232842,5907126,5,"Ifremer, France",Unknown,5,https://dataselection.euro-argo.eu/cycle/5742939,3.0,2.0
+coriolis/6903121/profiles/R6903121_101.nc,20240915013530,36.121,-60.494,A,844,IF,20240915023709,6903121,101,"Ifremer, France",Unknown,101,https://dataselection.euro-argo.eu/cycle/5742959,1.0,3.0
+coriolis/6903122/profiles/R6903122_101.nc,20240915013930,35.812,-66.108,A,844,IF,20240915023943,6903122,101,"Ifremer, France",Unknown,101,https://dataselection.euro-argo.eu/cycle/5742960,1.0,3.0
+meds/4902467/profiles/R4902467_196.nc,20240917184800,42.525,-53.069,A,844,ME,20240917191558,4902467,196,"MEDS, Canada",Unknown,196,https://dataselection.euro-argo.eu/cycle/5744593,3.0,2.0
+meds/4902470/profiles/R4902470_196.nc,20240917184600,35.816,-53.686,A,844,ME,20240917191559,4902470,196,"MEDS, Canada",Unknown,196,https://dataselection.euro-argo.eu/cycle/5744594,2.0,1.0
+meds/4902481/profiles/R4902481_191.nc,20240919194700,41.157,-66.005,A,844,ME,20240920131605,4902481,191,"MEDS, Canada",Unknown,191,,0.0,0.0
+meds/4902498/profiles/R4902498_174.nc,20240920235300,40.827,-53.247,A,844,ME,20240920221556,4902498,174,"MEDS, Canada",Unknown,174,https://dataselection.euro-argo.eu/cycle/5745869,0.0,0.0
+meds/4902503/profiles/R4902503_142.nc,20240916185300,39.186,-49.448,A,844,ME,20240916161554,4902503,142,"MEDS, Canada",Unknown,142,https://dataselection.euro-argo.eu/cycle/5744055,2.0,1.0
+meds/4902515/profiles/R4902515_108.nc,20240922215400,36.9,-73.433,A,844,ME,20240922191556,4902515,108,"MEDS, Canada",Unknown,108,https://dataselection.euro-argo.eu/cycle/5746673,0.0,0.0
+meds/4902519/profiles/R4902519_107.nc,20240915065800,37.799,-56.099,A,844,ME,20240915041551,4902519,107,"MEDS, Canada",Unknown,107,https://dataselection.euro-argo.eu/cycle/5743025,2.0,1.0
+meds/4902523/profiles/R4902523_142.nc,20240915192400,40.81,-62.218,A,844,ME,20240915191609,4902523,142,"MEDS, Canada",Unknown,142,https://dataselection.euro-argo.eu/cycle/5743635,0.0,0.0
+meds/4902524/profiles/R4902524_142.nc,20240915181500,38.779,-59.434,A,844,ME,20240915161556,4902524,142,"MEDS, Canada",Unknown,142,https://dataselection.euro-argo.eu/cycle/5743601,3.0,2.0
+meds/4902556/profiles/R4902556_084.nc,20240919125000,39.528,-56.06,A,878,ME,20240919101553,4902556,84,"MEDS, Canada",Unknown,84,https://dataselection.euro-argo.eu/cycle/5745272,2.0,1.0
+meds/4902576/profiles/R4902576_089.nc,20240917141100,40.569,-58.607,A,844,ME,20240917131557,4902576,89,"MEDS, Canada",Unknown,89,,3.0,2.0
+meds/4902578/profiles/R4902578_084.nc,20240919131600,39.92,-49.604,A,844,ME,20240919131553,4902578,84,"MEDS, Canada",Unknown,84,,3.0,2.0
+meds/4902592/profiles/R4902592_085.nc,20240923181100,44.038,-48.543,A,844,ME,20240923161602,4902592,85,"MEDS, Canada",Unknown,85,,0.0,0.0
+meds/4902598/profiles/R4902598_074.nc,20240921163800,40.269,-57.59,A,836,ME,20240921180059,4902598,74,"MEDS, Canada",Unknown,74,https://dataselection.euro-argo.eu/cycle/5746195,3.0,2.0
+meds/4902606/profiles/R4902606_047.nc,20240923200200,33.655,-64.312,A,844,ME,20240923191556,4902606,47,"MEDS, Canada",Unknown,47,,2.0,1.0
+meds/4902608/profiles/R4902608_035.nc,20240921040700,42.14,-55.508,A,844,ME,20240921041601,4902608,35,"MEDS, Canada",Unknown,35,https://dataselection.euro-argo.eu/cycle/5745999,3.0,2.0
+meds/4902627/profiles/R4902627_038.nc,20240919182700,39.001,-69.163,A,836,ME,20240919180118,4902627,38,"MEDS, Canada",Unknown,38,,0.0,0.0
+meds/4902651/profiles/R4902651_008.nc,20240920190700,43.194,-53.938,A,844,ME,20240920191555,4902651,8,"MEDS, Canada",Unknown,8,,3.0,2.0
+meds/4902659/profiles/R4902659_008.nc,20240920190800,41.949,-48.463,A,844,ME,20240920191556,4902659,8,"MEDS, Canada",Unknown,8,https://dataselection.euro-argo.eu/cycle/5745813,3.0,2.0
