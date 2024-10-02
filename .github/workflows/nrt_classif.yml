@@ -40,6 +40,7 @@ jobs:
     - name: Setup Micromamba
       uses: mamba-org/setup-micromamba@v1
       with:
+        micromamba-version: '1.5.10-0'
         environment-name: bc-monitor
         environment-file: environment39-free.yml
         cache-environment: true
