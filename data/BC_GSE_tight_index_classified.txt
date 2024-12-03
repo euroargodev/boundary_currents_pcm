@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20241202184548
+# Date of update : 20241203005145
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,dac,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_113.nc,20241202002033,35.383,-59.412,A,854,AO,20241202030858,1902392,113,"AOML, USA",aoml,Unknown,113,https://dataselection.euro-argo.eu/cycle/5782119,2.0,1.0
 aoml/3901219/profiles/R3901219_283.nc,20241123223203,38.796,-57.761,A,854,AO,20241124010042,3901219,283,"AOML, USA",aoml,Unknown,283,https://dataselection.euro-argo.eu/cycle/5777235,2.0,1.0
@@ -34,6 +34,7 @@ aoml/5906435/profiles/R5906435_134.nc,20241125175751,35.498,-59.426,A,846,AO,202
 aoml/5906438/profiles/R5906438_130.nc,20241128090458,40.733,-56.011,A,846,AO,20241128120338,5906438,130,"AOML, USA",aoml,Unknown,130,https://dataselection.euro-argo.eu/cycle/5780341,3.0,2.0
 bodc/3902495/profiles/R3902495_045.nc,20241125222220,41.42,-64.141,A,844,BO,20241126011342,3902495,45,"BODC, United Kingdom",bodc,Unknown,45,https://dataselection.euro-argo.eu/cycle/5778386,0.0,0.0
 bodc/4903662/profiles/R4903662_113.nc,20241128221800,35.312,-61.36,A,836,BO,20241129012930,4903662,113,"BODC, United Kingdom",bodc,Unknown,113,https://dataselection.euro-argo.eu/cycle/5780669,2.0,1.0
+bodc/7901008/profiles/R7901008_108.nc,20241129102756,35.705,-66.486,A,846,BO,20241202201231,7901008,108,"BODC, United Kingdom",bodc,Unknown,108,,1.0,3.0
 coriolis/1902663/profiles/R1902663_012.nc,20241125070200,43.423,-55.56,A,838,IF,20241125082545,1902663,12,"Ifremer, France",coriolis,Unknown,12,https://dataselection.euro-argo.eu/cycle/5777955,0.0,0.0
 coriolis/2903881/profiles/R2903881_012.nc,20241124071000,43.524,-54.157,A,838,IF,20241124082814,2903881,12,"Ifremer, France",coriolis,Unknown,12,https://dataselection.euro-argo.eu/cycle/5777419,0.0,0.0
 coriolis/3901601/profiles/R3901601_300.nc,20241130043616,39.206,-69.831,A,846,IF,20241201141651,3901601,300,"Ifremer, France",coriolis,Unknown,300,https://dataselection.euro-argo.eu/cycle/5781337,2.0,1.0
@@ -45,7 +46,7 @@ coriolis/4903763/profiles/R4903763_012.nc,20241124212700,43.959,-54.955,A,838,IF
 coriolis/5907126/profiles/R5907126_012.nc,20241123165500,44.247,-54.606,A,838,IF,20241123182533,5907126,12,"Ifremer, France",coriolis,Unknown,12,https://dataselection.euro-argo.eu/cycle/5777188,0.0,0.0
 coriolis/6903121/profiles/R6903121_108.nc,20241125123630,36.062,-63.83,A,844,IF,20241125133210,6903121,108,"Ifremer, France",coriolis,Unknown,108,https://dataselection.euro-argo.eu/cycle/5778060,2.0,1.0
 coriolis/6903122/profiles/R6903122_108.nc,20241125123430,34.25,-68.099,A,844,IF,20241125133021,6903122,108,"Ifremer, France",coriolis,Unknown,108,https://dataselection.euro-argo.eu/cycle/5778061,2.0,1.0
-coriolis/6990661/profiles/R6990661_014.nc,20241122184200,44.186,-54.665,A,838,IF,20241122202543,6990661,14,"Ifremer, France",coriolis,Unknown,14,https://dataselection.euro-argo.eu/cycle/5776542,0.0,0.0
+coriolis/6990661/profiles/R6990661_015.nc,20241202170500,44.142,-54.819,A,838,IF,20241202182740,6990661,15,"Ifremer, France",coriolis,Unknown,15,,0.0,0.0
 coriolis/7902215/profiles/R7902215_014.nc,20241123065900,43.407,-55.451,A,838,IF,20241123082552,7902215,14,"Ifremer, France",coriolis,Unknown,14,https://dataselection.euro-argo.eu/cycle/5776751,3.0,2.0
 meds/4902467/profiles/R4902467_203.nc,20241128053900,43.883,-55.78,A,844,ME,20241128041601,4902467,203,"MEDS, Canada",meds,Unknown,203,https://dataselection.euro-argo.eu/cycle/5780161,0.0,0.0
 meds/4902470/profiles/R4902470_203.nc,20241128054400,33.889,-56.449,A,844,ME,20241128041602,4902470,203,"MEDS, Canada",meds,Unknown,203,https://dataselection.euro-argo.eu/cycle/5780162,2.0,1.0
