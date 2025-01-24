@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20250124005043
+# Date of update : 20250124064006
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,dac,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_118.nc,20250120092646,33.53,-63.143,A,854,AO,20250120100143,1902392,118,"AOML, USA",aoml,S2A float with SBE conductivity sensor,118,https://dataselection.euro-argo.eu/cycle/5809674,1.0,3.0
 aoml/1902444/profiles/R1902444_115.nc,20250116173812,34.826,-68.816,A,876,AO,20250116201330,1902444,115,"AOML, USA",aoml,ALTO float with SBE conductivity sensor,115,https://dataselection.euro-argo.eu/cycle/5807531,2.0,1.0
@@ -17,8 +17,8 @@ aoml/4903042/profiles/R4903042_232.nc,20250119031450,39.269,-48.045,A,854,AO,202
 aoml/4903043/profiles/R4903043_229.nc,20250122013253,34.324,-48.249,A,854,AO,20250122030059,4903043,229,"AOML, USA",aoml,S2A float with SBE conductivity sensor,229,https://dataselection.euro-argo.eu/cycle/5810773,1.0,3.0
 aoml/4903049/profiles/R4903049_231.nc,20250119121056,38.477,-60.851,A,854,AO,20250119150108,4903049,231,"AOML, USA",aoml,S2A float with SBE conductivity sensor,231,https://dataselection.euro-argo.eu/cycle/5809323,2.0,1.0
 aoml/4903056/profiles/R4903056_220.nc,20250116033923,39.506,-52.064,A,854,AO,20250116050111,4903056,220,"AOML, USA",aoml,S2A float with SBE conductivity sensor,220,https://dataselection.euro-argo.eu/cycle/5807198,3.0,2.0
-aoml/4903233/profiles/R4903233_427.nc,20250114051625,39.368,-63.94,A,854,AO,20250119040012,4903233,427,"AOML, USA",aoml,S2A float with SBE conductivity sensor,427,https://dataselection.euro-argo.eu/cycle/5806153,2.0,1.0
-aoml/4903233/profiles/R4903233_428.nc,20250119012309,39.357,-65.112,A,854,AO,20250119040013,4903233,428,"AOML, USA",aoml,S2A float with SBE conductivity sensor,428,https://dataselection.euro-argo.eu/cycle/5809078,2.0,1.0
+aoml/4903233/profiles/R4903233_428.nc,20250119012309,39.357,-65.112,A,854,AO,20250123233238,4903233,428,"AOML, USA",aoml,S2A float with SBE conductivity sensor,428,https://dataselection.euro-argo.eu/cycle/5809078,2.0,1.0
+aoml/4903233/profiles/R4903233_429.nc,20250123212629,39.4,-65.457,A,854,AO,20250123233238,4903233,429,"AOML, USA",aoml,S2A float with SBE conductivity sensor,429,,2.0,1.0
 aoml/4903237/profiles/R4903237_421.nc,20250119100732,37.816,-68.526,A,854,AO,20250119110101,4903237,421,"AOML, USA",aoml,S2A float with SBE conductivity sensor,421,https://dataselection.euro-argo.eu/cycle/5809229,2.0,1.0
 aoml/4903252/profiles/R4903252_286.nc,20250120122355,35.006,-73.82,A,854,AO,20250120130124,4903252,286,"AOML, USA",aoml,S2A float with SBE conductivity sensor,286,https://dataselection.euro-argo.eu/cycle/5809779,2.0,1.0
 aoml/4903256/profiles/R4903256_335.nc,20250122210925,38.027,-71.09,A,854,AO,20250122233132,4903256,335,"AOML, USA",aoml,S2A float with SBE conductivity sensor,335,https://dataselection.euro-argo.eu/cycle/5811269,0.0,0.0
@@ -34,7 +34,6 @@ bodc/3902491/profiles/R3902491_095.nc,20250118151600,33.928,-65.317,A,836,BO,202
 bodc/3902495/profiles/R3902495_050.nc,20250117002520,41.255,-65.623,A,844,BO,20250120164554,3902495,50,"BODC, United Kingdom",bodc,ARVOR float with SBE conductivity sensor,50,https://dataselection.euro-argo.eu/cycle/5810001,0.0,0.0
 bodc/4903662/profiles/R4903662_118.nc,20250117152600,34.8,-61.7,A,836,BO,20250117192324,4903662,118,"BODC, United Kingdom",bodc,PROVOR III,118,https://dataselection.euro-argo.eu/cycle/5808283,2.0,1.0
 bodc/6901930/profiles/R6901930_248.nc,20250117094900,38.355,-52.845,A,844,BO,20250120164002,6901930,248,"BODC, United Kingdom",bodc,ARVOR float with SBE conductivity sensor,248,https://dataselection.euro-argo.eu/cycle/5810003,2.0,1.0
-coriolis/1902663/profiles/R1902663_017.nc,20250114023300,43.256,-57.001,A,838,IF,20250114032827,1902663,17,"Ifremer, France",coriolis,ARVOR-D deep float with SBE conductivity sensor,17,https://dataselection.euro-argo.eu/cycle/5806107,0.0,0.0
 coriolis/2903881/profiles/R2903881_018.nc,20250122163300,44.131,-56.199,A,838,IF,20250122173131,2903881,18,"Ifremer, France",coriolis,ARVOR-D deep float with SBE conductivity sensor,18,https://dataselection.euro-argo.eu/cycle/5811134,0.0,0.0
 coriolis/3901601/profiles/R3901601_305.nc,20250119043152,38.872,-71.74,A,846,IF,20250120141653,3901601,305,"Ifremer, France",coriolis,Teledyne Webb Research float with SBE conductivity sensor,305,https://dataselection.euro-argo.eu/cycle/5809242,2.0,1.0
 coriolis/3901602/profiles/R3901602_305.nc,20250115121159,34.193,-58.785,A,846,IF,20250116231705,3901602,305,"Ifremer, France",coriolis,Teledyne Webb Research float with SBE conductivity sensor,305,https://dataselection.euro-argo.eu/cycle/5806915,2.0,1.0
