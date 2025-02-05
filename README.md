@@ -4,10 +4,10 @@
 [![Binder](https://img.shields.io/static/v1.svg?logo=Jupyter&label=MyBinder&message=demo&color=blue)](https://mybinder.org/v2/gh/euroargodev/binder-sandbox/virtual-fleet?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Feuroargodev%252Fboundary_currents_pcm%26urlpath%3Dlab%252Ftree%252Fboundary_currents_pcm%252Fdocs%252FPCM-demo.ipynb)
 
 
-[ci-energy-badge-census]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
+[ci-energy-badge-census]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325&metric=carbon
 [ci-energy-link-census]: https://metrics.green-coding.io/ci.html?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26287325
 
-[ci-energy-badge-pcm]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26424386
+[ci-energy-badge-pcm]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26424386&metric=carbon
 [ci-energy-link-pcm]: https://metrics.green-coding.io/ci.html?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26424386
 
 Home page for the development of [Profile Classification Models (PCM)](https://pyxpcm.readthedocs.io/en/latest/overview.html) dedicated to the identification/classification of Argo profiles in boundary current systems of interest within the Euro-ArgoRISE project.  
