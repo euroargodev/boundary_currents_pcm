@@ -51,7 +51,7 @@ jobs:
         USERNAME: ${{secrets.COPERNICUS_MARINE_SERVICE_USERNAME}}
         PASSWORD: ${{secrets.COPERNICUS_MARINE_SERVICE_PASSWORD}}
       run: |
-        copernicusmarine login --username $USERNAME --password $PASSWORD --overwrite-configuration-file --log-level INFO
+        copernicusmarine login --username $USERNAME --password $PASSWORD --force-overwrite --log-level INFO
 
     - name: Classify and report
       run: |
