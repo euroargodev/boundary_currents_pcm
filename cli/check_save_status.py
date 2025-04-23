@@ -72,8 +72,8 @@ def analyse_regions(dict_regions, regions):
             except argopy.errors.DataNotFound:
                 counter = max_try + 1
                 pass
-            except argopy.errors.FtpPathError:
-                print("%30s: FtpPathError, trying again in 30 seconds ... (%i/%i)" % (" ", counter, max_try))
+            except argopy.errors.GdacPathError:
+                print("%30s: GdacPathError, trying again in 30 seconds ... (%i/%i)" % (" ", counter, max_try))
                 time.sleep(30)
                 counter += 1
         if counter == max_try:
