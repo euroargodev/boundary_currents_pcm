@@ -43,7 +43,7 @@ jobs:
       with:
         micromamba-version: '1.5.10-0'
         environment-name: bc-monitor
-        environment-file: environment39-free.yml
+        environment-file: environment310-pinned.yml
         cache-environment: true
 
     - name: Login to Copernicus Marine Service
