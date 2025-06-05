@@ -1,0 +1,73 @@
+name: bc-monitor
+channels:
+  - conda-forge
+dependencies:
+  - python = 3.10
+
+# CORE:
+  - aiohttp = 3.11.13
+  - fsspec = 2025.2.0
+  - netCDF4 = 1.7.2
+  - scipy = 1.15.2
+  - xarray = 2024.2.0 # while https://github.com/pydata/xarray/issues/8909 is not solved
+  - argopy = 1.1.0
+
+  - decorator = 5.2.1
+  - erddapy = 2.2.3
+  - h5netcdf = 1.5.0
+  - packaging = 24.2
+  - requests = 2.32.3
+  - toolz = 1.0.0
+
+# UTIL:
+  - gsw = 3.6.19
+  - tqdm = 4.67.1
+
+# STAT:
+  - dask = 2025.2.0
+  - dask-ml
+  - distributed = 2025.2.0
+  - scikit-learn
+  - xhistogram
+
+# EXT.FILES:
+  - boto3 = 1.37.1
+  - kerchunk = 0.2.7
+  - numcodecs = 0.13.1
+  - s3fs = 2025.2.0
+  - zarr = 2.18.3
+
+# EXT.PLOT:
+  - cartopy = 0.24.0
+  - IPython = 8.33.0
+  - ipykernel = 6.29.5
+  - ipywidgets = 8.1.5
+  - matplotlib = 3.10.1
+  - pyproj = 3.7.1
+  - seaborn = 0.13.2
+  - regionmask
+
+# DEV:
+  - aiofiles = 24.1.0
+  - black = 25.1.0
+  - bottleneck = 1.4.2
+  - cfgrib = 0.9.15.0
+  - cftime = 1.6.4
+  - codespell = 2.4.1
+  - flake8 = 7.1.2
+  - numpy = 1.26.4
+  - pandas = 2.2.3
+  - pip = 25.0.1
+  - pytest = 8.3.5
+  - pytest-cov = 6.0.0
+  - pytest-env = 1.1.5
+  - pytest-localftpserver
+  - setuptools = 75.8.2
+#  - sphinx = -
+
+# PIP:
+  - pip:
+      - git+https://github.com/obidam/pyxpcm.git@master
+      - copernicusmarine == 2.1.2
+      - pytest-reportlog == 0.4.0
+#      - git+https://github.com/umr-lops/dask-hpcconfig.git#egg=dask-hpcconfig

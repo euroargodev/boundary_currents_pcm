@@ -41,13 +41,13 @@ jobs:
       with:
         micromamba-version: '1.5.10-0'
         environment-name: bc-monitor
-        environment-file: environment39-free.yml
+        environment-file: environment310-pinned.yml
         cache-environment: true
 
     - name: Login to Copernicus Marine Service
       env:
-        USERNAME: ${{secrets.COPERNICUS_MARINE_SERVICE_USERNAME}}
-        PASSWORD: ${{secrets.COPERNICUS_MARINE_SERVICE_PASSWORD}}
+        USERNAME: ${{secrets.COPERNICUSMARINE_SERVICE_USERNAME}}
+        PASSWORD: ${{secrets.COPERNICUSMARINE_SERVICE_PASSWORD}}
       run: |
         copernicusmarine login --username $USERNAME --password $PASSWORD --force-overwrite --log-level INFO
 

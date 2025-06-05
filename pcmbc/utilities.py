@@ -380,11 +380,12 @@ def reorder_class(this_ds, m, func, dim="pcm_class", sampling_dim="N_PROF"):
 
 
 def load_aviso_nrt(a_box, a_date, vname='sla'):
+    """https://data.marine.copernicus.eu/product/SEALEVEL_GLO_PHY_L4_NRT_008_046/description"""
     if not isinstance(vname, list):
         vname = [vname]
 
     ds = copernicusmarine.open_dataset(
-        dataset_id="cmems_obs-sl_glo_phy-ssh_nrt_allsat-l4-duacs-0.25deg_P1D",
+        dataset_id="cmems_obs-sl_glo_phy-ssh_nrt_allsat-l4-duacs-0.125deg_P1D",
         minimum_longitude=a_box[0],
         maximum_longitude=a_box[1],
         minimum_latitude=a_box[2],
@@ -397,6 +398,7 @@ def load_aviso_nrt(a_box, a_date, vname='sla'):
     return ds
 
 def load_aviso_mdt(a_box, vname='mdt'):
+    """https://data.marine.copernicus.eu/product/SEALEVEL_GLO_PHY_MDT_008_063/description"""
     if not isinstance(vname, list):
         vname = [vname]
 

@@ -4,8 +4,6 @@ import traceback
 import numpy as np
 import pandas as pd
 
-# import xarray as xr
-# xr.set_options(display_style="html", display_expand_attrs=False)
 import warnings
 import logging
 import matplotlib.pyplot as plt
@@ -13,10 +11,9 @@ from tqdm import tqdm
 
 import pyxpcm
 import argopy
-from argopy import DataFetcher
-from argopy.stores.argo_index_pd import indexstore_pandas as indexstore
+from argopy import DataFetcher, ArgoIndex
 
-sys.path.insert(0, os.sep.join([os.path.split(os.path.realpath(__file__))[0], ".."]))
+sys.path.insert(0, os.sep.join([os.path.split(os.path.realpath(__name__))[0], ".."]))
 from pcmbc.utilities import from_misc_pres_2_std_depth, load_aviso_nrt, load_aviso_mdt
 
 
@@ -42,7 +39,7 @@ def load_and_classify(this_m, this_df):
                 .profile(this_df["wmo"].values, this_df["cycle_number"].values)
                 .data
             )
-            ds = ds.argo.filter_data_mode()
+            ds = ds.argo.datamode.merge()
             dsp_float = ds.argo.point2profile()
             # Rq: Here I use the 'expert' mode in order to only filter variables according to DATA MODE. If I use the
             # 'standard' mode, data are also filtered by QC, which can reduce the number of "classifiable" profiles.
@@ -181,16 +178,16 @@ if __name__ == "__main__":
         3: "Warm southern flank",
     }
 
-    #######################
-    # Load files necessary to start NRT processing
-    #######################
+        #######################
+        # Load files necessary to start NRT processing
+        #######################
 
     # Load the BC profile index:
     index_file = (
         "https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_%s_index.txt"
         % (BCname.replace(" ", "_").replace(".", ""))
     )
-    idx = indexstore(
+    idx = ArgoIndex(
         host=os.path.split(index_file)[0],
         index_file=os.path.split(index_file)[1],
         convention="ar_index_global_prof",

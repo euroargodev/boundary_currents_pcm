@@ -1,7 +1,9 @@
 import os
-from argopy.stores.argo_index_pd import indexstore_pandas as indexstore
+from argopy import ArgoIndex
 import copernicusmarine
 
+# WARNING - 2025-06-05T09:29:20Z - COPERNICUS_MARINE_SERVICE_USERNAME is deprecated. Please use COPERNICUSMARINE_SERVICE_USERNAME instead.
+# WARNING - 2025-06-05T09:29:20Z - COPERNICUS_MARINE_SERVICE_PASSWORD is deprecated. Please use COPERNICUSMARINE_SERVICE_PASSWORD instead.
 
 def load_aviso_nrt(a_box, a_date, vname='sla'):
     if not isinstance(vname, list):
@@ -57,7 +59,7 @@ if __name__ == "__main__":
         "https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_%s_index.txt"
         % (BCname.replace(" ", "_").replace(".", ""))
     )
-    idx = indexstore(host=os.path.split(index_file)[0], index_file=os.path.split(index_file)[1], convention='ar_index_global_prof')
+    idx = ArgoIndex(host=os.path.split(index_file)[0], index_file=os.path.split(index_file)[1], convention='ar_index_global_prof')
     index = idx.to_dataframe()
     WMO_list = idx.read_wmo()
 
