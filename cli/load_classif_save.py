@@ -13,7 +13,7 @@ import pyxpcm
 import argopy
 from argopy import DataFetcher, ArgoIndex
 
-sys.path.insert(0, os.sep.join([os.path.split(os.path.realpath(__name__))[0], ".."]))
+sys.path.insert(0, os.sep.join([os.path.split(os.path.realpath(__file__))[0], ".."]))
 from pcmbc.utilities import from_misc_pres_2_std_depth, load_aviso_nrt, load_aviso_mdt
 
 
