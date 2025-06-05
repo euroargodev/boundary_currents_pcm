@@ -30,8 +30,6 @@ jobs:
 
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        ref: 'main'
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v5
