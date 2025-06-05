@@ -27,8 +27,7 @@ jobs:
 
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        ref: 'main'
+
 #      env:
 #        GIT_TRACE: 1
 #        GIT_CURL_VERBOSE: 1
