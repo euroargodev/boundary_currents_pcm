@@ -10,12 +10,9 @@
 [ci-energy-badge-pcm]: https://api.green-coding.berlin/v1/ci/badge/get?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26424386&metric=carbon
 [ci-energy-link-pcm]: https://metrics.green-coding.io/ci.html?repo=euroargodev/boundary_currents_pcm&branch=main&workflow=26424386
 
-Home page for the development of [Profile Classification Models (PCM)](https://pyxpcm.readthedocs.io/en/latest/overview.html) dedicated to the identification/classification of Argo profiles in boundary current systems of interest within the Euro-ArgoRISE project.  
+Home page for the development of [Profile Classification Models (PCM)](https://pyxpcm.readthedocs.io/en/latest/overview.html) dedicated to the identification/classification of Argo profiles in boundary current systems.
 
-
-## 🛠 Roadmap
-1. Get one PCM for each boundary currents hydrography: [check progress here](https://github.com/euroargodev/boundary_currents_pcm/projects/1)
-2. Get a product and real-time monitoring of BCs: [check progress here](https://github.com/euroargodev/boundary_currents_pcm/projects/2)
+WBC considered as a first step are those of  interest within the Euro-ArgoRISE project (2019-2022).
 
 ## 👋 Discussions
 - [Help on PCM](https://github.com/euroargodev/boundary_currents/discussions/6)
@@ -30,7 +27,6 @@ On this repository, a couple of analysis are run automatically to *monitor* Boun
 
 ## Census
 [![BC-status](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/status.yml/badge.svg)](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/status.yml)
-[![CI Energy Censur][ci-energy-badge-census]][ci-energy-link-census]
 
 Below are the profile count reported for each BCs over the last 10 days.  
 You can click on badges to access directly to the corresponding index file.  
@@ -44,7 +40,6 @@ Counts and index are updated hourly.
 
 ## NRT Supervised classification of profiles (PCM)
 [![NRT-classif](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml/badge.svg)](https://github.com/euroargodev/boundary_currents_pcm/actions/workflows/nrt_classif.yml)
-[![CI Energy Censur][ci-energy-badge-pcm]][ci-energy-link-pcm]
 
 For boundary currents [with a stable PCM](https://github.com/euroargodev/boundary_currents_pcm/tree/main/pcmbc/assets), we run a near real time (NRT) analysis of profiles.   
 Results are saved in an [*augmented* index file](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.txt) and synthesized in [figures like this one](https://raw.githubusercontent.com/euroargodev/boundary_currents_pcm/main/data/BC_GSE_tight_index_classified.png): 
