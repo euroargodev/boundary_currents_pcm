@@ -3,10 +3,11 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20250619005039
+# Date of update : 20250619064422
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,dac,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902392/profiles/R1902392_133.nc,20250617141149,34.042,-67.205,A,854,AO,20250617170450,1902392,133,"AOML, USA",aoml,S2A float with SBE conductivity sensor,133,https://dataselection.euro-argo.eu/cycle/5898243,2.0,1.0
 aoml/1902444/profiles/R1902444_130.nc,20250613132054,38.35,-65.186,A,876,AO,20250613170448,1902444,130,"AOML, USA",aoml,ALTO float with SBE conductivity sensor,130,https://dataselection.euro-argo.eu/cycle/5895931,1.0,3.0
+aoml/1902733/profiles/R1902733_022.nc,20250618224304,37.861,-57.76,A,854,AO,20250619000230,1902733,22,"AOML, USA",aoml,S2A float with SBE conductivity sensor,22,,2.0,1.0
 aoml/1902754/profiles/R1902754_012.nc,20250614201545,35.152,-71.989,A,854,AO,20250614223333,1902754,12,"AOML, USA",aoml,S2A float with SBE conductivity sensor,12,https://dataselection.euro-argo.eu/cycle/5896666,2.0,1.0
 aoml/2903979/profiles/R2903979_000.nc,20250614033806,39.651,-63.736,A,874,AO,20250616170348,2903979,0,"AOML, USA",aoml,SOLO_D_MRV,0,https://dataselection.euro-argo.eu/cycle/5897689,999.0,999.0
 aoml/2904008/profiles/R2904008_005.nc,20250618143206,38.531,-59.255,A,854,AO,20250618160658,2904008,5,"AOML, USA",aoml,S2A float with SBE conductivity sensor,5,,2.0,1.0
@@ -44,6 +45,7 @@ coriolis/2903881/profiles/R2903881_032.nc,20250612065700,42.112,-60.586,A,838,IF
 coriolis/3901601/profiles/R3901601_320.nc,20250618043028,39.791,-50.871,A,846,IF,20250618091509,3901601,320,"Ifremer, France",coriolis,Teledyne Webb Research float with SBE conductivity sensor,320,https://dataselection.euro-argo.eu/cycle/5898690,2.0,1.0
 coriolis/3901602/profiles/R3901602_320.nc,20250614122246,37.121,-67.259,A,846,IF,20250615231658,3901602,320,"Ifremer, France",coriolis,Teledyne Webb Research float with SBE conductivity sensor,320,https://dataselection.euro-argo.eu/cycle/5896522,2.0,1.0
 coriolis/3901604/profiles/R3901604_320.nc,20250615183724,35.203,-62.29,A,846,IF,20250617041708,3901604,320,"Ifremer, France",coriolis,Teledyne Webb Research float with SBE conductivity sensor,320,https://dataselection.euro-argo.eu/cycle/5897220,2.0,1.0
+coriolis/3901687/profiles/R3901687_193.nc,20250618235820,42.587,-62.281,A,844,IF,20250619003716,3901687,193,"Ifremer, France",coriolis,ARVOR float with SBE conductivity sensor,193,,0.0,0.0
 coriolis/3902001/profiles/R3902001_128.nc,20250615165330,34.79,-69.614,A,844,IF,20250615173433,3902001,128,"Ifremer, France",coriolis,ARVOR float with SBE conductivity sensor,128,https://dataselection.euro-argo.eu/cycle/5897090,1.0,3.0
 coriolis/4903763/profiles/R4903763_032.nc,20250612220500,43.056,-59.437,A,838,IF,20250612232721,4903763,32,"Ifremer, France",coriolis,ARVOR-D deep float with SBE conductivity sensor,32,https://dataselection.euro-argo.eu/cycle/5895560,0.0,0.0
 coriolis/5907071/profiles/R5907071_041.nc,20250618103200,44.07,-48.292,A,838,IF,20250618112703,5907071,41,"Ifremer, France",coriolis,ARVOR-D deep float with SBE conductivity sensor,41,https://dataselection.euro-argo.eu/cycle/5898733,0.0,0.0
@@ -51,11 +53,10 @@ coriolis/5907126/profiles/R5907126_032.nc,20250612070200,43.219,-57.104,A,838,IF
 coriolis/6902914/profiles/R6902914_230.nc,20250612084830,34.117,-71.69,A,844,IF,20250612092838,6902914,230,"Ifremer, France",coriolis,ARVOR float with SBE conductivity sensor,230,https://dataselection.euro-argo.eu/cycle/5895227,2.0,1.0
 coriolis/6903121/profiles/R6903121_128.nc,20250617164130,37.114,-56.45,A,844,IF,20250617173137,6903121,128,"Ifremer, France",coriolis,ARVOR float with SBE conductivity sensor,128,https://dataselection.euro-argo.eu/cycle/5898285,2.0,1.0
 coriolis/6903122/profiles/R6903122_128.nc,20250617164130,33.23,-71.015,A,844,IF,20250617173340,6903122,128,"Ifremer, France",coriolis,ARVOR float with SBE conductivity sensor,128,https://dataselection.euro-argo.eu/cycle/5898286,2.0,1.0
-coriolis/6990501/profiles/R6990501_103.nc,20250617095724,34.563,-54.12,A,846,IF,20250617141509,6990501,103,"Ifremer, France",coriolis,Teledyne Webb Research float with SBE conductivity sensor,103,https://dataselection.euro-argo.eu/cycle/5898206,1.0,3.0
+coriolis/6990501/profiles/R6990501_103.nc,20250617095724,34.563,-54.12,A,846,IF,20250618211547,6990501,103,"Ifremer, France",coriolis,Teledyne Webb Research float with SBE conductivity sensor,103,https://dataselection.euro-argo.eu/cycle/5898206,1.0,3.0
 meds/4902467/profiles/R4902467_222.nc,20250610053200,42.766,-61.596,A,844,ME,20250610041531,4902467,222,"MEDS, Canada",meds,ARVOR float with SBE conductivity sensor,222,https://dataselection.euro-argo.eu/cycle/5894020,999.0,999.0
 meds/4902470/profiles/R4902470_222.nc,20250610042200,36.266,-64.998,A,844,ME,20250610041532,4902470,222,"MEDS, Canada",meds,ARVOR float with SBE conductivity sensor,222,https://dataselection.euro-argo.eu/cycle/5894021,2.0,1.0
 meds/4902481/profiles/R4902481_217.nc,20250612052700,39.015,-61.398,A,844,ME,20250612041538,4902481,217,"MEDS, Canada",meds,ARVOR float with SBE conductivity sensor,217,,3.0,2.0
-meds/4902503/profiles/R4902503_168.nc,20250609044400,36.618,-52.116,A,844,ME,20250609071538,4902503,168,"MEDS, Canada",meds,ARVOR float with SBE conductivity sensor,168,https://dataselection.euro-argo.eu/cycle/5893484,2.0,1.0
 meds/4902515/profiles/R4902515_134.nc,20250615064600,39.854,-49.034,A,844,ME,20250615041527,4902515,134,"MEDS, Canada",meds,ARVOR float with SBE conductivity sensor,134,https://dataselection.euro-argo.eu/cycle/5896854,1.0,3.0
 meds/4902519/profiles/R4902519_134.nc,20250617221800,38.346,-69.626,A,844,ME,20250617221526,4902519,134,"MEDS, Canada",meds,ARVOR float with SBE conductivity sensor,134,https://dataselection.euro-argo.eu/cycle/5898514,0.0,0.0
 meds/4902523/profiles/R4902523_169.nc,20250618101000,39.386,-51.146,A,844,ME,20250618101533,4902523,169,"MEDS, Canada",meds,ARVOR float with SBE conductivity sensor,169,https://dataselection.euro-argo.eu/cycle/5898803,2.0,1.0
