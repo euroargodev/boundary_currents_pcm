@@ -41,11 +41,8 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Install argopy
+    - name: Check versions with argopy
       run: |
-        python -m pip install --upgrade pip
-        pwd
-        ls -l
         python -c "import argopy; argopy.show_versions()"
 
     - name: Check Argo status in BCs
