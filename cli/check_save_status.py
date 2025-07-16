@@ -4,7 +4,8 @@ import time
 import os
 import json
 import argopy
-from argopy import IndexFetcher as ArgoIndexFetcher
+# from argopy import IndexFetcher as ArgoIndexFetcher
+from argopy import ArgoIndex
 
 
 def rect_box(SW,NE):
@@ -54,7 +55,6 @@ def analyse_regions(dict_regions, regions):
         index_box = dict_regions[r.abbrev]['box']
         dict_regions[r.abbrev]['long_name'] = r.name
         dict_regions[r.abbrev]['name'] = r.abbrev
-        dict_regions[r.abbrev]['fetcher'] = None
         dict_regions[r.abbrev]['index'] = []
         dict_regions[r.abbrev]['N_PROF'] = 0
         dict_regions[r.abbrev]['N_WMO'] = 0
@@ -63,11 +63,10 @@ def analyse_regions(dict_regions, regions):
         while counter < max_try:
             # print(counter)
             try:
-                argo = ArgoIndexFetcher(src='gdac', cache=False).region(index_box).load()
-                dict_regions[r.abbrev]['fetcher'] = argo
-                dict_regions[r.abbrev]['index'] = argo.index
-                dict_regions[r.abbrev]['N_PROF'] = len(argo.index)
-                dict_regions[r.abbrev]['N_WMO'] = len(argo.index.groupby('wmo').count())
+                idx = ArgoIndex().query.box(index_box)
+                dict_regions[r.abbrev]['index'] = idx
+                dict_regions[r.abbrev]['N_PROF'] = idx.N_MATCH
+                dict_regions[r.abbrev]['N_WMO'] = len(idx.read_wmo())
                 counter = max_try + 1
             except argopy.errors.DataNotFound:
                 counter = max_try + 1
@@ -112,7 +111,7 @@ def save_this_region_endpoint(a_region, out_dir='data'):
 
 def index2csv(BCname, index, csvfile):
     institution_dict = argopy.related.load_dict('institutions')
-    df = index.copy()
+    df = index.to_dataframe()
 
     txt_header = """# Title : Profile directory file of the Boundary Currents Monitor
 # Description : The directory file describes all individual profile files of the argo GDAC ftp site for one Boundary Current system ({})
@@ -149,7 +148,7 @@ if __name__ == '__main__':
         cache_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "cache"])
         argopy.set_options(cachedir=cache_dir)
     print(argopy.show_options())
-    f = ArgoIndexFetcher(src='gdac', cache=False).region([-80, 15., 15, 78])  # Large enough to cover all regions
+    f = ArgoIndex().query.box([-80, 15., 15, 78, '19000101', '20991231'])  # Large enough to cover all regions
     print(f)
 
     # Get metrics and index for each regions:

@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Energy Estimation - Initialize
-      uses: green-coding-berlin/eco-ci-energy-estimation@v4
+      uses: green-coding-berlin/eco-ci-energy-estimation@v5
       with:
         task: start-measurement
         project: ${{ secrets.CARBONDB_PROJECT_UUID }}
@@ -36,10 +36,10 @@ jobs:
     - name: Save update time
       run: date +%s > data/last_update.txt
 
-    - name: Set up Python 3.10
+    - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: '3.11'
 
     - name: Install argopy
       run: |
@@ -47,7 +47,7 @@ jobs:
         pwd
         ls -l
         pip install git+https://github.com/euroargodev/argopy.git@master
-        pip install regionmask
+#        pip install regionmask
         python -c "import argopy; argopy.show_versions()"
 
     - name: Check Argo status in BCs
@@ -76,14 +76,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Energy Estimation - Get Measurement
-      uses: green-coding-berlin/eco-ci-energy-estimation@v4
+      uses: green-coding-berlin/eco-ci-energy-estimation@v5
       with:
         task: get-measurement
         label: 'BCmonitor census'
       continue-on-error: true
 
     - name: Energy Estimation - Show Results
-      uses: green-coding-berlin/eco-ci-energy-estimation@v4
+      uses: green-coding-berlin/eco-ci-energy-estimation@v5
       with:
         task: display-results
       continue-on-error: true

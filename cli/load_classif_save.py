@@ -178,9 +178,9 @@ if __name__ == "__main__":
         3: "Warm southern flank",
     }
 
-        #######################
-        # Load files necessary to start NRT processing
-        #######################
+    #######################
+    # Load files necessary to start NRT processing
+    #######################
 
     # Load the BC profile index:
     index_file = (

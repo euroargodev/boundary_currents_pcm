@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - name: Energy Estimation - Initialize
-      uses: green-coding-berlin/eco-ci-energy-estimation@v4
+      uses: green-coding-berlin/eco-ci-energy-estimation@v5
       with:
         task: start-measurement
         project: ${{ secrets.CARBONDB_PROJECT_UUID }}
@@ -31,17 +31,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Python 3.10
+    - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: '3.11'
 
     - name: Setup Micromamba
       uses: mamba-org/setup-micromamba@v2
       with:
         micromamba-version: '1.5.10-0'
         environment-name: bc-monitor
-        environment-file: environment310-pinned.yml
+        environment-file: environment311-pinned.yml
         cache-environment: true
 
     - name: Login to Copernicus Marine Service
@@ -67,14 +67,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Energy Estimation - Get Measurement
-      uses: green-coding-berlin/eco-ci-energy-estimation@v4
+      uses: green-coding-berlin/eco-ci-energy-estimation@v5
       with:
         task: get-measurement
         label: 'BCmonitor PCM classif'
       continue-on-error: true
 
     - name: Energy Estimation - Show Results
-      uses: green-coding-berlin/eco-ci-energy-estimation@v4
+      uses: green-coding-berlin/eco-ci-energy-estimation@v5
       with:
         task: display-results
       continue-on-error: true
