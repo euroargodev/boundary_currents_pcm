@@ -26,13 +26,13 @@ jobs:
       continue-on-error: true
 
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
 #      env:
 #        GIT_TRACE: 1
 #        GIT_CURL_VERBOSE: 1
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Save update time
       run: date +%s > data/last_update.txt
 
