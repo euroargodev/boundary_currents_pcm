@@ -127,8 +127,7 @@ def index2csv(BCname, index, csvfile):
 
     if len(df) > 0:
         with open(csvfile, 'a+') as f:
-            df = df.drop(['profiler', 'institution_code'], axis=1)
-            df = df.rename(columns={'institution_code': 'institution'})
+            df = df.drop(['profiler', 'institution'], axis=1)
             df['institution'] = df['institution'].apply(
                 lambda x: list(institution_dict.keys())[list(institution_dict.values()).index(x)])
             df = df.rename(columns={'profiler_code': 'profiler_type'})
