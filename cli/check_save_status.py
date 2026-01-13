@@ -4,8 +4,8 @@ import time
 import os
 import json
 import argopy
-# from argopy import IndexFetcher as ArgoIndexFetcher
 from argopy import ArgoIndex
+from argopy.options import OPTIONS
 
 
 def rect_box(SW,NE):
@@ -140,6 +140,7 @@ if __name__ == '__main__':
     dict_regions, regions = get_region_list()
 
     # Load index for the North Atlantic:
+    cache_dir = OPTIONS['cachedir']
     if os.uname()[0] == 'Darwin':
         cache_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "cache"])
         argopy.set_options(cachedir=cache_dir)
