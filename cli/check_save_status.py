@@ -48,7 +48,7 @@ def get_region_list():
     return dict_regions, regions
 
 
-def analyse_regions(dict_regions, regions, cachedir):
+def analyse_regions(dict_regions, regions):
     print("\nLoad index for regions:")
     for r in regions:
         print("%30s..." % r.name)
@@ -63,7 +63,7 @@ def analyse_regions(dict_regions, regions, cachedir):
         while counter < max_try:
             # print(counter)
             try:
-                idx = ArgoIndex(cache=True, cachedir=cachedir).query.box(index_box)
+                idx = ArgoIndex(cache=True).query.box(index_box)
                 dict_regions[r.abbrev]['index'] = idx
                 dict_regions[r.abbrev]['N_PROF'] = idx.N_MATCH
                 dict_regions[r.abbrev]['N_WMO'] = len(idx.read_wmo())
@@ -140,14 +140,13 @@ if __name__ == '__main__':
     dict_regions, regions = get_region_list()
 
     # Load index for the North Atlantic:
-    cache_dir = OPTIONS['cachedir']
     if os.uname()[0] == 'Darwin':
         cache_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "cache"])
         argopy.set_options(cachedir=cache_dir)
     print(argopy.show_options())
 
     # Get metrics and index for each regions:
-    dict_regions, regions = analyse_regions(dict_regions, regions, cache_dir)
+    dict_regions, regions = analyse_regions(dict_regions, regions)
 
     # Output directory:
     out_dir = os.path.join(*[os.path.split(os.path.realpath(__file__))[0], "..", "data"])
