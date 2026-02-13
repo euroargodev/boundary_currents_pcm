@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20260213065002
+# Date of update : 20260213124928
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,dac,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902733/profiles/R1902733_045.nc,20260210054608,36.659,-55.515,A,854,AO,20260210102952,1902733,45,"AOML, USA",aoml,S2A float with SBE conductivity sensor,45,https://dataselection.euro-argo.eu/cycle/6041585,,
 aoml/1902754/profiles/R1902754_035.nc,20260206043534,40.04,-53.315,A,854,AO,20260206062126,1902754,35,"AOML, USA",aoml,S2A float with SBE conductivity sensor,35,https://dataselection.euro-argo.eu/cycle/6039197,,
@@ -19,7 +19,6 @@ aoml/4903069/profiles/R4903069_119D.nc,20260207021831,37.605,-70.155,A,874,AO,20
 aoml/4903069/profiles/R4903069_120D.nc,20260208115502,37.645,-70.074,A,874,AO,20260211182434,4903069,120,"AOML, USA",aoml,SOLO_D_MRV,120,https://dataselection.euro-argo.eu/cycle/6043292,0.0,0.0
 aoml/4903069/profiles/R4903069_121D.nc,20260209213222,37.633,-70.002,A,874,AO,20260212152634,4903069,121,"AOML, USA",aoml,SOLO_D_MRV,121,https://dataselection.euro-argo.eu/cycle/6043291,0.0,0.0
 aoml/4903069/profiles/R4903069_122D.nc,20260211061535,37.609,-69.883,A,874,AO,20260212152635,4903069,122,"AOML, USA",aoml,SOLO_D_MRV,122,,3.0,2.0
-aoml/4903070/profiles/R4903070_112D.nc,20260203114959,36.119,-63.674,A,874,AO,20260211182521,4903070,112,"AOML, USA",aoml,SOLO_D_MRV,112,https://dataselection.euro-argo.eu/cycle/6043178,1.0,3.0
 aoml/4903070/profiles/R4903070_113D.nc,20260205143841,36.098,-63.789,A,874,AO,20260211182522,4903070,113,"AOML, USA",aoml,SOLO_D_MRV,113,https://dataselection.euro-argo.eu/cycle/6043177,1.0,3.0
 aoml/4903070/profiles/R4903070_114D.nc,20260207172252,36.036,-63.865,A,874,AO,20260211235243,4903070,114,"AOML, USA",aoml,SOLO_D_MRV,114,https://dataselection.euro-argo.eu/cycle/6043176,1.0,3.0
 aoml/4903070/profiles/R4903070_115D.nc,20260209191439,35.909,-63.883,A,874,AO,20260211235244,4903070,115,"AOML, USA",aoml,SOLO_D_MRV,115,https://dataselection.euro-argo.eu/cycle/6043443,2.0,1.0
@@ -30,7 +29,8 @@ aoml/4903260/profiles/R4903260_232.nc,20260208101224,34.867,-61.064,A,854,AO,202
 aoml/4903273/profiles/R4903273_164.nc,20260208051020,35.132,-62.682,A,869,AO,20260208112145,4903273,164,"AOML, USA",aoml,NAVIS_EBR,164,https://dataselection.euro-argo.eu/cycle/6040521,2.0,1.0
 aoml/4903329/profiles/R4903329_196.nc,20260211234510,36.067,-73.396,A,854,AO,20260212013206,4903329,196,"AOML, USA",aoml,S2A float with SBE conductivity sensor,196,https://dataselection.euro-argo.eu/cycle/6043566,,
 aoml/4903456/profiles/R4903456_125.nc,20260206131956,35.864,-51.548,A,869,AO,20260206182152,4903456,125,"AOML, USA",aoml,NAVIS_EBR,125,https://dataselection.euro-argo.eu/cycle/6039539,2.0,1.0
-aoml/5906342/profiles/R5906342_178.nc,20260206112205,41.877,-58.503,A,846,AO,20260212062638,5906342,178,"AOML, USA",aoml,Teledyne Webb Research float with SBE conductivity sensor,178,https://dataselection.euro-argo.eu/cycle/6039422,3.0,2.0
+aoml/5906342/profiles/R5906342_178.nc,20260206112205,41.877,-58.503,A,846,AO,20260213065635,5906342,178,"AOML, USA",aoml,Teledyne Webb Research float with SBE conductivity sensor,178,https://dataselection.euro-argo.eu/cycle/6039422,3.0,2.0
+aoml/6999997/profiles/R6999997_020.nc,20260212225449,35.375,-52.798,A,869,AO,20260213054257,6999997,20,"AOML, USA",aoml,NAVIS_EBR,20,,1.0,3.0
 aoml/7902241/profiles/R7902241_045.nc,20260212144758,33.628,-74.03,A,854,AO,20260212194840,7902241,45,"AOML, USA",aoml,S2A float with SBE conductivity sensor,45,,,
 bodc/3902495/profiles/R3902495_087.nc,20260206095520,35.864,-49.253,A,844,BO,20260206131912,3902495,87,"BODC, United Kingdom",bodc,ARVOR float with SBE conductivity sensor,87,https://dataselection.euro-argo.eu/cycle/6039318,,
 bodc/4903662/profiles/R4903662_157.nc,20260211152200,38.134,-71.873,A,836,BO,20260211193946,4903662,157,"BODC, United Kingdom",bodc,PROVOR III,157,https://dataselection.euro-argo.eu/cycle/6043377,,
