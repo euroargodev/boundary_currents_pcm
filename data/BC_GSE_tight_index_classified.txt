@@ -3,7 +3,7 @@
 # Project : ARGO, EARISE, BC-monitor
 # Boundary Current system: GSE tight
 # Format version : 1.0
-# Date of update : 20260514073155
+# Date of update : 20260514130845
 file,date,latitude,longitude,ocean,profiler_code,institution_code,date_update,wmo,cyc,institution,dac,profiler,cycle_number,url,pcm_label,reordered_label
 aoml/1902733/profiles/R1902733_054.nc,20260513161433,36.765,-56.072,A,854,AO,20260513172337,1902733,54,"AOML, USA",aoml,S2A float with SBE conductivity sensor,54,,,
 aoml/1902754/profiles/R1902754_044.nc,20260509153405,35.696,-49.864,A,854,AO,20260509172446,1902754,44,"AOML, USA",aoml,S2A float with SBE conductivity sensor,44,https://dataselection.euro-argo.eu/cycle/6105928,,
@@ -31,6 +31,7 @@ aoml/4903329/profiles/R4903329_205.nc,20260511215302,37.859,-68.978,A,854,AO,202
 aoml/4903354/profiles/R4903354_378.nc,20260511151751,35.113,-69.74,A,854,AO,20260511172358,4903354,378,"AOML, USA",aoml,S2A float with SBE conductivity sensor,378,https://dataselection.euro-argo.eu/cycle/6106740,,
 aoml/4903456/profiles/R4903456_134.nc,20260508044732,37.175,-53.727,A,869,AO,20260508072257,4903456,134,"AOML, USA",aoml,NAVIS_EBR,134,https://dataselection.euro-argo.eu/cycle/6104858,2.0,1.0
 aoml/6999997/profiles/R6999997_028.nc,20260504194716,35.164,-58.706,A,869,AO,20260505002635,6999997,28,"AOML, USA",aoml,NAVIS_EBR,28,https://dataselection.euro-argo.eu/cycle/6103048,2.0,1.0
+aoml/7902239/profiles/R7902239_054.nc,20260514090744,35.472,-74.521,A,854,AO,20260514102109,7902239,54,"AOML, USA",aoml,S2A float with SBE conductivity sensor,54,,,
 aoml/7902241/profiles/R7902241_053.nc,20260505182919,35.947,-69.968,A,854,AO,20260505192525,7902241,53,"AOML, USA",aoml,S2A float with SBE conductivity sensor,53,https://dataselection.euro-argo.eu/cycle/6103393,,
 bodc/4903662/profiles/R4903662_166.nc,20260512152300,37.755,-72.252,A,836,BO,20260512182759,4903662,166,"BODC, United Kingdom",bodc,PROVOR III,166,https://dataselection.euro-argo.eu/cycle/6107416,,
 bodc/6990520/profiles/R6990520_098.nc,20260508162433,34.659,-52.003,A,846,BO,20260508230325,6990520,98,"BODC, United Kingdom",bodc,Teledyne Webb Research float with SBE conductivity sensor,98,https://dataselection.euro-argo.eu/cycle/6105212,1.0,3.0
