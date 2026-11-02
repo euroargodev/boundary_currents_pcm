@@ -14,6 +14,9 @@ Home page for the development of [Profile Classification Models (PCM)](https://p
 
 WBC considered as a first step are those of  interest within the Euro-ArgoRISE project (2019-2022).
 
+‼️ This repo is phasing out. As a demo project, this has reached an end. If you still need this NRT monitoring, please email G. Maze / Ifremer. ‼️
+
+
 ## 👋 Discussions
 - [Help on PCM](https://github.com/euroargodev/boundary_currents/discussions/6)
 - [Science questions about your PCM](https://github.com/euroargodev/boundary_currents/discussions?discussions_q=label%3Aclassification)
